@@ -1,0 +1,12 @@
+-contextprovider für Userdaten Global
+- buttons
+- Routing Sign in und Up
+- Login in Navbar implementieren
+- layouts
+- herosection
+- metatags für seo
+- logos, backgrounds und alle nötigen Bilder die wir nutzen wollen
+- Font
+- Typescaling
+- Colorpalette
+- clerk einbinden mit key in .env

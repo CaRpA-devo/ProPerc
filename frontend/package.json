@@ -14,5 +14,8 @@
         "@tailwindcss/vite": "^4.1.13",
         "daisyui": "^5.1.12",
         "tailwindcss": "^4.1.13"
+    },
+    "devDependencies": {
+        "@iconify/react": "^6.0.2"
     }
 }
