@@ -1,17 +1,15 @@
-import { Footer } from "../organisms/footer.org.jsx";
-import { Hero } from "../organisms/hero.org.jsx";
-import { Navbar } from "../organisms/navbar.org.jsx";
-
-
+import { DefaultLayout } from "../layouts/default.layout";
 
 
 export function IndexPage() {
   return (
     <>
-  
-      <Navbar />
-      <Hero />
-      <Footer />
+  <DefaultLayout withHero>
+
+
+
+  </DefaultLayout>
+    
     </>
   );
 }

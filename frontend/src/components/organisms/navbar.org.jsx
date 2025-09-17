@@ -5,7 +5,7 @@ export function Navbar() {
         {/* Branding */}
         <div className="flex-1 flex items-center">
           <img
-            src="frontend/assets/img/properclogo.png"
+            src="frontend/assets/img/logoNoBg.png.png"
             alt="Logo"
             className="h-10 w-auto mr-2 rounded-full "
           />

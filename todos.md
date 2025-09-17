@@ -1,11 +1,21 @@
--contextprovider für Userdaten Global
-- buttons
-- Routing Sign in und Up
+<!-- Alle zusammen machen wir . . . ?! -->
 - Login in Navbar implementieren
-- layouts
 - herosection
-- metatags für seo
-- logos, backgrounds und alle nötigen Bilder die wir nutzen wollen
+
+<!-- PatKai -->
+- backgrounds und alle nötigen Bilder die wir nutzen wollen
 - Font
 - Typescaling
-- Colorpalette
+- footer und Navbar styling
+
+<!-- Paddy -->
+-contextprovider für Userdaten Global
+- layouts
+
+<!-- Roy -->
+- buttons
+- Routing Sign in und Up
+
+<!-- Cagatay -->
+- metatags für seo
+- backend struktur aufsetzten mit Ordner und files 
