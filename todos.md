@@ -9,4 +9,3 @@
 - Font
 - Typescaling
 - Colorpalette
-- clerk einbinden mit key in .env
