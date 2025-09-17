@@ -1,4 +1,4 @@
-import logo from "../../../img/properclogo.png";
+
 
 export function Navbar() {
   return (
@@ -6,7 +6,7 @@ export function Navbar() {
       <div className="navbar bg-base-100 shadow-sm">
         {/* Branding */}
         <div className="flex-1 flex items-center">
-          <img src={logo} alt="Logo" className="h-10 w-auto mr-2" />
+          <img src="frontend/assets/img/properclogo.png" alt="Logo" className="h-10 w-auto mr-2" />
           <a className="btn btn-ghost text-xl">ProPerc</a>
         </div>
 
