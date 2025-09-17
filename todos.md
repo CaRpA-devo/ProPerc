@@ -1,6 +1,9 @@
 <!-- Alle zusammen machen wir . . . ?! -->
 - Login in Navbar implementieren
 - herosection
+- card component
+- input component
+
 
 <!-- PatKai -->
 - backgrounds und alle nötigen Bilder die wir nutzen wollen
@@ -18,4 +21,4 @@
 
 <!-- Cagatay -->
 - metatags für seo
-- backend struktur aufsetzten mit Ordner und files 
+- backend struktur aufsetzen mit Ordner und files 
