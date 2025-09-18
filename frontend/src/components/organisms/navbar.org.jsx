@@ -1,15 +1,19 @@
+import { Link, NavLink } from "react-router-dom";
+
 export function Navbar() {
   return (
     <>
       <div className="navbar bg-base-100 shadow-sm">
         {/* Branding */}
         <div className="flex-1 flex items-center">
-          <img
-            src="frontend/assets/img/logoNoBg.png.png"
-            alt="Logo"
-            className="h-10 w-auto mr-2 rounded-full "
-          />
-          <a className="btn btn-ghost text-xl">ProPerc</a>
+          <Link to="/" className="flex items-center">
+            <img
+              src="frontend/assets/img/logoNoBg.png.png"
+              alt="Logo"
+              className="h-10 w-auto mr-2 rounded-full "
+            />
+            <a className="btn btn-ghost text-xl">ProPerc</a>
+          </Link>
         </div>
 
         {/* Navigation */}
@@ -38,7 +42,7 @@ export function Navbar() {
                 />
               </svg>
             </button>
-
+            {/* TODO: a href ersetzen, weil das verursacht Full Page Reload und verliert state. Ersetzen durch Link */}
             <ul
               tabIndex={0}
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"

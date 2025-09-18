@@ -1,3 +1,7 @@
+import { SignedIn, SignedOut, UserButton } from "@clerk/clerk-react";
+import { Link } from "react-router-dom";
+import { Button } from "../atoms/button.comp";
+
 export function Hero() {
   return (
     <>
@@ -17,7 +21,12 @@ export function Hero() {
               excepturi exercitationem quasi. In deleniti eaque aut repudiandae
               et a id nisi.
             </p>
-            <button className="btn btn-primary">Get Started</button>
+
+            <SignedOut>
+              <Link to={"/signup"} className="btn btn-primary">
+                Los geht's
+              </Link>
+            </SignedOut>
           </div>
         </div>
       </div>
