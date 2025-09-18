@@ -1,82 +1,115 @@
-import { Link, NavLink } from "react-router-dom";
+import Aurora from "../atoms/aurora.animation.atom.jsx";
+import logoImg from "../../../assets/img/logoNoBg.png.png";
 
 export function Navbar() {
   return (
     <>
-      <div className="navbar bg-base-100 shadow-sm">
-        {/* Branding */}
-        <div className="flex-1 flex items-center">
-          <Link to="/" className="flex items-center">
-            <img
-              src="frontend/assets/img/logoNoBg.png.png"
-              alt="Logo"
-              className="h-10 w-auto mr-2 rounded-full "
-            />
-            <a className="btn btn-ghost text-xl">ProPerc</a>
-          </Link>
+      <div className="navbar-brand aurora-container">
+        {/* Aurora Background */}
+        <div className="aurora-overlay">
+          <Aurora
+            colorStops={["#2eb872", "#ffd166"]}
+            blend={0.4}
+            amplitude={0.8}
+            speed={0.3}
+          />
         </div>
 
-        {/* Navigation */}
-        <div className="flex-none">
-          {/* Mobile Menü */}
-          <div className="dropdown dropdown-end lg:hidden">
-            <button
-              tabIndex={0}
-              role="button"
-              className="btn btn-ghost"
-              aria-label="Menü öffnen"
-            >
-              {/* Hamburger Icon */}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
-            </button>
-            {/* TODO: a href ersetzen, weil das verursacht Full Page Reload und verliert state. Ersetzen durch Link */}
-            <ul
-              tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
-            >
+        {/* Content with higher z-index */}
+        <div className="relative z-10 w-full flex items-center justify-between">
+          {/* Logo */}
+          <div className="flex-none">
+            <img
+              src={logoImg}
+              alt="ProPerc Logo"
+              className="h-20 w-auto px-1 rounded-full"
+            />
+          </div>
+
+          {/* Zentrale Navigation */}
+          <div className="flex-1 flex justify-center">
+            {/* Desktop Menü */}
+            <ul className="menu menu-horizontal px-1 hidden lg:flex space-x-8">
               <li>
-                <a href="">LINK 1</a>
+                <a
+                  href=""
+                  className="text-lg font-medium hover:text-primary transition-colors"
+                >
+                  LINK 1
+                </a>
               </li>
               <li>
-                <a href="">LINK 2</a>
+                <a
+                  href=""
+                  className="text-lg font-medium hover:text-primary transition-colors"
+                >
+                  LINK 2
+                </a>
               </li>
               <li>
-                <a href="">LINK 3</a>
+                <a
+                  href=""
+                  className="text-lg font-medium hover:text-primary transition-colors"
+                >
+                  LINK 3
+                </a>
               </li>
               <li>
-                <a href="">LINK 4</a>
+                <a
+                  href=""
+                  className="text-lg font-medium hover:text-primary transition-colors"
+                >
+                  LINK 4
+                </a>
               </li>
             </ul>
           </div>
 
-          {/* Desktop Menü */}
-          <ul className="menu menu-horizontal px-1 hidden lg:flex">
-            <li>
-              <a href="">LINK 1</a>
-            </li>
-            <li>
-              <a href="">LINK 2</a>
-            </li>
-            <li>
-              <a href="">LINK 3</a>
-            </li>
-            <li>
-              <a href="">LINK 4</a>
-            </li>
-          </ul>
+          {/* Mobile Menü */}
+          <div className="flex-none lg:hidden">
+            <div className="dropdown dropdown-end">
+              <button
+                tabIndex={0}
+                role="button"
+                className="btn btn-ghost"
+                aria-label="Menü öffnen"
+              >
+                {/* Hamburger Icon */}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
+              </button>
+
+              <ul
+                tabIndex={0}
+                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              >
+                <li>
+                  <a href="">LINK 1</a>
+                </li>
+                <li>
+                  <a href="">LINK 2</a>
+                </li>
+                <li>
+                  <a href="">LINK 3</a>
+                </li>
+                <li>
+                  <a href="">LINK 4</a>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </>
