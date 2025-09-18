@@ -2,7 +2,7 @@ import "./App.css";
 import "./index.css";
 import { Route, Routes } from "react-router";
 import { IndexPage } from "./components/pages/index.page.jsx";
-import { DashboardPage } from "./components/pages/dasboard.page";
+import { DashboardPage } from "./components/pages/dashboard.page";
 import { SignUpPage } from "./components/pages/signup.page.jsx";
 import { SignInPage } from "./components/pages/signin.page.jsx";
 
