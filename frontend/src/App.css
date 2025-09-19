@@ -1,0 +1,10 @@
+/* basicStyles & Farben */
+
+:root {
+  --primary-green: #1ea445; /*logo-grün*/
+  --accent-yellow: #e8a802; /*highlight-gelb*/
+  --secondary-green: #4caf50; /* Hover/ Akzent-Grün */
+  --dark-bg: #121212; /* Darkmode-BG */
+  --light-text: #e0e0e0; /* Text/ Glass-Effekt*/
+  --light-bg: #f5f5f5; /* Lightmode-BG */
+}
