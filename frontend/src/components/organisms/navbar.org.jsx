@@ -6,18 +6,19 @@ export function Navbar() {
     <>
       <div className="navbar-brand aurora-container">
         {/* Aurora Background */}
-        <div className="aurora-overlay">
+     
           <Aurora
             colorStops={["#2eb872", "#ffd166"]}
             blend={0.4}
             amplitude={0.8}
             speed={0.3}
           />
-        </div>
+     
 
         {/* Content with higher z-index */}
         <div className="relative z-10 w-full flex items-center justify-between">
           {/* Logo */}
+          
           <div className="flex-none">
             <img
               src={logoImg}
@@ -111,7 +112,8 @@ export function Navbar() {
             </div>
           </div>
         </div>
-      </div>
+           </div>
+     
     </>
   );
 }
