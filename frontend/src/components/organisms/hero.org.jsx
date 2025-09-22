@@ -16,7 +16,7 @@ export function Hero() {
         <div className="hero-content text-neutral-content text-center">
           <div className="max-w-md">
             <h1 className="mb-5 text-5xl font-bold">
-              Deine Ballance schon gefunden?
+              Deine Balllance schon gefunden?
             </h1>
             <p className="mb-5">
               Plane hier dein gesundes Leben! Fit & Vital bleiben! Mit{" "}
