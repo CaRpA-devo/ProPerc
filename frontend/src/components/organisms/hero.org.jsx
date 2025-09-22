@@ -16,14 +16,19 @@ export function Hero() {
         <div className="hero-content text-neutral-content text-center">
           <div className="max-w-md">
             <h1 className="mb-5 text-5xl font-bold">
-              Deine Ballance schon gefunden?
+              Deine Balance schon gefunden?
             </h1>
             <p className="mb-5">
               Plane hier dein gesundes Leben! Fit & Vital bleiben! Mit{" "}
               <strong>ProPerc</strong> Ernährung, Sport und Gesundheit auf einen
               Blick.
             </p>
-            <button className="btn btn-primary">Get Started</button>
+            <Link to="/signup" className="btn btn-primary">
+              Registrieren
+            </Link>
+            <Link to="/signin" className="btn btn-primary">
+              Login
+            </Link>
           </div>
         </div>
       </div>
