@@ -34,11 +34,11 @@ export function NavbarLink({}) {
       >
         {/* Logo */}
         <div className="flex-none btn btn-ghost">
-          <Link to="/">
+          <Link to="/dashboard">
             <img
-              src="../../../assets/img/logoNoBg.png"
+              src="./src/assets/img/logoNoBg.png"
               alt="ProPerc Logo"
-              className="h-10 w-auto px-1 rounded-full"
+              className="h-16 w-auto px-1 rounded-full"
             />
           </Link>
         </div>

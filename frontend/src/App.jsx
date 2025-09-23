@@ -18,7 +18,7 @@ function App() {
 
         {/* SignIn / SignOut */}
         {/* TODO noch anpassen das es im Layout rendert */}
-
+        <Route element={<SignInPage />} path="/signin" />
         <Route element={<SignInPage />} path="/signin/factor-one" />
         <Route element={<SignInPage />} path="/signin/reset-password" />
         <Route element={<SignInPage />} path="/signin/reset-password-success" />
@@ -27,9 +27,7 @@ function App() {
         <Route element={<SignUpPage />} path="/signup/verify-email-address" />
 
         {/* Dashboard */}
-        <Route element={<DashboardLayout />} path="/dashboard">
-          <Route element={<DashboardPage />} index />
-        </Route>
+        <Route element={<DashboardPage />} path="/dashboard"></Route>
 
         {/* Error */}
         {/* <Route element={<NotFoundPage />} path="*" /> */}
