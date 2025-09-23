@@ -28,6 +28,9 @@ function App() {
 
         {/* Dashboard */}
         <Route element={<DashboardPage />} path="/dashboard"></Route>
+
+        {/* 404-Route*/}
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </>
   );
