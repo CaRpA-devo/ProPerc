@@ -31,7 +31,7 @@ export function Navbar() {
       {/* Navbar Content */}
       <div className="relative z-10 flex items-center justify-between px-4 h-full">
         {/* Logo (links) */}
-        <Link to="/" className="flex items-center btn btn-ghost">
+        <Link to="/" className=" btn btn-ghost">
           <img
             src="../../../assets/img/logoNoBg.png"
             alt="ProPerc Logo"

@@ -27,15 +27,8 @@ function App() {
         <Route element={<SignUpPage />} path="/signup/verify-email-address" />
 
         {/* Dashboard */}
-        <Route
-          element={
-            <ProjectProvider>
-              <DashboardLayout />
-            </ProjectProvider>
-          }
-          path="/dashboard"
-        >
-          <Route element={<DashboardPage />} index />
+        <Route element={<DashboardPage />} path="/dashboard">
+          {/* <Route element={<DashboardPage />} index /> */}
           {/* <Route element={<DashboardSupportPage />} path="/dashboard/support" />
           <Route
             element={<DashboardProjectPage />}

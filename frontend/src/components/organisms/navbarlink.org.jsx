@@ -1,11 +1,12 @@
-import { SignedIn, SignedOut, UserButton } from "@clerk/clerk-react";
 import Aurora from "../animations/aurora.animation.ani.jsx";
 import { Link } from "react-router";
+import { UserAvatar } from "../atoms/user.avatar.com.jsx";
 
-export function NavbarLink() {
+export function NavbarLink({}) {
   return (
+    // TODO border entfernen und avatar noch anpassen für mobile
     <div
-      className="w-full flex flex-col items-center justify-center"
+      className="w-full flex text-center items-center justify-center border-4 border-amber-400"
       style={{ position: "relative", height: "64px", minHeight: "64px" }}
     >
       {/* Aurora Background */}
@@ -32,10 +33,10 @@ export function NavbarLink() {
         style={{ height: "64px" }}
       >
         {/* Logo */}
-        <div className="flex-none">
+        <div className="flex-none btn btn-ghost">
           <Link to="/">
             <img
-              src={logoImg}
+              src="../../../assets/img/logoNoBg.png"
               alt="ProPerc Logo"
               className="h-10 w-auto px-1 rounded-full"
             />
@@ -123,6 +124,7 @@ export function NavbarLink() {
             </ul>
           </div>
         </div>
+        <UserAvatar />
       </div>
     </div>
   );
