@@ -1,11 +1,24 @@
 import Aurora from "../atoms/aurora.animation.atom.jsx";
 import logoImg from "../../../assets/img/logoNoBg.png.png";
+import { Link } from "react-router";
 
 export function Navbar() {
   return (
-    <div className="w-full flex flex-col items-center justify-center" style={{ position: "relative", height: "64px", minHeight: "64px" }}>
+    <div
+      className="w-full flex flex-col items-center justify-center"
+      style={{ position: "relative", height: "64px", minHeight: "64px" }}
+    >
       {/* Aurora Background */}
-      <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 0 }}>
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          zIndex: 0,
+        }}
+      >
         <Aurora
           colorStops={["#2eb872", "#ffd166"]}
           blend={0.4}
@@ -14,14 +27,19 @@ export function Navbar() {
         />
       </div>
       {/* Navbar Content */}
-      <div className="relative z-10 w-full flex items-center justify-between px-4" style={{ height: "64px" }}>
+      <div
+        className="relative z-10 w-full flex items-center justify-between px-4"
+        style={{ height: "64px" }}
+      >
         {/* Logo */}
         <div className="flex-none">
-          <img
-            src={logoImg}
-            alt="ProPerc Logo"
-            className="h-10 w-auto px-1 rounded-full"
-          />
+          <Link to="/">
+            <img
+              src={logoImg}
+              alt="ProPerc Logo"
+              className="h-10 w-auto px-1 rounded-full"
+            />
+          </Link>
         </div>
         {/* Zentrale Navigation */}
         <div className="flex-1 flex justify-center">
