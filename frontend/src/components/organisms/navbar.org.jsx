@@ -6,7 +6,7 @@ import Aurora from "../animations/aurora.animation.ani.jsx";
 export function Navbar() {
   return (
     <div
-      className="w-full flex flex-col justify-center"
+      className="w-full flex flex-col justify-center "
       style={{ position: "relative", height: "64px", minHeight: "64px" }}
     >
       {/* Aurora Background */}
@@ -33,9 +33,9 @@ export function Navbar() {
         {/* Logo (links) */}
         <Link to="/" className=" btn btn-ghost">
           <img
-            src="../../../assets/img/logoNoBg.png"
+            src="/src/assets/img/logoNoBg.png"
             alt="ProPerc Logo"
-            className="h-10 w-auto px-1 rounded-full"
+            className="h-16  w-auto px-1 rounded-full"
           />
         </Link>
 
