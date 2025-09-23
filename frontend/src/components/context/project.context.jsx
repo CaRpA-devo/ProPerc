@@ -55,3 +55,5 @@ export const ProjectProvider = ({ children }) => {
     </ProjectContext.Provider>
   );
 };
+
+// TODO Provider anpassen später auf die User je nach Kategorie

@@ -1,11 +1,12 @@
 import { Footer } from "../organisms/footer.org.jsx";
 import { Hero } from "../organisms/hero.org.jsx";
 import { Navbar } from "../organisms/navbar.org.jsx";
+import { SignInPage } from "../molecules/signin.page.jsx";
 
-export function DefaultLayout({ children, withHero, withSignIn }) {
+export function DefaultLayout({ children, withHero }) {
   return (
     <>
-      {withSignIn && <Navbar />}
+      <Navbar />
       {withHero && <Hero />}
       {children}
       <Footer />

@@ -5,7 +5,7 @@ export function IndexPage() {
     <>
       {/* TODO Metatags einfügen */}
 
-      <DefaultLayout withHero withSignIn></DefaultLayout>
+      <DefaultLayout withHero />
     </>
   );
 }
