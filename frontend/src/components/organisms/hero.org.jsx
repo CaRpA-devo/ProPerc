@@ -12,7 +12,7 @@ export function Hero() {
         }}
       >
         <div className="hero-overlay"></div>
-        <div className="hero-content text-neutral-content text-center">
+        <div className="hero-content">
           <div className="max-w-md">
             <h1 className="mb-5 text-5xl font-bold">
               Deine Balance schon gefunden?
@@ -22,12 +22,24 @@ export function Hero() {
               <strong>ProPerc</strong> Ernährung, Sport und Gesundheit auf einen
               Blick.
             </p>
-            <Link to="/signup" className="btn btn-primary">
+            <SignedIn>
+              <div className="flex gap-2">
+                <Link className="btn btn-ghost" to="/dashboard">
+                  Login
+                </Link>
+              </div>
+            </SignedIn>
+            {/* <Link to="/signup" className="btn btn-primary">
               Registrieren
-            </Link>
-            <Link to="/signin" className="btn btn-primary">
+            </Link> */}
+            {/* <Link to="/signin" className="btn btn-primary">
               Login
-            </Link>
+            </Link> */}
+            <SignedOut>
+              <Link to="/signin" className="btn btn-primary">
+                Login
+              </Link>
+            </SignedOut>
           </div>
         </div>
       </div>

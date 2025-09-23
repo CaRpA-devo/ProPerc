@@ -1,11 +1,10 @@
-import { Link } from "react-router";
 import { DefaultLayout } from "../layouts/default.layout";
-import { StandardCard } from "../molecules/standardCard.com";
-import { Loader } from "../atoms/loader.comp";
 
 export function DashboardPage() {
   return (
     <>
+      {/* TODO MEtatags einfügen */}
+      {/* TODO DEfault layout raus nur das was user angezeigt werden soll je nach login */}
       <DefaultLayout>
         <section className="p-6 flex justify-center">
           <div className="text-center">

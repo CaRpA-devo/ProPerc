@@ -1,4 +1,4 @@
-import Aurora from "../atoms/aurora.animation.atom.jsx";
+import Aurora from "../animations/aurora.animation.ani.jsx";
 
 export function Footer() {
   return (
