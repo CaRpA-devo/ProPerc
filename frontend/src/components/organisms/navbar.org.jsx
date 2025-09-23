@@ -38,18 +38,6 @@ export function Navbar() {
             className="h-16  w-auto px-1 rounded-full"
           />
         </Link>
-
-        {/* Sign In (rechts) */}
-        <div className="flex items-center gap-2">
-          <SignedIn>
-            <UserButton />
-          </SignedIn>
-          <SignedOut>
-            <Link to="/signin" className="btn btn-ghost">
-              Sign In
-            </Link>
-          </SignedOut>
-        </div>
       </div>
     </div>
   );

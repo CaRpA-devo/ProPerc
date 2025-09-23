@@ -30,7 +30,7 @@ export const Button = ({
       type={type}
       onClick={onClick}
       disabled={disabled}
-      className={`btn ${variants[variant]} ${sizes[size]} ${className}`}
+      className={`btn btn-primary ${variants[variant]} ${sizes[size]} ${className}`}
     >
       {children}
     </button>

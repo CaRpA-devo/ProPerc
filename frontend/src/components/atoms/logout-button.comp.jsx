@@ -9,9 +9,8 @@ export function LogoutButton() {
         onClick={() => signOut({ redirectUrl: "/" })}
         className="btn btn-primary"
       >
-        {" "}
-        go back
-      </button>{" "}
+        Logout
+      </button>
     </>
   );
 }
