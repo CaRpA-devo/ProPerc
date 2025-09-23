@@ -43,55 +43,54 @@ export function Navbar() {
         </div>
         {/* Zentrale Navigation */}
         <div className="flex-1 flex justify-center">
-          {/* Desktop Menü */}
-          <ul className="menu menu-horizontal px-1 hidden lg:flex space-x-6">
+          <ul className="menu menu-horizontal px-1 hidden lg:flex space-x-8">
             <li>
-              <a
-                href=""
-                className="text-base font-medium hover:text-primary transition-colors"
+              <Link
+                to="/dashboard"
+                className="text-base font-medium hover:text-primary transition-colors py-2"
               >
-                LINK 1
-              </a>
+                Dashboard
+              </Link>
             </li>
             <li>
-              <a
-                href=""
-                className="text-base font-medium hover:text-primary transition-colors"
+              <Link
+                to="/profile"
+                className="text-base font-medium hover:text-primary transition-colors py-2"
               >
-                LINK 2
-              </a>
+                Profile
+              </Link>
             </li>
             <li>
-              <a
-                href=""
-                className="text-base font-medium hover:text-primary transition-colors"
+              <Link
+                to="/signin"
+                className="text-base font-medium hover:text-primary transition-colors py-2"
               >
-                LINK 3
-              </a>
+                Login
+              </Link>
             </li>
             <li>
-              <a
-                href=""
-                className="text-base font-medium hover:text-primary transition-colors"
+              <Link
+                to="/signup"
+                className="text-base font-medium hover:text-primary transition-colors py-2"
               >
-                LINK 4
-              </a>
+                Register
+              </Link>
             </li>
           </ul>
         </div>
+
         {/* Mobile Menü */}
         <div className="flex-none lg:hidden">
           <div className="dropdown dropdown-end">
             <button
               tabIndex={0}
               role="button"
-              className="btn btn-ghost"
+              className="btn btn-ghost btn-sm"
               aria-label="Menü öffnen"
             >
-              {/* Hamburger Icon */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
+                className="h-5 w-5"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -104,21 +103,22 @@ export function Navbar() {
                 />
               </svg>
             </button>
+
             <ul
               tabIndex={0}
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <a href="">LINK 1</a>
+                <Link to="/dashboard">Dashboard</Link>
               </li>
               <li>
-                <a href="">LINK 2</a>
+                <Link to="/profile">Profile</Link>
               </li>
               <li>
-                <a href="">LINK 3</a>
+                <Link to="/signin">Login</Link>
               </li>
               <li>
-                <a href="">LINK 4</a>
+                <Link to="/signup">Register</Link>
               </li>
             </ul>
           </div>

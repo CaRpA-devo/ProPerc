@@ -1,5 +1,6 @@
 import { SignedIn, SignedOut, UserButton } from "@clerk/clerk-react";
 import { Link } from "react-router-dom";
+import heroImg from "../../../assets/img/findeDeineBalance.jpg";
 
 export function Hero() {
   return (
@@ -7,11 +8,10 @@ export function Hero() {
       <div
         className="hero min-h-screen"
         style={{
-          backgroundImage:
-            "url(https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp)",
+          backgroundImage: `url(${heroImg})`,
         }}
       >
-        <div className="hero-overlay"></div>
+        <div className="hero-overlay bg-opacity-60"></div>
         <div className="hero-content text-neutral-content text-center">
           <div className="max-w-md">
             <h1 className="mb-5 text-5xl font-bold">
@@ -22,12 +22,14 @@ export function Hero() {
               <strong>ProPerc</strong> Ernährung, Sport und Gesundheit auf einen
               Blick.
             </p>
-            <Link to="/signup" className="btn btn-primary">
-              Registrieren
-            </Link>
-            <Link to="/signin" className="btn btn-primary">
-              Login
-            </Link>
+            <div className="flex gap-4 justify-center">
+              <Link to="/signup" className="btn btn-primary">
+                Registrieren
+              </Link>
+              <Link to="/signin" className="btn btn-outline btn-primary">
+                Login
+              </Link>
+            </div>
           </div>
         </div>
       </div>
