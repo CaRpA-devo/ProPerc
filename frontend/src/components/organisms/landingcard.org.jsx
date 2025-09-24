@@ -6,6 +6,7 @@ export function LandingCard() {
   return (
     <>
       <section className="flex glass-overlay-bg flex-col gap-8  sm:p-8">
+        {/* Card one */}
         <SectionWrapper position="start">
           <Image_Text_Card
             imageSrc="/src/assets/img/rezepte.jpg"
@@ -22,20 +23,19 @@ export function LandingCard() {
           />
         </SectionWrapper>
 
+        {/* Card Two */}
         <SectionWrapper position="end">
           <Image_Text_Card
             imageSrc="/src/assets/img/ernährungsplan.jpg"
             imageAlt="Modern building"
-            category="Retreats"
-            title="Incredible accommodation for your team"
-            description="Finde ausgewogene Gerichte, die schnell zubereitet sind und deinem Ziel entsprechen."
+            category="Persönliche Ernährungspläne"
+            title="Jetzt starten"
+            description="„Passe Mahlzeiten an deine Ziele, Vorlieben und Allergien an einfach und smart.“"
             href="#"
             containerClass="glass-overlay-bg2"
             imageClass="rounded-none sm:rounded-lg"
-            categoryClass="text-indigo-800"
-            titleClass="text-black"
-            descriptionClass="text-gray-500"
-            reverse="false"
+            titleClass="text-indigo-800"
+            reverse={true}
           />
         </SectionWrapper>
 
@@ -50,7 +50,7 @@ export function LandingCard() {
             containerClass="glass-overlay-bg2"
             imageClass="rounded-none sm:rounded-lg"
             categoryClass="text-indigo-800"
-            titleClass="text-black"
+            titleClass="text-indigo-800"
             descriptionClass="text-gray-500"
           />
         </SectionWrapper>

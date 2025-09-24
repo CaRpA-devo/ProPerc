@@ -15,7 +15,7 @@ export function Image_Text_Card({
 }) {
   return (
     <CardWrapper
-      className={`bg-second-bg  sm:min-w-220 w-full ${containerClass}`}
+      className={`bg-second-bg  md:max-w-220 w-full ${containerClass}`}
     >
       <div
         className={`flex flex-col  gap-8 justify-center items-center md:flex-row ${
@@ -29,19 +29,21 @@ export function Image_Text_Card({
         ></div>
 
         {/* Textbereich */}
-        <div className="p-6 md:p-8 flex-1 justify-center items-center ">
+        <div className="gap-8 flex text-center justify-center flex-col items-center sm:p-8 sm:flex-1 sm:text-start sm:items-start  ">
           <div
-            className={`text-sm sm:text-3xl font-semibold tracking-wide uppercase ${categoryClass}`}
+            className={`text-sm sm:text-3xl font-semibold tracking-wide text-indigo-600 uppercase ${categoryClass}`}
           >
             {category}
           </div>
 
-          <p className={` ${descriptionClass}`}>{description}</p>
+          <p className={`font-bold text-2xl ${descriptionClass}`}>
+            {description}
+          </p>
 
           {/* TODO durch Button ersetzten  */}
           <a
             href={href}
-            className={` mt-1 block text-lg leading-tight font-medium hover:underline ${titleClass}`}
+            className={` mt-1   block text-lg leading-tight font-medium hover:underline ${titleClass}`}
           >
             {title}
           </a>
