@@ -16,13 +16,8 @@ function App() {
 
         {/* SignIn / SignOut */}
         {/* TODO noch anpassen das es im Layout rendert */}
-        <Route element={<SignInPage />} path="/signin" />
-        <Route element={<SignInPage />} path="/signin/factor-one" />
-        <Route element={<SignInPage />} path="/signin/reset-password" />
-        <Route element={<SignInPage />} path="/signin/reset-password-success" />
-        <Route element={<SignInPage />} path="/signin/sso-callback" />
-        <Route element={<SignUpPage />} path="/signup" />
-        <Route element={<SignUpPage />} path="/signup/verify-email-address" />
+        <Route path="/signin/*" element={<SignInPage />} />
+        <Route path="/signup/*" element={<SignUpPage />} />
 
         {/* Dashboard */}
         <Route element={<DashboardPage />} path="/dashboard"></Route>
