@@ -4,9 +4,8 @@ import { UserAvatar } from "../atoms/user.avatar.com.jsx";
 
 export function NavbarLink({}) {
   return (
-    // TODO border entfernen und avatar noch anpassen für mobile
     <div
-      className="w-full flex text-center items-center justify-center border-4 border-amber-400"
+      className="w-full flex text-center items-center justify-center "
       style={{ position: "relative", height: "64px", minHeight: "64px" }}
     >
       {/* Aurora Background */}
