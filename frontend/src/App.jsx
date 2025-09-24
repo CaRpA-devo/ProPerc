@@ -5,9 +5,7 @@ import { IndexPage } from "./components/pages/index.page.jsx";
 import { DashboardPage } from "./components/pages/dashboard.page";
 import { SignUpPage } from "./components/pages/signup.page.jsx";
 import { SignInPage } from "./components/pages/signin.page.jsx";
-import { DashboardLayout } from "./components/layouts/dashboard.layout";
-
-// TODO Lazyloading implementieren
+import NotFoundPage from "./components/pages/notfound.page";
 
 function App() {
   return (
@@ -29,8 +27,8 @@ function App() {
         {/* Dashboard */}
         <Route element={<DashboardPage />} path="/dashboard"></Route>
 
-        {/* Error */}
-        {/* <Route element={<NotFoundPage />} path="*" /> */}
+        {/* 404-Route*/}
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </>
   );
