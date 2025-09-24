@@ -10,7 +10,7 @@ export function Hero() {
   return (
     <>
       <div
-        className="hero min-h-screen bg-cover bg-center contrast-110 saturate-125 brightness-105"
+        className="hero min-h-screen flex  bg-cover bg-center contrast-110 saturate-125 brightness-105"
         style={{
           backgroundImage: `url(${heroBg} )`,
           position: "relative",
@@ -18,8 +18,9 @@ export function Hero() {
           cursor: "default",
         }}
       >
+        {/* TODO MEdia querrys schreiben ! */}
         <div className="hero-overlay">
-          <div className="flex justify-between pl-16 pr-16">
+          <div className="flex justify-between  flex-wrap pl-16 pr-16">
             <div className="max-w-md pt-50">
               <h1 className="mb-5 text-5xl font-bold">
                 Deine Balance schon gefunden?

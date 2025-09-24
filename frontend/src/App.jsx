@@ -3,8 +3,7 @@ import "./index.css";
 import { Route, Routes } from "react-router";
 import { IndexPage } from "./components/pages/index.page.jsx";
 import { DashboardPage } from "./components/pages/dashboard.page";
-import { SignUpPage } from "./components/pages/signup.page.jsx";
-import { SignInPage } from "./components/pages/signin.page.jsx";
+
 import NotFoundPage from "./components/pages/notfound.page";
 
 function App() {
@@ -15,9 +14,9 @@ function App() {
         <Route path="/" element={<IndexPage />} />
 
         {/* SignIn / SignOut */}
-        {/* TODO noch anpassen das es im Layout rendert */}
-        <Route path="/signin/*" element={<SignInPage />} />
-        <Route path="/signup/*" element={<SignUpPage />} />
+        {/* TODO brauchen wir nicht erst für regestrierung so ist das übern händler geregelt */}
+        {/* <Route path="/signin/*" element={<SignInPage />} />
+        <Route path="/signup/*" element={<SignUpPage />} /> */}
 
         {/* Dashboard */}
         <Route element={<DashboardPage />} path="/dashboard"></Route>
