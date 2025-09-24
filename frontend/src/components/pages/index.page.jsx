@@ -1,3 +1,4 @@
+import Aurora from "../animations/aurora.animation.ani.jsx";
 import { DefaultLayout } from "../layouts/default.layout";
 import { LandingCard } from "../organisms/landingcard.org.jsx";
 
@@ -7,7 +8,7 @@ export function IndexPage() {
       {/* TODO Metatags einfügen */}
 
       <DefaultLayout withHero>
-        <LandingCard  />
+        <LandingCard />
       </DefaultLayout>
     </>
   );

@@ -6,14 +6,11 @@ export function SectionWrapper({ children, position = "start" }) {
   };
 
   return (
-    <>
-      <section
-        className={`flex flex-col items-center justify-center sm:flex-row ${
-          positionClassMap[position] || ""
-        } min-h-content`}
-      >
-        {children}
-      </section>
-    </>
+    <section
+      className={`flex flex-col  items-center justify-center sm:flex-row 
+      ${positionClassMap[position] || ""} min-h-content`}
+    >
+      {children}
+    </section>
   );
 }

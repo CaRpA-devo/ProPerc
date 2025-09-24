@@ -1,19 +1,20 @@
 import { SectionWrapper } from "../atoms/sectionwrapper.comp";
 import { Image_Text_Card } from "../molecules/image_text_card.comp";
+import "../../styles/landingcard.style.css";
 
 export function LandingCard() {
   return (
     <>
-      <section className="flex flex-col gap-8 p-0 sm:p-8">
+      <section className="flex glass-overlay-bg flex-col gap-8  sm:p-8">
         <SectionWrapper position="start">
           <Image_Text_Card
             imageSrc="/src/assets/img/rezepte.jpg"
             imageAlt="Modern building"
-            category="Retreats"
-            title="Incredible accommodation for your team"
-            description="Was geht ab das ist doch Crazy"
+            category="Gesunde Rezepte"
+            title="Leckere Rezepte für jeden Tag"
+            description="Finde ausgewogene Gerichte, die schnell zubereitet sind und deinem Ziel entsprechen.Finde ausgewogene Gerichte, die schnell zubereitet sind und deinem Ziel entsprechen."
             href="#"
-            containerClass="bg-first-bg flex justify-between"
+            containerClass="glass-overlay-bg2"
             imageClass="rounded-none sm:rounded-lg"
             categoryClass="text-indigo-800"
             titleClass="text-black"
@@ -27,13 +28,14 @@ export function LandingCard() {
             imageAlt="Modern building"
             category="Retreats"
             title="Incredible accommodation for your team"
-            description="Was geht ab das ist doch Crazy"
+            description="Finde ausgewogene Gerichte, die schnell zubereitet sind und deinem Ziel entsprechen."
             href="#"
-            containerClass="bg-first-bg flex justify-between"
+            containerClass="glass-overlay-bg2"
             imageClass="rounded-none sm:rounded-lg"
             categoryClass="text-indigo-800"
             titleClass="text-black"
             descriptionClass="text-gray-500"
+            reverse="false"
           />
         </SectionWrapper>
 
@@ -45,7 +47,7 @@ export function LandingCard() {
             title="Incredible accommodation for your team"
             description="Was geht ab das ist doch Crazy"
             href="#"
-            containerClass="bg-first-bg flex justify-between"
+            containerClass="glass-overlay-bg2"
             imageClass="rounded-none sm:rounded-lg"
             categoryClass="text-indigo-800"
             titleClass="text-black"
@@ -61,7 +63,7 @@ export function LandingCard() {
             title="Incredible accommodation for your team"
             description="Was geht ab das ist doch Crazy"
             href="#"
-            containerClass="bg-first-bg flex justify-between"
+            containerClass="glass-overlay-bg2"
             imageClass="rounded-none sm:rounded-lg"
             categoryClass="text-indigo-800"
             titleClass="text-black"
@@ -77,7 +79,7 @@ export function LandingCard() {
             title="Incredible accommodation for your team"
             description="Was geht ab das ist doch Crazy"
             href="#"
-            containerClass="bg-first-bg flex justify-between"
+            containerClass="glass-overlay-bg2"
             imageClass="rounded-none sm:rounded-lg"
             categoryClass="text-indigo-800"
             titleClass="text-black"
@@ -93,7 +95,7 @@ export function LandingCard() {
             title="Incredible accommodation for your team"
             description="Was geht ab das ist doch Crazy"
             href="#"
-            containerClass="bg-first-bg flex justify-between"
+            containerClass="glass-overlay-bg2"
             imageClass="rounded-none sm:rounded-lg"
             categoryClass="text-indigo-800"
             titleClass="text-black"

@@ -1,5 +1,3 @@
-import { SignedIn, SignedOut, UserButton } from "@clerk/clerk-react";
-
 import { Link } from "react-router-dom";
 import Aurora from "../animations/aurora.animation.ani.jsx";
 
