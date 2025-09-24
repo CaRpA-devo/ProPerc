@@ -1,8 +1,7 @@
-import { CardContainer } from "../atoms/cardcontainer.org";
+import { CardWrapper } from "../atoms/cardwrapper.org";
 
 export function Image_Text_Card({
   imageSrc,
-  imageAlt,
   category,
   title,
   description,
@@ -14,16 +13,16 @@ export function Image_Text_Card({
   descriptionClass = "",
 }) {
   return (
-    <CardContainer className={`  p-4 ${containerClass}  `}>
-      <div className="">
-        <div className="">
-          <img
-            className={`h-48 w-full object-cover md:h-full md:w-48 ${imageClass}`}
-            src={imageSrc}
-            alt={imageAlt}
-          />
-        </div>
-        <div className="p-8">
+    <CardWrapper className={` ${containerClass}`}>
+      <div className="flex flex-col  md:flex-row ">
+        {/* Bild oben auf Mobile, links auf Desktop */}
+        <div
+          className={`h-48 w-full md:h-auto md:w-48 bg-cover bg-center ${imageClass}`}
+          style={{ backgroundImage: `url(${imageSrc})` }}
+        ></div>
+
+        {/* Textbereich */}
+        <div className="p-6 md:p-8 flex-1">
           <div
             className={`text-sm font-semibold tracking-wide uppercase ${categoryClass}`}
           >
@@ -38,6 +37,6 @@ export function Image_Text_Card({
           <p className={`mt-2 ${descriptionClass}`}>{description}</p>
         </div>
       </div>
-    </CardContainer>
+    </CardWrapper>
   );
 }
