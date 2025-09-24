@@ -40,7 +40,7 @@ export function SignInPage() {
           fallback={<Loader />}
           path="/"
           forceRedirectUrl={"/dashboard"}
-          signUpUrl="/signup"
+          signUpUrl="/"
         />
       </section>
     </>
