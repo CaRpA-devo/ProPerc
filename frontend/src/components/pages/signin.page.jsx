@@ -6,7 +6,7 @@ export function SignInPage() {
   return (
     <>
       {/* TODO Styling anpassen!!!! */}
-      <section className="flex flex-col items-center justify-center  h-screen ">
+      <section className="flex flex-col items-center justify-center h-screen ">
         <SignIn
           appearance={{
             // Basis-Theme, optional: 'light' oder 'dark'
