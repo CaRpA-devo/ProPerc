@@ -36,7 +36,7 @@ export function Image_Text_Card({
             {category}
           </div>
 
-          <p className={`font-bold text-2xl ${descriptionClass}`}>
+          <p className={`font-bold text-xl ${descriptionClass}`}>
             {description}
           </p>
 

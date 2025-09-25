@@ -13,7 +13,7 @@ export function LandingCard() {
             imageAlt="Modern building"
             category="Gesunde Rezepte"
             title="Leckere Rezepte für jeden Tag"
-            description="Finde ausgewogene Gerichte, die schnell zubereitet sind und deinem Ziel entsprechen.Finde ausgewogene Gerichte, die schnell zubereitet sind und deinem Ziel entsprechen."
+            description="Finde ausgewogene Gerichte, die schnell zubereitet sind und deinem Ziel entsprechen."
             href="#"
             containerClass="glass-overlay-bg2"
             imageClass="rounded-none sm:rounded-lg"
