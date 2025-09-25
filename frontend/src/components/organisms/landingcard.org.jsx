@@ -16,10 +16,6 @@ export function LandingCard() {
             description="Finde ausgewogene Gerichte, die schnell zubereitet sind und deinem Ziel entsprechen."
             href="#"
             containerClass="glass-overlay-bg2 "
-            imageClass="rounded-none sm:rounded-lg"
-            categoryClass="text-indigo-800"
-            titleClass="text-black"
-            descriptionClass="text-gray-500"
           />
         </SectionWrapper>
 
@@ -30,11 +26,9 @@ export function LandingCard() {
             imageAlt="Modern building"
             category="Persönliche Ernährungspläne"
             title="Jetzt starten"
-            description="„Passe Mahlzeiten an deine Ziele, Vorlieben und Allergien an einfach und smart.“"
+            description="Passe Mahlzeiten an deine Ziele, Vorlieben und Allergien an einfach und smart."
             href="#"
-            containerClass="glass-overlay-bg2"
-            imageClass="rounded-none sm:rounded-lg"
-            titleClass="text-indigo-800"
+            containerClass="glass-overlay-bg2 "
             reverse={true}
           />
         </SectionWrapper>
@@ -48,10 +42,6 @@ export function LandingCard() {
             description="Tracke Kalorien, Makros und Vitamine – alles auf einen Blick."
             href="#"
             containerClass="glass-overlay-bg2"
-            imageClass="rounded-none sm:rounded-lg"
-            categoryClass="text-indigo-800"
-            titleClass="text-indigo-800"
-            descriptionClass="text-gray-500"
           />
         </SectionWrapper>
 
@@ -65,10 +55,6 @@ export function LandingCard() {
             description="Tritt Challenges bei, teile Erfolge und lass dich inspirieren."
             href="#"
             containerClass="glass-overlay-bg2"
-            imageClass="rounded-none sm:rounded-lg"
-            categoryClass="text-indigo-800"
-            titleClass="text-black"
-            descriptionClass="text-gray-500"
             reverse={true}
           />
         </SectionWrapper>
@@ -83,10 +69,6 @@ export function LandingCard() {
             description="Lerne, wie du gesunde Entscheidungen triffst , ohne komplizierte Diätregeln."
             href="#"
             containerClass="glass-overlay-bg2"
-            imageClass="rounded-none sm:rounded-lg"
-            categoryClass="text-indigo-800"
-            titleClass="text-black"
-            descriptionClass="text-gray-500"
           />
         </SectionWrapper>
 
@@ -100,10 +82,6 @@ export function LandingCard() {
             description="Entdecke smarte Features wie Barcode-Scanner, Rezeptvorschläge und Einkaufslisten."
             href="#"
             containerClass="glass-overlay-bg2"
-            imageClass="rounded-none sm:rounded-lg"
-            categoryClass="text-indigo-800"
-            titleClass="text-black"
-            descriptionClass="text-gray-500"
             reverse={true}
           />
         </SectionWrapper>

@@ -24,26 +24,26 @@ export function Image_Text_Card({
       >
         {/* Bild oben auf Mobile, links auf Desktop */}
         <div
-          className={`h-48 w-full md:h-100 md:w-100 bg-cover bg-center ${imageClass}`}
+          className={`h-48 w-full md:h-100 md:w-100 bg-cover bg-center rounded-none sm:rounded-lg${imageClass}`}
           style={{ backgroundImage: `url(${imageSrc})` }}
         ></div>
 
         {/* Textbereich */}
         <div className="gap-8  flex text-center justify-center flex-col items-center sm:p-8 sm:flex-1 sm:text-start sm:items-start  ">
           <div
-            className={`text-sm sm:text-3xl font-semibold tracking-wide text-indigo-600 uppercase ${categoryClass}`}
+            className={`text-lg sm:text-4xl tracking-wide text-first-bg uppercase ${categoryClass}`}
           >
             {category}
           </div>
 
-          <p className={`font-bold text-xl ${descriptionClass}`}>
+          <p className={` sm:p-0 pl-8 pr-8 sm:text-xl ${descriptionClass}`}>
             {description}
           </p>
 
           {/* TODO durch Button ersetzten  */}
           <a
             href={href}
-            className={` mt-1   block text-lg leading-tight font-medium hover:underline ${titleClass}`}
+            className={` mt-1 p-8 sm:p-0  block text-lg leading-tight  text-first-bg  font-medium hover:underline ${titleClass}`}
           >
             {title}
           </a>

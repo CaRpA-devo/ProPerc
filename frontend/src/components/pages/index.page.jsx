@@ -13,10 +13,10 @@ export function IndexPage() {
           position="center"
         >
           <div className="gap-8 flex flex-col  max-w-240 ">
-            <h2 className="text-4xl">
+            <h2 className=" text-xl sm:text-4xl">
               Deine Ernährung. Dein Fortschritt. Deine App.
             </h2>
-            <p className="text-xl">
+            <p className="text-sm  sm:text-xl">
               Starte mit ProPerc in eine gesunde und motivierende Zukunft. Ob
               Rezepte, persönliche Ernährungspläne oder smartes Tracking hier
               bekommst du alles, was du für einen nachhaltigen Lifestyle
