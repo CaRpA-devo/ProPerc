@@ -5,6 +5,7 @@ import { IndexPage } from "./components/pages/index.page.jsx";
 import { DashboardPage } from "./components/pages/dashboard.page";
 
 import NotFoundPage from "./components/pages/notfound.page";
+import { SettingsPage } from "./components/pages/settings.page.jsx";
 
 function App() {
   return (
@@ -20,6 +21,9 @@ function App() {
 
         {/* Dashboard */}
         <Route element={<DashboardPage />} path="/dashboard"></Route>
+
+        {/* Settings */}
+        <Route element={<SettingsPage />} path="/settings"></Route>
 
         {/* 404-Route*/}
         <Route path="*" element={<NotFoundPage />} />
