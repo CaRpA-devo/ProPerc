@@ -68,6 +68,7 @@ export function LandingCard() {
             categoryClass="text-indigo-800"
             titleClass="text-black"
             descriptionClass="text-gray-500"
+            reverse={true}
           />
         </SectionWrapper>
 
@@ -100,6 +101,7 @@ export function LandingCard() {
             categoryClass="text-indigo-800"
             titleClass="text-black"
             descriptionClass="text-gray-500"
+            reverse={true}
           />
         </SectionWrapper>
       </section>
