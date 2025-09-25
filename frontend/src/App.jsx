@@ -6,6 +6,7 @@ import { DashboardPage } from "./components/pages/dashboard.page";
 
 import NotFoundPage from "./components/pages/notfound.page";
 import { SettingsPage } from "./components/pages/settings.page.jsx";
+import { WikiPage } from "./components/pages/wiki.page.jsx";
 
 function App() {
   return (
@@ -24,6 +25,9 @@ function App() {
 
         {/* Settings */}
         <Route element={<SettingsPage />} path="/settings"></Route>
+
+        {/* Wiki */}
+        <Route element={<WikiPage />} path="/wiki"></Route>
 
         {/* 404-Route*/}
         <Route path="*" element={<NotFoundPage />} />
