@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import { DashboardLayout } from "../layouts/dashboard.layout";
+import { Button } from "../atoms/button.comp";
 
 export function DashboardPage() {
   return (
@@ -10,6 +12,12 @@ export function DashboardPage() {
           <div className="text-center">
             <h1 className="text-3xl font-bold">Dein Dashboard</h1>
             <p className="opacity-70">Willkommen zurück 👋</p>
+            <Link to="/settings">
+              <Button>Einstellungen</Button>
+            </Link>
+            <Link to="/wiki">
+              <Button>Wiki</Button>
+            </Link>
           </div>
         </section>
       </DashboardLayout>
