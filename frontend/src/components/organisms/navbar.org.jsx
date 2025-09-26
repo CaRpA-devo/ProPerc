@@ -19,7 +19,7 @@ export function Navbar() {
         }}
       >
         <Aurora
-          colorStops={["#2eb872", "#ffd166"]}
+          colorStops={["#2eb872", "#ffd166", "#2eb872"]}
           blend={0.4}
           amplitude={0.8}
           speed={0.3}
