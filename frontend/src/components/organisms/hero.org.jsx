@@ -1,4 +1,4 @@
-import heroBg from "../../assets/img/herobg.jpg";
+import heroBg from "../../assets/img/heroDarkGreen.jpg";
 import { Button } from "../atoms/button.comp";
 import { SignInPage } from "../pages/signin.page";
 import { SignUpPage } from "../pages/signup.page";
