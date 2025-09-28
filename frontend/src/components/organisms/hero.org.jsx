@@ -1,7 +1,5 @@
 import { useState } from "react";
 import heroBg from "../../assets/img/heroDarkGreen.jpg";
-import Aurora from "../animations/aurora.animation.ani.jsx";
-// import { Button } from "../atoms/button.comp";
 import { SignInForm } from "../molecules/signin-form.molecule";
 import { SignUpForm } from "../molecules/signup-form.molecule";
 
@@ -18,16 +16,6 @@ export function Hero() {
           backgroundImage: `url(${heroBg})`,
         }}
       >
-        {/* Aurora Overlay für Harmonie mit Navbar */}
-        <div className="absolute inset-0 opacity-10">
-          <Aurora
-            colorStops={["#2eb872", "#2eb872", "#2eb872"]}
-            blend={0.3}
-            amplitude={0.8}
-            speed={0.4}
-          />
-        </div>
-
         {/* Hero Overlay */}
         <div className="hero-overlay bg-opacity-40"></div>
 
