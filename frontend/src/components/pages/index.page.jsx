@@ -1,5 +1,5 @@
 import { DefaultLayout } from "../layouts/default.layout";
-import { LandingCard } from "../organisms/landingcard.org.jsx";
+import { Features } from "../organisms/features.org.jsx";
 
 export function IndexPage() {
   return (
@@ -7,7 +7,7 @@ export function IndexPage() {
       {/* TODO Metatags einfügen */}
 
       <DefaultLayout withHero>
-        <LandingCard />
+        <Features />
       </DefaultLayout>
     </>
   );
