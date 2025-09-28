@@ -15,7 +15,7 @@ export function SignInPage() {
             // Globale Variablen für Farben, Schriftarten, Größen
             variables: {
               colorPrimary: "#121212", // Hauptfarbe für Buttons, Links etc.
-              colorBackground: "  opacity-120 ", // Hintergrundfarbe des SignIn/SignUp-Cards
+              colorBackground: "#f4f4f4", // Hintergrundfarbe des SignIn/SignUp-Cards
               fontFamily: "Arial, sans-serif", // Schriftart der gesamten UI
               fontSize: "16px", // Standardgröße des Texts
               borderRadius: "8px", // Rundung von Inputs, Buttons etc.
