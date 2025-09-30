@@ -15,6 +15,7 @@ export function LandingCard() {
             description="Personalisierte Ernährungspläne basierend auf Ihren Zielen und Vorlieben."
             buttonText="Zack Zack"
             listItems={["Feature 1", "Feature 2", "Feature 3"]}
+            containerClass="md:hover:scale-105 transition-transform duration-300"
           />
         </SectionWrapper>
 
@@ -28,6 +29,7 @@ export function LandingCard() {
             buttonText="Dit und dat"
             reverse={true}
             listItems={["Feature 1", "Feature 2", "Feature 3"]}
+            containerClass="md:hover:scale-105 transition-transform duration-300"
           />
         </SectionWrapper>
         {/* Card Three */}
@@ -39,6 +41,7 @@ export function LandingCard() {
             description="Tracke Kalorien, Makros und Vitamine – alles auf einen Blick."
             buttonText="Dit und dat"
             listItems={["Feature 1", "Feature 2", "Feature 3"]}
+            containerClass="md:hover:scale-105 transition-transform duration-300"
           />
         </SectionWrapper>
 
@@ -52,6 +55,7 @@ export function LandingCard() {
             buttonText="Dit und dat"
             reverse={true}
             listItems={["Feature 1", "Feature 2", "Feature 3"]}
+            containerClass="md:hover:scale-105 transition-transform duration-300"
           />
         </SectionWrapper>
 
@@ -64,6 +68,7 @@ export function LandingCard() {
             description="Lerne, wie du gesunde Entscheidungen triffst , ohne komplizierte Diätregeln."
             buttonText="Dit und dat"
             listItems={["Feature 1", "Feature 2", "Feature 3"]}
+            containerClass="md:hover:scale-105 transition-transform duration-300"
           />
         </SectionWrapper>
 
@@ -77,6 +82,7 @@ export function LandingCard() {
             buttonText="Dit und dat"
             reverse={true}
             listItems={["Feature 1", "Feature 2", "Feature 3"]}
+            containerClass="md:hover:scale-105 transition-transform duration-300"
           />
         </SectionWrapper>
       </section>

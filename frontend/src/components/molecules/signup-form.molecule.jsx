@@ -29,22 +29,21 @@ export function SignUpForm({ onClose }) {
   };
 
   return (
-    <div className="card bg-base-100 shadow-2xl border border-primary/20">
-      <div className="card-body">
+    <div className="card w-full max-w-md mx-auto bg-base-100 shadow-2xl border border-primary/20 overflow-visible">
+      <div className="card-body p-2 sm:p-8">
         <div className="flex justify-between items-center mb-4">
-          <h2 className="card-title text-2xl text-primary">Registrieren</h2>
+          <h2 className="card-title text-xl sm:text-2xl text-primary">
+            Registrieren
+          </h2>
           {onClose && (
             <button
               onClick={onClose}
               className="btn btn-ghost btn-sm btn-circle"
-            >
-              ✕
-            </button>
+            ></button>
           )}
         </div>
-
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div className="grid grid-cols-2 gap-4">
+        <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="form-control">
               <label className="label">
                 <span className="label-text font-medium">Vorname</span>
@@ -148,7 +147,7 @@ export function SignUpForm({ onClose }) {
           <div className="form-control mt-6">
             <button
               type="submit"
-              className="btn btn-primary"
+              className="btn btn-primary w-full"
               disabled={!formData.acceptTerms}
             >
               Kostenlos registrieren

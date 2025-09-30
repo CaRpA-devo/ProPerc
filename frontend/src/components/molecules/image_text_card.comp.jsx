@@ -38,14 +38,14 @@ export function ImageTextCard({
           </div>
 
           <p
-            className={`text-lg text-base-content/80 leading-relaxed ${descriptionClass}`}
+            className={`text-lg px-4 md:px-0 text-base-content/80 leading-relaxed ${descriptionClass}`}
           >
             {description}
           </p>
 
           {/* Dynamische Liste */}
           {listItems.length > 0 && (
-            <ul className="flex flex-col items-center list-disc list-inside marker:text-primary marker:text-xl">
+            <ul className="px-4 flex flex-col items-center list-disc list-inside marker:text-primary marker:text-xl">
               {listItems.map((item, index) => (
                 <li
                   key={index}
@@ -57,7 +57,7 @@ export function ImageTextCard({
             </ul>
           )}
 
-          <ArrowButton text={buttonText} />
+          <ArrowButton text={buttonText} className="mb-4 md:mb-0" />
         </div>
       </div>
     </CardWrapper>

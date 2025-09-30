@@ -33,7 +33,7 @@ export function Navbar() {
           <img
             src="/src/assets/img/logoNoBg.png"
             alt="ProPerc Logo"
-            className="h-16  w-auto px-1 rounded-full"
+            className="h-16 "
           />
         </Link>
       </div>

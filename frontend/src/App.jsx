@@ -1,6 +1,6 @@
 import "./App.css";
 import "./index.css";
-import { Route, Routes } from "react-router";
+import { Route, Routes } from "react-router-dom";
 import { IndexPage } from "./components/pages/index.page.jsx";
 import { DashboardPage } from "./components/pages/dashboard.page";
 
