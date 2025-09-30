@@ -11,7 +11,7 @@ export function SettingsPage() {
             <h1 className="text-3xl font-bold">Einstellungen</h1>
           </div>
         </section>
-        <section className="p-6 flex justify-center border border-base-300 rounded-lg bg-base-200 rounded-lg max-w-5xl mx-auto">
+        <section className="p-6 flex justify-center border border-base-300 rounded-lg bg-base-200  max-w-5xl mx-auto">
           <section className="flex w-full items-center flex-col align-center gap-4">
             <h2>Persönliches</h2>
             {/* Geschlecht */}
