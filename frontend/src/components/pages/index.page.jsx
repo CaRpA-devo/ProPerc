@@ -1,7 +1,6 @@
 import { DefaultLayout } from "../layouts/default.layout";
 import { LandingCard } from "../organisms/landingcard.org.jsx";
 import { SectionWrapper } from "../atoms/sectionwrapper.comp";
-import { Features } from "../organisms/features.org.jsx";
 
 export function IndexPage() {
   return (
@@ -9,9 +8,8 @@ export function IndexPage() {
       {/* TODO Metatags einfügen */}
 
       <DefaultLayout withHero>
-        <SectionWrapper>
-          <LandingCard />
-        </SectionWrapper>
+        <LandingCard />
+
         {/* CTA */}
         <div className="text-center mt-16">
           <div className="card bg-primary/5 border border-primary/20 p-8 max-w-2xl mx-auto">

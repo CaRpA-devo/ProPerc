@@ -15,6 +15,7 @@ export function LandingCard() {
             title="Leckere Rezepte für jeden Tag"
             description="Personalisierte Ernährungspläne basierend auf Ihren Zielen und Vorlieben."
             buttonText="Zack Zack"
+            listItems={["Feature 1", "Feature 2", "Feature 3"]}
           />
         </SectionWrapper>
 
@@ -27,6 +28,7 @@ export function LandingCard() {
             description="Passe Mahlzeiten an deine Ziele, Vorlieben und Allergien an einfach und smart."
             buttonText="Dit und dat"
             reverse={true}
+            listItems={["Feature 1", "Feature 2", "Feature 3"]}
           />
         </SectionWrapper>
         {/* Card Three */}
@@ -37,6 +39,7 @@ export function LandingCard() {
             category="Fortschritt & Tracking"
             description="Tracke Kalorien, Makros und Vitamine – alles auf einen Blick."
             buttonText="Dit und dat"
+            listItems={["Feature 1", "Feature 2", "Feature 3"]}
           />
         </SectionWrapper>
 
@@ -49,6 +52,7 @@ export function LandingCard() {
             description="Tritt Challenges bei, teile Erfolge und lass dich inspirieren."
             buttonText="Dit und dat"
             reverse={true}
+            listItems={["Feature 1", "Feature 2", "Feature 3"]}
           />
         </SectionWrapper>
 
@@ -60,6 +64,7 @@ export function LandingCard() {
             category="Tipps & Wissen"
             description="Lerne, wie du gesunde Entscheidungen triffst , ohne komplizierte Diätregeln."
             buttonText="Dit und dat"
+            listItems={["Feature 1", "Feature 2", "Feature 3"]}
           />
         </SectionWrapper>
 
@@ -72,6 +77,7 @@ export function LandingCard() {
             description="Entdecke smarte Features wie Barcode-Scanner, Rezeptvorschläge und Einkaufslisten."
             buttonText="Dit und dat"
             reverse={true}
+            listItems={["Feature 1", "Feature 2", "Feature 3"]}
           />
         </SectionWrapper>
       </section>
