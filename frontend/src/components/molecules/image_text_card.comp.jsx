@@ -12,12 +12,14 @@ export function ImageTextCard({
   reverse = false,
   listItems = [],
   buttonText = "",
-  gap = 8,
+  gap = 4,
 }) {
   return (
-    <CardWrapper className={`md:max-w-220 w-full ${containerClass}`}>
+    <CardWrapper
+      className={`md:max-w-220 bg-base-200 border border-primary/20 w-full ${containerClass}`}
+    >
       <div
-        className={`flex flex-col gap-${gap} justify-between md:flex-row ${
+        className={`flex flex-col gap-${gap} justify-between md:flex-row  ${
           reverse ? "md:flex-row-reverse" : ""
         }`}
       >

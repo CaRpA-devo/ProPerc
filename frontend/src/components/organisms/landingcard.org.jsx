@@ -8,7 +8,7 @@ export function LandingCard() {
         {/* Card one */}
         <SectionWrapper position="start">
           <ImageTextCard
-            imageSrc="/src/assets/img/ernährungsplan.jpg"
+            imageSrc="/src/assets/img/rezepte.jpg"
             imageAlt="Modern building"
             category="Ernährungsplanung"
             title="Leckere Rezepte für jeden Tag"

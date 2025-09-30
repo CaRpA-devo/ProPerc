@@ -15,11 +15,6 @@ function App() {
         {/* Public Pages */}
         <Route path="/" element={<IndexPage />} />
 
-        {/* SignIn / SignOut */}
-        {/* TODO brauchen wir nicht erst für regestrierung so ist das übern händler geregelt */}
-        {/* <Route path="/signin/*" element={<SignInPage />} />
-        <Route path="/signup/*" element={<SignUpPage />} /> */}
-
         {/* Dashboard */}
         <Route element={<DashboardPage />} path="/dashboard"></Route>
 
