@@ -14,7 +14,7 @@ export function ImageTextCard({
 }) {
   return (
     <div
-      className={`flex flex-col gap-36  justify-between md:flex-row ${containerClass}  ${
+      className={`flex flex-col gap-36  justify-between md:flex-row  ${containerClass}  ${
         reverse ? "md:flex-row-reverse" : ""
       }`}
     >
