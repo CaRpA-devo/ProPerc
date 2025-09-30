@@ -14,6 +14,7 @@ export function LandingCard() {
             category="Ernährungsplanung"
             title="Leckere Rezepte für jeden Tag"
             description="Personalisierte Ernährungspläne basierend auf Ihren Zielen und Vorlieben."
+            buttonText="Zack Zack"
           />
         </SectionWrapper>
 
@@ -23,10 +24,8 @@ export function LandingCard() {
             imageSrc="/src/assets/img/ernährungsplan.jpg"
             imageAlt="Modern building"
             category="Persönliche Ernährungspläne"
-            title="Jetzt starten"
             description="Passe Mahlzeiten an deine Ziele, Vorlieben und Allergien an einfach und smart."
-            href="#"
-            containerClass="glass-overlay-bg2 "
+            buttonText="Dit und dat"
             reverse={true}
           />
         </SectionWrapper>
@@ -36,10 +35,8 @@ export function LandingCard() {
             imageSrc="/src/assets/img/tracking.jpg"
             imageAlt="Modern building"
             category="Fortschritt & Tracking"
-            title="Tracken beginnen"
             description="Tracke Kalorien, Makros und Vitamine – alles auf einen Blick."
-            href="#"
-            containerClass="glass-overlay-bg2"
+            buttonText="Dit und dat"
           />
         </SectionWrapper>
 
@@ -49,10 +46,8 @@ export function LandingCard() {
             imageSrc="/src/assets/img/community.jpg"
             imageAlt="Modern building"
             category="Community & Challenges"
-            title="Mitmachen"
             description="Tritt Challenges bei, teile Erfolge und lass dich inspirieren."
-            href="#"
-            containerClass="glass-overlay-bg2"
+            buttonText="Dit und dat"
             reverse={true}
           />
         </SectionWrapper>
@@ -63,10 +58,8 @@ export function LandingCard() {
             imageSrc="/src/assets/img/tippswissen.jpg"
             imageAlt="Modern building"
             category="Tipps & Wissen"
-            title="Mehr erfahren"
             description="Lerne, wie du gesunde Entscheidungen triffst , ohne komplizierte Diätregeln."
-            href="#"
-            containerClass="glass-overlay-bg2"
+            buttonText="Dit und dat"
           />
         </SectionWrapper>
 
@@ -76,10 +69,8 @@ export function LandingCard() {
             imageSrc="/src/assets/img/appfeatures.jpg"
             imageAlt="Modern building"
             category="App Features"
-            title="Funktionen ansehen"
             description="Entdecke smarte Features wie Barcode-Scanner, Rezeptvorschläge und Einkaufslisten."
-            href="#"
-            containerClass="glass-overlay-bg2"
+            buttonText="Dit und dat"
             reverse={true}
           />
         </SectionWrapper>
