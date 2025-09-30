@@ -1,4 +1,4 @@
-import { ImageTextCard } from "../molecules/image_text_card.comp";
+import { ImageTextCard } from "../molecules/image_text_card.comp.jsx";
 
 export function Features() {
   const features = [
@@ -7,7 +7,7 @@ export function Features() {
       title: "Ernährungsplanung",
       description:
         "Personalisierte Ernährungspläne basierend auf Ihren Zielen und Vorlieben.",
-      image: "/src/assets/img/ernährungsplan.jpg",
+      image: "../src/assets/img/ernährungsplan.jpg",
       reverse: false,
     },
     {

@@ -5,17 +5,15 @@ import "../../styles/landingcard.style.css";
 export function LandingCard() {
   return (
     <>
-      <section className="flex glass-overlay-bg flex-col sm:gap-8 sm:p-8">
+      <section className="flex bg-base-100 flex-col sm:gap-8 sm:p-8">
         {/* Card one */}
         <SectionWrapper position="start">
           <ImageTextCard
-            imageSrc="/src/assets/img/rezepte.jpg"
+            imageSrc="/src/assets/img/ernährungsplan.jpg"
             imageAlt="Modern building"
-            category="Gesunde Rezepte"
+            category="Ernährungsplanung"
             title="Leckere Rezepte für jeden Tag"
-            description="Finde ausgewogene Gerichte, die schnell zubereitet sind und deinem Ziel entsprechen."
-            href="#"
-            containerClass="glass-overlay-bg2 "
+            description="Personalisierte Ernährungspläne basierend auf Ihren Zielen und Vorlieben."
           />
         </SectionWrapper>
 
