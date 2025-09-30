@@ -19,7 +19,7 @@ export function Navbar() {
         }}
       >
         <Aurora
-          colorStops={["#2eb872", "#ffd166"]}
+          colorStops={["#f4f4f4", "#ffd166", "#2eb872"]}
           blend={0.4}
           amplitude={0.8}
           speed={0.3}
@@ -29,7 +29,7 @@ export function Navbar() {
       {/* Navbar Content */}
       <div className="relative z-10 flex items-center justify-between px-4 h-full">
         {/* Logo (links) */}
-        <Link to="/" className=" btn btn-ghost">
+        <Link to="/" className="pl-10">
           <img
             src="/src/assets/img/logoNoBg.png"
             alt="ProPerc Logo"
