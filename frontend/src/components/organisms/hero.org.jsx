@@ -1,5 +1,5 @@
+import heroBg from "../../assets/img/heroLightGreen.jpg";
 import { useState } from "react";
-import heroBg from "../../assets/img/heroDarkGreen.jpg";
 import { SignInForm } from "../molecules/signin-form.molecule";
 import { SignUpForm } from "../molecules/signup-form.molecule";
 
@@ -24,13 +24,20 @@ export function Hero() {
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center w-full">
             {/* Text Content */}
             <div className="text-center lg:text-left">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-                Deine Balance schon gefunden?
+              <h1
+                className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6"
+                style={{ color: "#073c26" }}
+              >
+                Deine <span style={{ color: "#ffd166" }}>Balance</span> schon
+                gefunden?
               </h1>
-              <p className="text-lg sm:text-xl mb-8 text-neutral-content/90 max-w-lg">
+              <p
+                className="text-lg sm:text-xl mb-8 text-neutral-content/90 max-w-lg"
+                style={{ color: "#073c26" }}
+              >
                 Plane hier dein gesundes Leben! Fit & Vital bleiben! Mit{" "}
-                <strong className="text-secondary">ProPerc</strong> Ernährung,
-                Sport und Gesundheit auf einen Blick.
+                <strong>ProPerc</strong> Ernährung, Sport und Gesundheit auf
+                einen Blick.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -48,7 +55,6 @@ export function Hero() {
                 </button>
               </div>
             </div>
-
             {/* Form Container */}
             <div className="flex justify-center lg:justify-end">
               {activeForm === "signin" && (
