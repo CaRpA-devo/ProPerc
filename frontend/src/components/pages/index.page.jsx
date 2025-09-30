@@ -1,10 +1,6 @@
 import { DefaultLayout } from "../layouts/default.layout";
-<<<<<<< HEAD
 import { LandingCard } from "../organisms/landingcard.org.jsx";
 import { SectionWrapper } from "../atoms/sectionwrapper.comp";
-=======
-import { Features } from "../organisms/features.org.jsx";
->>>>>>> origin/PatKai
 
 export function IndexPage() {
   return (
@@ -12,7 +8,6 @@ export function IndexPage() {
       {/* TODO Metatags einfügen */}
 
       <DefaultLayout withHero>
-<<<<<<< HEAD
         <SectionWrapper
           className="bg-first-bg p-8 text-center "
           position="center"
@@ -31,9 +26,6 @@ export function IndexPage() {
         </SectionWrapper>
 
         <LandingCard />
-=======
-        <Features />
->>>>>>> origin/PatKai
       </DefaultLayout>
     </>
   );

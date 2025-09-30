@@ -1,5 +1,5 @@
 import { SectionWrapper } from "../atoms/sectionwrapper.comp";
-import { Image_Text_Card } from "../molecules/image_text_card.comp";
+import { ImageTextCard } from "../molecules/image_text_card.comp.jsx";
 import "../../styles/landingcard.style.css";
 
 export function LandingCard() {
@@ -8,7 +8,7 @@ export function LandingCard() {
       <section className="flex glass-overlay-bg flex-col sm:gap-8 sm:p-8">
         {/* Card one */}
         <SectionWrapper position="start">
-          <Image_Text_Card
+          <ImageTextCard
             imageSrc="/src/assets/img/rezepte.jpg"
             imageAlt="Modern building"
             category="Gesunde Rezepte"
@@ -21,7 +21,7 @@ export function LandingCard() {
 
         {/* Card Two */}
         <SectionWrapper position="end">
-          <Image_Text_Card
+          <ImageTextCard
             imageSrc="/src/assets/img/ernährungsplan.jpg"
             imageAlt="Modern building"
             category="Persönliche Ernährungspläne"
@@ -34,7 +34,7 @@ export function LandingCard() {
         </SectionWrapper>
         {/* Card Three */}
         <SectionWrapper position="start">
-          <Image_Text_Card
+          <ImageTextCard
             imageSrc="/src/assets/img/tracking.jpg"
             imageAlt="Modern building"
             category="Fortschritt & Tracking"
@@ -47,7 +47,7 @@ export function LandingCard() {
 
         {/* Card Four */}
         <SectionWrapper position="end">
-          <Image_Text_Card
+          <ImageTextCard
             imageSrc="/src/assets/img/community.jpg"
             imageAlt="Modern building"
             category="Community & Challenges"
@@ -61,7 +61,7 @@ export function LandingCard() {
 
         {/* Card Five */}
         <SectionWrapper position="start">
-          <Image_Text_Card
+          <ImageTextCard
             imageSrc="/src/assets/img/tippswissen.jpg"
             imageAlt="Modern building"
             category="Tipps & Wissen"
@@ -74,7 +74,7 @@ export function LandingCard() {
 
         {/* Card Six */}
         <SectionWrapper position="end">
-          <Image_Text_Card
+          <ImageTextCard
             imageSrc="/src/assets/img/appfeatures.jpg"
             imageAlt="Modern building"
             category="App Features"
