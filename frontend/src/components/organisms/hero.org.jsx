@@ -70,10 +70,9 @@ export function Hero() {
                 {/* Secondary CTA - Outlined green button */}
                 <button
                   onClick={() => setActiveForm("signin")}
-                  className="btn btn-lg btn-outline border-2 hover:scale-105 transition-all duration-300"
+                  className="btn btn-lg btn-ghost border-0 hover:scale-105 transition-all duration-300"
                   style={{
-                    borderColor: "#00C853",
-                    color: "#00C853",
+                    color: "#f4f4f4",
                   }}
                 >
                   Anmelden
@@ -124,13 +123,20 @@ export function Hero() {
                     <div className="space-y-3">
                       <button
                         onClick={() => setActiveForm("signup")}
-                        className="btn btn-primary w-full"
+                        className="btn border-0 text-emerald-800 font-semibold hover:scale-105 transition-all duration-300 shadow-lg w-full"
+                        style={{
+                          backgroundColor: "#FFD166",
+                          color: "#1E3A34",
+                        }}
                       >
                         Kostenlos registrieren
                       </button>
                       <button
                         onClick={() => setActiveForm("signin")}
                         className="btn btn-ghost w-full"
+                        style={{
+                          color: "#f4f4f4",
+                        }}
                       >
                         Bereits Mitglied?
                       </button>
