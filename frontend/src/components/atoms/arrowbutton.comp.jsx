@@ -1,6 +1,8 @@
-export function ArrowButton({ text }) {
+export function ArrowButton({ text, className = "" }) {
   return (
-    <button className="btn btn-primary btn-outline flex items-center">
+    <button
+      className={`btn btn-primary btn-outline flex items-center ${className}`}
+    >
       {text}
       <svg
         className="w-4 h-4 ml-2"

@@ -13,11 +13,15 @@ export function ImageTextCard({
   reverse = false,
   listItems = [],
   buttonText = "",
+  styleContainer = "",
 }) {
   return (
-    <CardWrapper className={` md:max-w-220 w-full ${containerClass}`}>
+    <CardWrapper
+      className={` md:max-w-220 w-full 
+     ${containerClass}`}
+    >
       <div
-        className={`flex flex-col gap-8 justify-center items-center md:flex-row ${
+        className={`flex flex-col gap-8   justify-center items-center md:flex-row   ${
           reverse ? "md:flex-row-reverse" : ""
         }`}
       >
@@ -28,22 +32,22 @@ export function ImageTextCard({
         ></div>
 
         {/* Textbereich */}
-        <div className="gap-8 flex text-center justify-center flex-col items-center sm:p-8 sm:flex-1 sm:text-start sm:items-start">
+        <div className="gap-4 flex text-center p-0 justify-center flex-col items-center sm:p-8 sm:flex-1 sm:text-start sm:items-start">
           <div
-            className={`text-3xl font-bold text-primary mb-6 tracking-wide uppercase ${categoryClass}`}
+            className={`text-3xl font-bold text-primary tracking-wide uppercase ${categoryClass}`}
           >
             {category}
           </div>
 
           <p
-            className={`text-lg text-base-content/80 mb-8 leading-relaxed ${descriptionClass}`}
+            className={`text-lg text-base-content/80  leading-relaxed mb-8 ${descriptionClass}`}
           >
             {description}
           </p>
 
           {/* Dynamische Liste */}
           {listItems.length > 0 && (
-            <ul className="flex flex-col items-center gap-3 list-disc list-inside marker:text-secondary  marker:text-xl">
+            <ul className="flex flex-col items-center  list-disc list-inside marker:text-secondary  marker:text-xl">
               {listItems.map((item, index) => (
                 <li
                   key={index}
