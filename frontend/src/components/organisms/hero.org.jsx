@@ -90,7 +90,7 @@ export function Hero() {
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-green-900 rounded-full animate-pulse"></div>
                   <span className="text-sm font-medium">
-                    10.000+ zufriedene Nutzer
+                    5.000+ zufriedene Nutzer
                   </span>
                 </div>
               </div>
