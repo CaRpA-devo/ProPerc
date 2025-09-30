@@ -1,4 +1,8 @@
-export function SectionWrapper({ children, position = "start" }) {
+export function SectionWrapper({
+  children,
+  className = "",
+  position = "start",
+}) {
   const positionClassMap = {
     start: "sm:justify-start",
     end: "sm:justify-end",
@@ -8,7 +12,7 @@ export function SectionWrapper({ children, position = "start" }) {
   return (
     <section
       className={`flex flex-col  items-center justify-center sm:flex-row 
-      ${positionClassMap[position] || ""} min-h-content`}
+      ${positionClassMap[position] || ""} min-h-content ${className} `}
     >
       {children}
     </section>
