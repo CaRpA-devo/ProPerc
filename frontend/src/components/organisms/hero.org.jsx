@@ -40,21 +40,63 @@ export function Hero() {
                 einen Blick.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
+                {/* Primary CTA - Yellow button with dark green text */}
                 <button
                   onClick={() => setActiveForm("signup")}
-                  className="btn btn-primary btn-lg"
+                  className="btn btn-lg border-0 text-emerald-800 font-semibold hover:scale-105 transition-all duration-300 shadow-lg"
+                  style={{
+                    backgroundColor: "#FFD166",
+                    color: "#1E3A34",
+                  }}
                 >
                   Jetzt starten
+                  <svg
+                    className="w-5 h-5 ml-2"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M13 7l5 5-5 5M6 12h12"
+                    />
+                  </svg>
                 </button>
+
+                {/* Secondary CTA - Outlined green button */}
                 <button
                   onClick={() => setActiveForm("signin")}
-                  className="btn btn-outline btn-lg"
+                  className="btn btn-lg btn-outline border-2 hover:scale-105 transition-all duration-300"
+                  style={{
+                    borderColor: "#00C853",
+                    color: "#00C853",
+                  }}
                 >
                   Anmelden
                 </button>
               </div>
+
+              {/* Trust indicators */}
+              <div className="flex items-center justify-center lg:justify-start gap-6 pt-8 text-emerald-700">
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                  <span className="text-sm font-medium">
+                    Wissenschaftlich fundiert
+                  </span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                  <span className="text-sm font-medium">
+                    10.000+ zufriedene Nutzer
+                  </span>
+                </div>
+              </div>
             </div>
+
             {/* Form Container */}
             <div className="flex justify-center lg:justify-end">
               {activeForm === "signin" && (
@@ -73,11 +115,11 @@ export function Hero() {
                 <div className="hidden lg:block w-full max-w-md">
                   <div className="card bg-base-100/10 backdrop-blur-md border border-white/20 p-8 text-center">
                     <h3 className="text-2xl font-bold mb-4">
-                      Bereit zu starten?
+                      Starten Sie noch heute
                     </h3>
                     <p className="text-base-content/80 mb-6">
                       Erstellen Sie Ihr kostenloses Konto und beginnen Sie Ihre
-                      Gesundheitsreise.
+                      Gesundheitsreise mit personalisierten Plänen.
                     </p>
                     <div className="space-y-3">
                       <button
