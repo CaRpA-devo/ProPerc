@@ -6,12 +6,12 @@ export function SettingsPage() {
   return (
     <>
       <DashboardLayout>
-        <section className="p-6 flex justify-center">
+        <section className="p-6 flex justify-center ">
           <div className="text-center">
             <h1 className="text-3xl font-bold">Einstellungen</h1>
           </div>
         </section>
-        <section className="p-6 flex justify-center">
+        <section className="p-6 flex justify-center border border-base-300 rounded-lg bg-base-200 rounded-lg max-w-5xl mx-auto">
           <section className="flex w-full items-center flex-col align-center gap-4">
             <h2>Persönliches</h2>
             {/* Geschlecht */}
@@ -29,10 +29,16 @@ export function SettingsPage() {
             </label>
 
             {/* Gewicht */}
-            <input type="text" placeholder="Gewicht:" className="input" />
+            <label className="input">
+              <span className="label">Gewicht</span>
+              <input type="text" />
+            </label>
 
             {/* Größe */}
-            <input type="text" placeholder="Größe:" className="input" />
+            <label className="input">
+              <span className="label">Größe</span>
+              <input type="text" />
+            </label>
             {/* Geburtsdatum */}
             <label className="input">
               <span className="label">Geburtsdatum</span>
@@ -42,12 +48,12 @@ export function SettingsPage() {
           <section className="flex w-full items-center flex-col align-center gap-4">
             <h2>Account</h2>
             {/* Email */}
-            <label className="floating-label">
-              <span>Email-Adresse</span>
+            <label className="input">
+              <span className="label">E-Mail</span>
               <input
                 type="email"
                 placeholder="mail@site.com"
-                className="input input-md"
+                className="w-full"
               />
             </label>
 
@@ -65,34 +71,45 @@ export function SettingsPage() {
             </label>
 
             {/* Darkmode */}
-            <label className="toggle text-base-content">
-              <input type="checkbox" />
+            <div className="flex items-center gap-3">
+              {/* Sonne */}
               <svg
-                aria-label="light"
+                aria-hidden="true"
+                className="h-6 w-6 text-yellow-500"
                 viewBox="0 0 24 24"
                 fill="none"
-                xmlns="http://www.w3.org/2000/svg"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               >
-                <path
-                  d="M12 2a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1zm7.071 2.929a1 1 0 0 1 0 1.414l-.707.707a1 1 0 1 1-1.414-1.414l.707-.707a1 1 0 0 1 1.414 0zm-14.142 0a1 1 0 0 1 1.414 0l.707.707A1 1 0 0 1 5.636 7.05l-.707-.707a1 1 0 0 1 0-1.414zM12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8zm-6 4a6 6 0 1 1 12 0 6 6 0 0 1-12 0zm-4 0a1 1 0 0 1 1-1h1a1 1 0 1 1 0 2H3a1 1 0 0 1-1-1zm17 0a1 1 0 0 1 1-1h1a1 1 0 1 1 0 2h-1a1 1 0 0 1-1-1zM5.636 16.95a1 1 0 0 1 1.414 1.414l-.707.707a1 1 0 0 1-1.414-1.414l.707-.707zm11.314 1.414a1 1 0 0 1 1.414-1.414l.707.707a1 1 0 0 1-1.414 1.414l-.707-.707zM12 19a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0v-1a1 1 0 0 1 1-1z"
-                  fill="#0D0D0D"
-                />
+                <circle cx="12" cy="12" r="4" fill="currentColor" />
+                <line x1="12" y1="2" x2="12" y2="5" />
+                <line x1="12" y1="19" x2="12" y2="22" />
+                <line x1="4.22" y1="4.22" x2="6.34" y2="6.34" />
+                <line x1="17.66" y1="17.66" x2="19.78" y2="19.78" />
+                <line x1="2" y1="12" x2="5" y2="12" />
+                <line x1="19" y1="12" x2="22" y2="12" />
+                <line x1="4.22" y1="19.78" x2="6.34" y2="17.66" />
+                <line x1="17.66" y1="6.34" x2="19.78" y2="4.22" />
               </svg>
+
+              {/* Der eigentliche Toggle */}
+              <input type="checkbox" className="toggle toggle-accent" />
+
+              {/* Mond */}
               <svg
-                aria-label="dark"
                 xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 15 15"
-                fill="none"
+                className="h-6 w-6 text-indigo-500"
+                viewBox="0 0 24 24"
+                fill="currentColor"
               >
-                <path
-                  d="M7.7066 0.00274765C7.50391 -0.0027381 7.31797 0.114737 7.23588 0.300147C7.15379 0.485558 7.19181 0.702186 7.33213 0.848565C8.36577 1.92686 9.00015 3.3888 9.00015 4.99996C9.00015 8.31366 6.31385 11 3.00015 11C2.5757 11 2.16207 10.956 1.76339 10.8725C1.56489 10.8309 1.36094 10.9133 1.2471 11.0812C1.13325 11.249 1.13207 11.469 1.2441 11.638C2.58602 13.663 4.88682 15 7.50012 15C11.6423 15 15.0001 11.6421 15.0001 7.49996C15.0001 3.42688 11.7534 0.112271 7.7066 0.00274765Z"
-                  fill="#000000"
-                />
+                <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
               </svg>
-            </label>
+            </div>
           </section>
         </section>
-        <div class="flex gap-4 items-center flex-col align-center">
+        <div className="p-6 flex flex-row justify-center items-center gap-4">
           <Link to="/dashboard">
             <Button>Abbruch</Button>
           </Link>
