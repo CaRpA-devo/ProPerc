@@ -1,6 +1,5 @@
 import { SectionWrapper } from "../atoms/sectionwrapper.comp";
 import { ImageTextCard } from "../molecules/image_text_card.comp.jsx";
-import "../../styles/landingcard.style.css";
 
 export function LandingCard() {
   return (

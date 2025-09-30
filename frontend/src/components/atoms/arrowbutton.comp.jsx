@@ -1,7 +1,11 @@
 export function ArrowButton({ text, className = "" }) {
   return (
     <button
-      className={`btn btn-primary btn-outline flex items-center ${className}`}
+      className={`btn  border-0 text-emerald-800 font-semibold hover:scale-105 transition-all duration-300 shadow-lg flex items-center ${className}`}
+      style={{
+        backgroundColor: "#FFD166",
+        color: "#1E3A34",
+      }}
     >
       {text}
       <svg
