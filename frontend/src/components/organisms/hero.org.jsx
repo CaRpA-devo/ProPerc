@@ -80,15 +80,15 @@ export function Hero() {
               </div>
 
               {/* Trust indicators */}
-              <div className="flex items-center justify-center lg:justify-start gap-6 pt-8 text-emerald-700">
+              <div className="flex items-center justify-center lg:justify-start gap-6 pt-8 text-green-900">
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                  <div className="w-2 h-2 bg-green-900 rounded-full animate-pulse"></div>
                   <span className="text-sm font-medium">
                     Wissenschaftlich fundiert
                   </span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                  <div className="w-2 h-2 bg-green-900 rounded-full animate-pulse"></div>
                   <span className="text-sm font-medium">
                     10.000+ zufriedene Nutzer
                   </span>
