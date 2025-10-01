@@ -11,13 +11,13 @@ export function Hero() {
   return (
     <>
       <div
-        className="hero min-h-screen relative overflow-hidden"
+        className="hero min-h-screen relative overflow-hidden contrast-110 saturate-125 brightness-105"
         style={{
           backgroundImage: `url(${heroBg})`,
         }}
       >
         {/* Hero Overlay */}
-        <div className="hero-overlay bg-opacity-40"></div>
+        <div className="hero-overlay bg-opacity-40 "></div>
 
         {/* Content Container - Responsive statt feste px-Werte */}
         <div className="hero-content text-neutral-content w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
