@@ -12,25 +12,23 @@ export function ImageTextCard({
   reverse = false,
   listItems = [],
   buttonText = "",
-  gap = 4,
+  gap = 8,
 }) {
   return (
-    <CardWrapper
-      className={`md:max-w-220 bg-base-200 border border-primary/20 w-full ${containerClass}`}
-    >
+    <CardWrapper className={`   ${containerClass}`}>
       <div
-        className={`flex flex-col gap-${gap} justify-between md:flex-row  ${
+        className={`flex md:max-w-280 flex-col md:flex-wrap md:gap-16 gap-8 ${gap} justify-between md:flex-row  ${
           reverse ? "md:flex-row-reverse" : ""
         }`}
       >
         {/* Bild */}
         <div
-          className={`h-48 w-full md:rounded-xl md:h-100 md:w-100 bg-cover bg-center ${imageClass}`}
+          className={`h-64  w-full   md:min-h-80 md:w-140 md:rounded-xl  bg-cover bg-center ${imageClass}`}
           style={{ backgroundImage: `url(${imageSrc})` }}
         ></div>
 
         {/* Textbereich */}
-        <div className="gap-4 flex flex-wrap text-center p-0  justify-center flex-col items-center sm:p-8 sm:flex-1 sm:text-start sm:items-start">
+        <div className="gap-4 flex flex-wrap text-center p-0  justify-center flex-col items-center  sm:flex-1 sm:text-start sm:items-start">
           <div
             className={`text-3xl font-bold text-primary tracking-wide uppercase ${categoryClass}`}
           >

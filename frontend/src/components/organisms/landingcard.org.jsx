@@ -4,9 +4,9 @@ import { ImageTextCard } from "../molecules/image_text_card.comp.jsx";
 export function LandingCard() {
   return (
     <>
-      <section className="flex bg-base-100 flex-col sm:gap-8 sm:p-8">
+      <section className="flex bg-base-100 flex-col sm:gap-24 sm:p-8">
         {/* Card one */}
-        <SectionWrapper position="start">
+        <SectionWrapper position="center">
           <ImageTextCard
             imageSrc="/src/assets/img/rezepte.jpg"
             imageAlt="Modern building"
@@ -14,13 +14,13 @@ export function LandingCard() {
             title="Leckere Rezepte für jeden Tag"
             description="Personalisierte Ernährungspläne basierend auf Ihren Zielen und Vorlieben."
             buttonText="Zack Zack"
-            listItems={["Feature 1", "Feature 2", "Feature 3"]}
-            containerClass="md:hover:scale-105 transition-transform duration-300"
+            listItems={["Loooo", "Feature 2", "Feature 3"]}
+            containerClass="md:hover:scale-105 transition-transform duration-300 "
           />
         </SectionWrapper>
 
         {/* Card Two */}
-        <SectionWrapper position="end">
+        <SectionWrapper position="center">
           <ImageTextCard
             imageSrc="/src/assets/img/ernährungsplan.jpg"
             imageAlt="Modern building"
@@ -33,7 +33,7 @@ export function LandingCard() {
           />
         </SectionWrapper>
         {/* Card Three */}
-        <SectionWrapper position="start">
+        <SectionWrapper position="center">
           <ImageTextCard
             imageSrc="/src/assets/img/tracking.jpg"
             imageAlt="Modern building"
@@ -46,7 +46,7 @@ export function LandingCard() {
         </SectionWrapper>
 
         {/* Card Four */}
-        <SectionWrapper position="end">
+        <SectionWrapper position="center">
           <ImageTextCard
             imageSrc="/src/assets/img/community.jpg"
             imageAlt="Modern building"
@@ -60,7 +60,7 @@ export function LandingCard() {
         </SectionWrapper>
 
         {/* Card Five */}
-        <SectionWrapper position="start">
+        <SectionWrapper position="center">
           <ImageTextCard
             imageSrc="/src/assets/img/tippswissen.jpg"
             imageAlt="Modern building"
@@ -73,7 +73,7 @@ export function LandingCard() {
         </SectionWrapper>
 
         {/* Card Six */}
-        <SectionWrapper position="end">
+        <SectionWrapper position="center">
           <ImageTextCard
             imageSrc="/src/assets/img/appfeatures.jpg"
             imageAlt="Modern building"
