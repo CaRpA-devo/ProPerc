@@ -6,6 +6,7 @@ import { Button } from "../atoms/button.comp";
 import trackingImg from "../../assets/img/tracking.jpg";
 import appfeaturesImg from "../../assets/img/appfeatures.jpg";
 import heroFruitsImg from "../../assets/img/heroFruits.jpg";
+import { BentoBox } from "../molecules/bentobox.comp";
 
 export function DashboardPage() {
   // Beispielwerte für Statistiken
@@ -31,18 +32,8 @@ export function DashboardPage() {
           </div>
         </div>
 
-        <MagicBento
-          textAutoHide={true}
-          enableStars={true}
-          enableSpotlight={true}
-          enableBorderGlow={true}
-          enableTilt={true}
-          enableMagnetism={true}
-          clickEffect={true}
-          spotlightRadius={300}
-          particleCount={12}
-          glowColor="132, 0, 255"
-        />
+        <BentoBox />
+
         {/* Statistiken */}
         <SectionWrapper className="gap-6 mt-8 flex-wrap">
           {stats.map((stat) => (
