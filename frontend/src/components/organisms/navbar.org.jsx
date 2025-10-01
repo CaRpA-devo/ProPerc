@@ -4,7 +4,7 @@ import Aurora from "../animations/aurora.animation.ani.jsx";
 export function Navbar() {
   return (
     <div
-      className="w-full flex flex-col justify-center "
+      className="w-full bg-base-200 flex flex-col justify-center "
       style={{ position: "relative", height: "64px", minHeight: "64px" }}
     >
       {/* Aurora Background */}
