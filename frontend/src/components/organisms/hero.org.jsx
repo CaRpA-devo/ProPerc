@@ -11,7 +11,7 @@ export function Hero() {
   return (
     <>
       <div
-        className="hero min-h-screen relative overflow-hidden contrast-110 saturate-125 brightness-105"
+        className="hero min-h-screen relative overflow-hidden  contrast-110 saturate-125 brightness-105"
         style={{
           backgroundImage: `url(${heroBg})`,
         }}
