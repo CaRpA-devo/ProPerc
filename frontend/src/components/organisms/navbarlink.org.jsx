@@ -1,11 +1,10 @@
 import Aurora from "../animations/aurora.animation.ani.jsx";
 import { Link } from "react-router";
-import { UserAvatar } from "../atoms/user.avatar.com.jsx";
 
 export function NavbarLink({}) {
   return (
     <div
-      className="w-full flex text-center items-center justify-center "
+      className="w-full bg-base-200 flex text-center items-center justify-center "
       style={{ position: "relative", height: "64px", minHeight: "64px" }}
     >
       {/* Aurora Background */}
@@ -123,7 +122,6 @@ export function NavbarLink({}) {
             </ul>
           </div>
         </div>
-        <UserAvatar />
       </div>
     </div>
   );
