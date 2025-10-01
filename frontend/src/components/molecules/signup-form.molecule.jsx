@@ -28,8 +28,9 @@ export function SignUpForm({ onClose }) {
     });
   };
 
+  // cardbg-base-100/10 backdrop-blur-md border border-white/20 p-8 text-center
   return (
-    <div className="card w-full max-w-md mx-auto bg-base-100 shadow-2xl border border-primary/20 overflow-visible">
+    <div className="card w-full max-w-md mx-auto backdrop-blur-md border border-white/20 shadow-2xl overflow-visible">
       <div className="card-body p-2 sm:p-8">
         <div className="flex justify-between items-center mb-4">
           <h2 className="card-title text-xl sm:text-2xl text-primary">

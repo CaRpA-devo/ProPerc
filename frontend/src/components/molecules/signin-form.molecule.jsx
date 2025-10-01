@@ -21,7 +21,7 @@ export function SignInForm({ onClose }) {
   };
 
   return (
-    <div className="card bg-base-100 shadow-2xl border border-primary/20">
+    <div className="card bg-base-100/10 backdrop-blur-md border border-white/20 p-8 text-center">
       <div className="card-body">
         <div className="flex justify-between items-center mb-4">
           <h2 className="card-title text-2xl text-primary">Anmelden</h2>

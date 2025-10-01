@@ -43,7 +43,7 @@ export function ImageTextCard({
 
           {/* Dynamische Liste */}
           {listItems.length > 0 && (
-            <ul className="px-4 flex flex-col items-center list-disc list-inside marker:text-primary marker:text-xl">
+            <ul className=" flex  flex-col items-start list-disc list-inside marker:text-primary marker:text-xl">
               {listItems.map((item, index) => (
                 <li
                   key={index}
