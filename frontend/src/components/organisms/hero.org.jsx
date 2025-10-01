@@ -1,4 +1,4 @@
-import heroBg from "../../assets/img/heroLightGreen.jpg";
+import heroBg from "../../assets/img/heroFruits.jpg";
 import { useState } from "react";
 import { SignInForm } from "../molecules/signin-form.molecule";
 import { SignUpForm } from "../molecules/signup-form.molecule";
