@@ -13,7 +13,7 @@ function App() {
     <>
       <Routes>
         {/* Public Pages */}
-        <Route path="/" element={<IndexPage />} />
+        <Route path="/" element={<IndexPage />}></Route>
 
         {/* Dashboard */}
         <Route element={<DashboardPage />} path="/dashboard"></Route>
