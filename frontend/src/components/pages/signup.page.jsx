@@ -1,10 +1,10 @@
-import { siteConfig } from "../../../../backend/config/site";
 import { MetaTags } from "../atoms/metatags.comp";
 import { SignUp } from "@clerk/clerk-react";
 import { DefaultLayout } from "../layouts/default.layout";
 import { Loader } from "../atoms/loader.comp";
 import heroBg from "../../assets/img/heroFruits.jpg";
 import { dark } from "@clerk/themes";
+import { siteConfig } from "../../../../backend/src/config/site";
 export function SignUpPage() {
   return (
     <>

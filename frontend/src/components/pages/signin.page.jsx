@@ -1,10 +1,10 @@
-import { siteConfig } from "../../../../backend/config/site";
 import { MetaTags } from "../atoms/metatags.comp";
 import { SignIn } from "@clerk/clerk-react";
 import { DefaultLayout } from "../layouts/default.layout";
 import heroBg from "../../assets/img/heroFruits.jpg";
 import { Loader } from "../atoms/loader.comp";
 import { dark } from "@clerk/themes";
+import { siteConfig } from "../../../../backend/src/config/site";
 
 export function SignInPage() {
   return (
