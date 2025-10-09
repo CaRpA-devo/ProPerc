@@ -29,7 +29,8 @@ export function Navbar() {
       {/* Navbar Content */}
       <div className="relative z-10 flex items-center justify-between px-4 h-full">
         {/* Logo (links) */}
-        <Link to="/" className="pl-10">
+        {/* TODO kleinen hoffer einfügen  */}
+        <Link to="/" className="pl-10 ">
           <img
             src="/src/assets/img/logoNoBg.png"
             alt="ProPerc Logo"
