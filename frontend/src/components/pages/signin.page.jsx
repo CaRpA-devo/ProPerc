@@ -4,6 +4,7 @@ import { SignIn } from "@clerk/clerk-react";
 import { DefaultLayout } from "../layouts/default.layout";
 import heroBg from "../../assets/img/heroFruits.jpg";
 import { Loader } from "../atoms/loader.comp";
+import { dark } from "@clerk/themes";
 
 export function SignInPage() {
   return (
@@ -26,9 +27,28 @@ export function SignInPage() {
           <section className="flex flex-col items-center justify-center h-screen">
             <SignIn
               appearance={{
+                // Basis-Theme, optional: 'light' oder 'dark'
+                baseTheme: dark,
+                // Globale Variablen für Farben, Schriftarten, Größen
+                variables: {
+                  colorPrimary: "#121212", // Hauptfarbe für Buttons, Links etc.
+                  colorBackground: " o", // Hintergrundfarbe des SignIn/SignUp-Cards
+                  fontFamily: "Arial, sans-serif", // Schriftart der gesamten UI
+                  fontSize: "16px", // Standardgröße des Texts
+                  borderRadius: "8px", // Rundung von Inputs, Buttons etc.
+                  spacingUnit: "8px",
+                  colorText: "#121212",
+                },
+                // Spezifische Elemente individuell stylen
                 elements: {
+                  card: " bg-base-100/5 backdrop-blur-md  p-8 text-center border-none",
+                  // Card-Hintergrund, Padding, Schatten
                   formButtonPrimary:
-                    "bg-[#FFD166] text-[#1E3A34] hover:scale-105 transition-all duration-300 shadow-lg",
+                    "bg-red-600 hover:bg-red-700 text-white py-3 px-6 rounded-md",
+                  formInput:
+                    "bg-gray-800 text-white py-2 px-4 rounded-md border border-gray-700",
+                  formFieldLabel: " text-sm text-gray-400 mb-1",
+                  footer: "bg-base-100/10 backdrop-blur-lg   text-center",
                 },
               }}
               fallback={<Loader />}

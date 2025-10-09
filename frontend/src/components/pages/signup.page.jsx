@@ -4,6 +4,7 @@ import { SignUp } from "@clerk/clerk-react";
 import { DefaultLayout } from "../layouts/default.layout";
 import { Loader } from "../atoms/loader.comp";
 import heroBg from "../../assets/img/heroFruits.jpg";
+import { dark } from "@clerk/themes";
 export function SignUpPage() {
   return (
     <>
@@ -27,6 +28,7 @@ export function SignUpPage() {
           <section className="flex flex-col items-center justify-center h-screen">
             <SignUp
               appearance={{
+                baseTheme: dark,
                 elements: {
                   formButtonPrimary:
                     "bg-[#FFD166] text-[#1E3A34] hover:scale-105 transition-all duration-300 shadow-lg",

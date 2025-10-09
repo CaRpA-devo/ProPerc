@@ -53,8 +53,8 @@ export function Hero() {
             </div>
 
             {/* Form Container */}
-            <div className="flex justify-center lg:justify-end">
-              <div className="hidden lg:block w-full max-w-md">
+            <div className="flex justify-center flex-col lg:justify-end">
+              <div className=" w-full max-w-md ">
                 <div className="card bg-base-100/10 backdrop-blur-md border border-white/20 p-8 text-center">
                   <h3 className="text-2xl font-bold mb-4">
                     Starten Sie noch heute
