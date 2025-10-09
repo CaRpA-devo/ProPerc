@@ -1,5 +1,6 @@
 import Aurora from "../animations/aurora.animation.ani.jsx";
 import { Link } from "react-router";
+import { SignedIn, SignOutButton } from "@clerk/clerk-react";
 
 export function NavbarLink({}) {
   return (
@@ -122,6 +123,16 @@ export function NavbarLink({}) {
             </ul>
           </div>
         </div>
+        {/* Rechts: Logout-Button nur sichtbar, wenn eingeloggt */}
+        <SignedIn>
+          <div className="flex-none pr-4">
+            <SignOutButton redirectUrl="/">
+              <button className="btn btn-sm bg-red-500 hover:bg-red-600 text-white border-0">
+                Logout
+              </button>
+            </SignOutButton>
+          </div>
+        </SignedIn>
       </div>
     </div>
   );
