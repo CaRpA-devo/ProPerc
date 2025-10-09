@@ -31,24 +31,30 @@ export function SignInPage() {
                 baseTheme: dark,
                 // Globale Variablen für Farben, Schriftarten, Größen
                 variables: {
-                  colorPrimary: "#121212", // Hauptfarbe für Buttons, Links etc.
-                  colorBackground: " o", // Hintergrundfarbe des SignIn/SignUp-Cards
+                  colorPrimary: " #67b957", // Hauptfarbe für Buttons, Links etc.
+                  colorBackground: "  ", // Hintergrundfarbe des SignIn/SignUp-Cards
                   fontFamily: "Arial, sans-serif", // Schriftart der gesamten UI
                   fontSize: "16px", // Standardgröße des Texts
                   borderRadius: "8px", // Rundung von Inputs, Buttons etc.
                   spacingUnit: "8px",
-                  colorText: "#121212",
+                  colorText: "  #171717",
+                  /** Textfarbe in Input-Feldern */
+                  colorInputText: "#dfe8e4",
+
+                  /** Sekundäre Textfarbe (Labels, Placeholder) */
+                  colorTextSecondary: "#dfe8e4",
+                  /** Hintergrundfarbe der Input-Felder */
+                  colorInputBackground: "rgba(0, 0, 0, 0.3)",
+                  // #67b957
                 },
+
                 // Spezifische Elemente individuell stylen
                 elements: {
-                  card: " bg-base-100/5 backdrop-blur-md  p-8 text-center border-none",
-                  // Card-Hintergrund, Padding, Schatten
-                  formButtonPrimary:
-                    "bg-red-600 hover:bg-red-700 text-white py-3 px-6 rounded-md",
-                  formInput:
-                    "bg-gray-800 text-white py-2 px-4 rounded-md border border-gray-700",
-                  formFieldLabel: " text-sm text-gray-400 mb-1",
-                  footer: "bg-base-100/10 backdrop-blur-lg   text-center",
+                  // Äußere Card
+                  card: "card bg-base-100/10 backdrop-blur-md  p-8 text-center  shadow-lg",
+
+                  // Footer Links
+                  footer: "text-center  bg-base-100/10 backdrop-blur-md  ",
                 },
               }}
               fallback={<Loader />}
