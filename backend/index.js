@@ -5,13 +5,14 @@ import { mongoConnect } from "./src/config/db.js";
 
 import { createError } from "./src/utils/createError.js";
 import { user_router } from "./src/endpoints/users/router.js";
-import { cors } from "cors";
+import cors from "cors";
 
 const app = express();
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
-    origin: "*", // später auf Frontend-Domain einschränken
+    origin: "http://localhost:5173/", // später auf Frontend-Domain einschränken
     methods: ["GET", "POST"],
     credentials: true,
   })
