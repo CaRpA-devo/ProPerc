@@ -1,4 +1,5 @@
 import { useUser } from "../../context/UserContext";
+import "./user-profile-card.style.css";
 
 export function UserProfileCard() {
   const { userData } = useUser();
@@ -15,14 +16,14 @@ export function UserProfileCard() {
     }
   };
 
-  // Funktion zur Bestimmung der BMI-Farbe
-  const getBMIColor = (bmi) => {
-    if (!bmi) return 'bg-base-200';
+  // Funktion zur Bestimmung der BMI-Klasse
+  const getBMIClass = (bmi) => {
+    if (!bmi) return '';
     const bmiValue = parseFloat(bmi);
-    if (bmiValue < 18.5) return 'bg-blue-100/70';
-    if (bmiValue < 25) return 'bg-green-100/70';
-    if (bmiValue < 30) return 'bg-yellow-100/70';
-    return 'bg-red-100/70';
+    if (bmiValue < 18.5) return 'bmi-untergewichtig';
+    if (bmiValue < 25) return 'bmi-normalgewichtig';
+    if (bmiValue < 30) return 'bmi-uebergewichtig';
+    return 'bmi-stark-uebergewichtig';
   };
 
   // Funktion zur Formatierung des Geschlechts
@@ -36,59 +37,79 @@ export function UserProfileCard() {
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-md p-6 mb-6">
-      <h2 className="text-2xl font-bold text-emerald-900 mb-4">Dein Profil</h2>
+    <div className="user-profile-card">
+      <div className="user-profile-header">
+        <h2>Dein Profil</h2>
+      </div>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Persönliche Daten */}
-        <div>
-          <h3 className="text-lg font-semibold mb-3 text-emerald-800">Persönliche Daten</h3>
-          <div className="space-y-2">
-            <p><span className="font-medium">Geschlecht:</span> {formatGender(userData.gender)}</p>
-            <p><span className="font-medium">Alter:</span> {userData.age || 'Nicht angegeben'}</p>
-            <p>
-              <span className="font-medium">Größe:</span> {userData.height} {userData.heightUnit}
-            </p>
-            <p>
-              <span className="font-medium">Gewicht:</span> {userData.weight} {userData.weightUnit}
-            </p>
+        <div className="user-profile-section">
+          <h3>Persönliche Daten</h3>
+          <div className="space-y-3">
+            <div className="user-detail">
+              <span className="detail-label">Geschlecht:</span>
+              <span className="detail-value">{formatGender(userData.gender) || 'Nicht angegeben'}</span>
+            </div>
+            <div className="user-detail">
+              <span className="detail-label">Alter:</span>
+              <span className="detail-value">{userData.age || 'Nicht angegeben'}</span>
+            </div>
+            <div className="user-detail">
+              <span className="detail-label">Größe:</span>
+              <span className="detail-value">
+                {userData.height ? `${userData.height} ${userData.heightUnit}` : 'Nicht angegeben'}
+              </span>
+            </div>
+            <div className="user-detail">
+              <span className="detail-label">Gewicht:</span>
+              <span className="detail-value">
+                {userData.weight ? `${userData.weight} ${userData.weightUnit}` : 'Nicht angegeben'}
+              </span>
+            </div>
           </div>
         </div>
 
         {/* Gesundheitsdaten */}
-        <div>
-          <h3 className="text-lg font-semibold mb-3 text-emerald-800">Gesundheitsdaten</h3>
-          <div className="space-y-2">
-            <div className={`p-3 rounded-lg ${getBMIColor(userData.bmi)}`}>
-              <p className="font-medium">BMI: <span className="font-bold">{userData.bmi || 'Nicht berechenbar'}</span></p>
-              {userData.bmiCategory && (
-                <p className="text-sm">Kategorie: {userData.bmiCategory}</p>
-              )}
+        <div className="user-profile-section">
+          <h3>Gesundheitsdaten</h3>
+          <div className="space-y-3">
+            <div className={`bmi-display ${getBMIClass(userData.bmi)}`}>
+              <div className="font-bold text-lg">{userData.bmi || '--'}</div>
+              <div className="text-sm">
+                {userData.bmiCategory ? `(${userData.bmiCategory})` : 'BMI'}
+              </div>
             </div>
-            <p>
-              <span className="font-medium">Aktivitätslevel:</span> {getActivityLevelLabel(userData.activityLevel)}
-            </p>
-            <p>
-              <span className="font-medium">Ziel:</span> 
-              {userData.goal === 'lose' ? 'Gewicht verlieren' : 
-               userData.goal === 'gain' ? 'Muskelmasse aufbauen' : 
-               'Gewicht halten'}
-            </p>
+            
+            <div className="user-detail">
+              <span className="detail-label">Aktivitätslevel:</span>
+              <span className="detail-value">
+                {getActivityLevelLabel(userData.activityLevel) || 'Nicht angegeben'}
+              </span>
+            </div>
+            <div className="user-detail">
+              <span className="detail-label">Ziel:</span>
+              <span className="detail-value">
+                {userData.goal === 'lose' ? 'Gewicht verlieren' : 
+                 userData.goal === 'gain' ? 'Muskelmasse aufbauen' : 
+                 userData.goal ? 'Gewicht halten' : 'Nicht angegeben'}
+              </span>
+            </div>
           </div>
         </div>
 
         {/* Allergien & Einschränkungen */}
         {(userData.allergies?.length > 0 || userData.dietaryRestrictions?.length > 0) && (
-          <div className="md:col-span-2">
-            <h3 className="text-lg font-semibold mb-3 text-emerald-800">Allergien & Einschränkungen</h3>
-            <div className="flex flex-wrap gap-2">
+          <div className="user-profile-section md:col-span-2">
+            <h3>Allergien & Einschränkungen</h3>
+            <div className="tags-container">
               {userData.allergies?.map((allergy, index) => (
-                <span key={index} className="bg-amber-100 text-amber-800 text-sm px-3 py-1 rounded-full">
+                <span key={index} className="tag tag-allergy">
                   {allergy}
                 </span>
               ))}
               {userData.dietaryRestrictions?.map((restriction, index) => (
-                <span key={`r-${index}`} className="bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full">
+                <span key={`r-${index}`} className="tag tag-diet">
                   {restriction}
                 </span>
               ))}
@@ -97,8 +118,8 @@ export function UserProfileCard() {
         )}
       </div>
 
-      <div className="mt-6 pt-4 border-t border-gray-200">
-        <p className="text-sm text-gray-600">
+      <div className="mt-6 pt-4 border-t border-gray-700/30">
+        <p className="text-sm text-gray-400">
           Du kannst deine Daten jederzeit in den Einstellungen aktualisieren.
         </p>
       </div>
