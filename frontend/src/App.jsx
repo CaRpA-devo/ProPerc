@@ -1,6 +1,6 @@
 import "./App.css";
-
 import { Route, Routes } from "react-router-dom";
+import { UserProvider } from "./context/UserContext";
 import { IndexPage } from "./components/pages/index.page.jsx";
 import { DashboardPage } from "./components/pages/dashboard.page.jsx";
 
@@ -13,7 +13,7 @@ import { StartSettingsUserPage } from "./components/pages/start-settings-user-pa
 
 function App() {
   return (
-    <>
+    <UserProvider>
       <Routes>
         {/* Public Pages */}
         <Route path="/" element={<IndexPage />} />
@@ -36,7 +36,8 @@ function App() {
         {/* 404-Route*/}
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
-    </>
+    </UserProvider>
   );
 }
 export default App;
+dashboard

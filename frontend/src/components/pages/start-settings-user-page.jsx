@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../atoms/button.comp";
 import { DashboardLayout } from "../layouts/dashboard.layout";
+import { useUser } from "../../context/UserContext";
 
 // Constants
 const ALLERGY_OPTIONS = [
@@ -25,42 +26,46 @@ const ACTIVITY_LEVELS = [
 
 export function StartSettingsUserPage() {
   const navigate = useNavigate();
+  const { userData, updateUserData } = useUser();
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState({
-    gender: '',
-    age: '',
-    height: '',
-    heightUnit: 'cm',
-    weight: '',
-    weightUnit: 'kg',
-    activityLevel: '',
-    goal: 'maintain',
-    allergies: [],
-    dietaryRestrictions: []
+    gender: userData.gender || '',
+    age: userData.age || '',
+    height: userData.height || '',
+    heightUnit: userData.heightUnit || 'cm',
+    weight: userData.weight || '',
+    weightUnit: userData.weightUnit || 'kg',
+    activityLevel: userData.activityLevel || '',
+    goal: userData.goal || 'maintain',
+    allergies: userData.allergies || [],
+    dietaryRestrictions: userData.dietaryRestrictions || []
   });
 
   const totalSteps = 5;
   const progress = (currentStep / totalSteps) * 100;
 
   const handleInputChange = (field, value) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+    const newData = { ...formData, [field]: value };
+    setFormData(newData);
+    // Aktualisiere den Kontext mit den neuen Daten
+    updateUserData(newData);
   };
 
   const handleAllergyToggle = (allergy) => {
-    setFormData(prev => ({
-      ...prev,
-      allergies: prev.allergies.includes(allergy)
-        ? prev.allergies.filter(a => a !== allergy)
-        : [...prev.allergies, allergy]
-    }));
+    const newAllergies = formData.allergies.includes(allergy)
+      ? formData.allergies.filter(a => a !== allergy)
+      : [...formData.allergies, allergy];
+    const newData = { ...formData, allergies: newAllergies };
+    setFormData(newData);
+    updateUserData(newData);
   };
 
   const nextStep = () => {
     if (currentStep < totalSteps) {
       setCurrentStep(prev => prev + 1);
     } else {
-      // Handle form submission
-      console.log('Form submitted:', formData);
+      // Speichere alle Daten im Kontext
+      updateUserData(formData);
       navigate('/dashboard');
     }
   };
@@ -72,7 +77,7 @@ export function StartSettingsUserPage() {
   };
 
   const calculateBMI = () => {
-    if (!formData.height || !formData.weight) return null;
+    if (!formData.height || !formData.weight) return { value: null, category: '' };
     
     const heightInM = formData.heightUnit === 'cm' 
       ? formData.height / 100 
@@ -82,7 +87,31 @@ export function StartSettingsUserPage() {
       ? formData.weight 
       : formData.weight * 0.453592;
     
-    return (weightInKg / (heightInM * heightInM)).toFixed(1);
+    const bmiValue = (weightInKg / (heightInM * heightInM)).toFixed(1);
+    
+    // BMI Kategorien
+    let category = '';
+    if (bmiValue < 18.5) {
+      category = 'untergewichtig';
+    } else if (bmiValue >= 18.5 && bmiValue < 25) {
+      category = 'normalgewichtig';
+    } else if (bmiValue >= 25 && bmiValue < 30) {
+      category = 'übergewichtig';
+    } else {
+      category = 'stark übergewichtig';
+    }
+    
+    return { value: bmiValue, category };
+  };
+  
+  const getBMIColor = (bmi) => {
+    if (!bmi || !bmi.value) return 'bg-base-200';
+    const bmiValue = parseFloat(bmi.value);
+    
+    if (bmiValue < 18.5) return 'bg-blue-100/70';
+    if (bmiValue < 25) return 'bg-green-100/70';
+    if (bmiValue < 30) return 'bg-yellow-100/70';
+    return 'bg-red-100/70';
   };
 
   const renderStep = () => {
@@ -177,13 +206,19 @@ export function StartSettingsUserPage() {
               </div>
             </div>
 
-            {formData.height && formData.weight && (
-              <div className="mt-4 p-4 bg-base-200 rounded-lg">
-                <p className="text-center">
-                  Dein BMI: <span className="font-bold">{calculateBMI()}</span>
-                </p>
-              </div>
-            )}
+            {formData.height && formData.weight && (() => {
+              const bmi = calculateBMI();
+              return (
+                <div className={`mt-4 p-4 rounded-lg ${getBMIColor(bmi)} transition-colors duration-300`}>
+                  <p className="text-center">
+                    Dein BMI: <span className="font-bold">{bmi.value}</span>
+                    {bmi.category && (
+                      <span className="ml-2 text-sm">({bmi.category})</span>
+                    )}
+                  </p>
+                </div>
+              );
+            })()}
           </div>
         );
 
@@ -312,7 +347,7 @@ export function StartSettingsUserPage() {
     <DashboardLayout>
       <div className="max-w-3xl mx-auto p-6 space-y-8">
         <div className="text-center space-y-2">
-          <h1 className="text-3xl font-bold">Willkommen bei PERC</h1>
+          <h1 className="text-3xl font-bold">Willkommen bei ProPerc</h1>
           <p className="text-base-content/70">
             Bitte gib uns einige Informationen, um dein persönliches Erlebnis zu gestalten.
           </p>
