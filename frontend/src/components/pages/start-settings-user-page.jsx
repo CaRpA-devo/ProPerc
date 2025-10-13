@@ -125,7 +125,7 @@ export function StartSettingsUserPage() {
       case 1:
         return (
           <div className="space-y-4">
-            <h2 className="text-xl font-semibold text-light-text">Persönliche Daten</h2>
+            <h2 className="text-xl font-semibold">Persönliche Daten</h2>
 
             <div className="form-control w-full">
               <label className="label">
@@ -162,7 +162,7 @@ export function StartSettingsUserPage() {
       case 2:
         return (
           <div className="space-y-4">
-            <h2 className="text-xl font-semibold text-light-text">Körpermaße</h2>
+            <h2 className="text-xl font-semibold">Körpermaße</h2>
 
             <div className="flex gap-4">
               <div className="form-control w-3/4">
@@ -245,8 +245,8 @@ export function StartSettingsUserPage() {
       case 3:
         return (
           <div className="space-y-4">
-            <h2 className="text-xl font-semibold text-light-text">Aktivitätslevel</h2>
-            <p className="text-sm text-light-text/70">
+            <h2 className="text-xl font-semibold">Aktivitätslevel</h2>
+            <p className="text-sm text-base-content/70">
               Wähle aus, wie aktiv du im Alltag bist.
             </p>
 
@@ -274,8 +274,8 @@ export function StartSettingsUserPage() {
       case 4:
         return (
           <div className="space-y-4">
-            <h2 className="text-xl font-semibold text-light-text">Ernährungsziele</h2>
-            <p className="text-sm text-light-text/70">
+            <h2 className="text-xl font-semibold">Ernährungsziele</h2>
+            <p className="text-sm text-base-content/70">
               Was möchtest du erreichen?
             </p>
 
@@ -325,10 +325,10 @@ export function StartSettingsUserPage() {
       case 5:
         return (
           <div className="space-y-6">
-            <h2 className="text-xl font-semibold text-light-text">
+            <h2 className="text-xl font-semibold">
               Allergien & Unverträglichkeiten
             </h2>
-            <p className="text-sm text-light-text/70">
+            <p className="text-sm text-base-content/70">
               Wähle aus, welche Lebensmittel du nicht verträgst.
             </p>
 
@@ -350,7 +350,7 @@ export function StartSettingsUserPage() {
 
             <div className="form-control">
               <label className="label">
-                <span className="label-text text-light-text/80">
+                <span className="label-text">
                   Weitere Ernährungsbeschränkungen (optional)
                 </span>
               </label>
@@ -375,31 +375,31 @@ export function StartSettingsUserPage() {
   };
 
   return (
-    <div className="min-h-screen bg-first-bg">
+    <div className="min-h-screen bg-gray-50">
       <SectionWrapper className="py-12">
-        <div className="max-w-3xl mx-auto bg-second-bg rounded-xl shadow-lg overflow-hidden border border-accent-yellow/20">
+        <div className="max-w-3xl mx-auto bg-white rounded-xl shadow-md overflow-hidden">
           <div className="max-w-3xl mx-auto p-6 space-y-8">
             <div className="text-center space-y-2">
-              <h1 className="text-3xl font-bold text-light-text">Willkommen bei ProPerc</h1>
-              <p className="text-light-text/80">
+              <h1 className="text-3xl font-bold">Willkommen bei ProPerc</h1>
+              <p className="text-base-content/70">
                 Bitte gib uns einige Informationen, um dein persönliches
                 Erlebnis zu gestalten.
               </p>
             </div>
 
             {/* Progress Bar */}
-            <div className="w-full bg-dark-bg/50 rounded-full h-2.5">
+            <div className="w-full bg-base-200 rounded-full h-2.5">
               <div
-                className="bg-accent-yellow h-2.5 rounded-full transition-all duration-300"
+                className="bg-primary h-2.5 rounded-full transition-all duration-300"
                 style={{ width: `${progress}%` }}
               ></div>
             </div>
-            <p className="text-sm text-right text-light-text/70">
+            <p className="text-sm text-right text-base-content/70">
               Schritt {currentStep} von {totalSteps}
             </p>
 
             {/* Form Content */}
-            <div className="bg-second-bg/80 backdrop-blur-sm rounded-lg border border-accent-yellow/10 p-6">
+            <div className="bg-base-100 rounded-lg shadow-lg p-6">
               {renderStep()}
             </div>
 
@@ -409,7 +409,6 @@ export function StartSettingsUserPage() {
                 variant="outline"
                 onClick={prevStep}
                 disabled={currentStep === 1}
-                className="border-accent-yellow/30 text-light-text hover:bg-accent-yellow/10 hover:border-accent-yellow/50"
               >
                 Zurück
               </Button>
@@ -417,7 +416,6 @@ export function StartSettingsUserPage() {
               <Button
                 onClick={nextStep}
                 disabled={!isStepComplete(currentStep)}
-                className="bg-accent-yellow text-dark-bg hover:bg-accent-yellow/90 font-semibold"
               >
                 {currentStep === totalSteps ? "Abschließen" : "Weiter"}
               </Button>

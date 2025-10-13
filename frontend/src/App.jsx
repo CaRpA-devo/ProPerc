@@ -39,5 +39,4 @@ function App() {
     </UserProvider>
   );
 }
-
 export default App;
