@@ -375,9 +375,9 @@ export function StartSettingsUserPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <SectionWrapper className="py-12">
-        <div className="max-w-3xl mx-auto bg-white rounded-xl shadow-md overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800">
+      <SectionWrapper className="py-12 px-4">
+        <div className="max-w-3xl mx-auto bg-gray-800 rounded-xl shadow-2xl overflow-hidden border border-gray-700">
           <div className="max-w-3xl mx-auto p-6 space-y-8">
             <div className="text-center space-y-2">
               <h1 className="text-3xl font-bold">Willkommen bei ProPerc</h1>
@@ -399,7 +399,7 @@ export function StartSettingsUserPage() {
             </p>
 
             {/* Form Content */}
-            <div className="bg-base-100 rounded-lg shadow-lg p-6">
+            <div className="bg-gray-800 rounded-lg p-6 border border-gray-700">
               {renderStep()}
             </div>
 
