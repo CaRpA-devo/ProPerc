@@ -1,8 +1,10 @@
 import { useUser } from "../../context/UserContext";
+import { useNavigate } from "react-router-dom";
 import "./user-profile-card.style.css";
 
 export function UserProfileCard() {
   const { userData } = useUser();
+  const navigate = useNavigate();
   
   // Funktion zur Formatierung der Aktivitätsstufe
   const getActivityLevelLabel = (level) => {
@@ -38,8 +40,14 @@ export function UserProfileCard() {
 
   return (
     <div className="user-profile-card">
-      <div className="user-profile-header">
+      <div className="user-profile-header flex justify-between items-center">
         <h2>Dein Profil</h2>
+        <button 
+          onClick={() => navigate('/onboarding')}
+          className="btn btn-primary btn-sm"
+        >
+          Profil bearbeiten
+        </button>
       </div>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
