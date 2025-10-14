@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "../atoms/button.comp";
 import { useUser } from "../../context/UserContext";
 import { SectionWrapper } from "../atoms/sectionwrapper.comp";
+import { DashboardLayout } from "../layouts/dashboard.layout";
 
 // Constants
 const ALLERGY_OPTIONS = [
@@ -375,55 +376,44 @@ export function StartSettingsUserPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800">
+    <DashboardLayout>
       <SectionWrapper className="py-12 px-4">
-        <div className="max-w-3xl mx-auto bg-gray-800 rounded-xl shadow-2xl overflow-hidden border border-gray-700">
-          <div className="max-w-3xl mx-auto p-6 space-y-8">
-            <div className="text-center space-y-2">
-              <h1 className="text-3xl font-bold">Willkommen bei ProPerc</h1>
-              <p className="text-base-content/70">
-                Bitte gib uns einige Informationen, um dein persönliches
-                Erlebnis zu gestalten.
-              </p>
-            </div>
+        <div className="max-w-3xl mx-auto bg-base-100 rounded-xl shadow-2xl overflow-hidden border border-base-300 p-6">
+          {/* Progress Bar */}
+          <div className="w-full bg-base-200 rounded-full h-2.5 mb-8">
+            <div
+              className="bg-primary h-2.5 rounded-full transition-all duration-300"
+              style={{ width: `${progress}%` }}
+            ></div>
+          </div>
 
-            {/* Progress Bar */}
-            <div className="w-full bg-base-200 rounded-full h-2.5">
-              <div
-                className="bg-primary h-2.5 rounded-full transition-all duration-300"
-                style={{ width: `${progress}%` }}
-              ></div>
-            </div>
-            <p className="text-sm text-right text-base-content/70">
-              Schritt {currentStep} von {totalSteps}
-            </p>
+          {/* Form Content */}
+          <div className="bg-base-100 rounded-lg p-6 border border-base-300">
+            {renderStep()}
+          </div>
 
-            {/* Form Content */}
-            <div className="bg-gray-800 rounded-lg p-6 border border-gray-700">
-              {renderStep()}
-            </div>
+          {/* Navigation Buttons */}
+          <div className="flex justify-between mt-6">
+            <Button
+              variant="outline"
+              onClick={prevStep}
+              disabled={currentStep === 1}
+              className="min-w-[120px]"
+            >
+              Zurück
+            </Button>
 
-            {/* Navigation Buttons */}
-            <div className="flex justify-between">
-              <Button
-                variant="outline"
-                onClick={prevStep}
-                disabled={currentStep === 1}
-              >
-                Zurück
-              </Button>
-
-              <Button
-                onClick={nextStep}
-                disabled={!isStepComplete(currentStep)}
-              >
-                {currentStep === totalSteps ? "Abschließen" : "Weiter"}
-              </Button>
-            </div>
+            <Button
+              onClick={nextStep}
+              disabled={!isStepComplete(currentStep)}
+              className="min-w-[120px]"
+            >
+              {currentStep === totalSteps ? "Abschließen" : "Weiter"}
+            </Button>
           </div>
         </div>
       </SectionWrapper>
-    </div>
+    </DashboardLayout>
   );
 
   function isStepComplete(step) {
@@ -443,5 +433,3 @@ export function StartSettingsUserPage() {
     }
   }
 }
-
-export default StartSettingsUserPage;
