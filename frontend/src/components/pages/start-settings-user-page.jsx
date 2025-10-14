@@ -378,9 +378,12 @@ export function StartSettingsUserPage() {
   return (
     <DashboardLayout>
       <SectionWrapper className="py-12 px-4">
-        <div className="max-w-3xl mx-auto bg-base-100 rounded-xl shadow-2xl overflow-hidden border border-base-300 p-6">
+        <div
+          className="w-full max-w-[90rem] mx-auto bg-base-200 rounded-xl shadow-md overflow-hidden border border-base-300 p-6"
+          style={{ maxWidth: "70%" }}
+        >
           {/* Progress Bar */}
-          <div className="w-full bg-base-200 rounded-full h-2.5 mb-8">
+          <div className="w-full bg-base-100 rounded-full h-2.5 mb-8">
             <div
               className="bg-primary h-2.5 rounded-full transition-all duration-300"
               style={{ width: `${progress}%` }}
@@ -388,9 +391,7 @@ export function StartSettingsUserPage() {
           </div>
 
           {/* Form Content */}
-          <div className="bg-base-100 rounded-lg p-6 border border-base-300">
-            {renderStep()}
-          </div>
+          <div className="bg-base-200 rounded-lg p-6">{renderStep()}</div>
 
           {/* Navigation Buttons */}
           <div className="flex justify-between mt-6">
