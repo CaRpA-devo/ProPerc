@@ -1,6 +1,7 @@
 import Aurora from "../animations/aurora.animation.ani.jsx";
 import { Link } from "react-router";
-import { SignedIn, SignOutButton } from "@clerk/clerk-react";
+
+import { UserAvatar } from "../atoms/user.avatar.com.jsx";
 
 export function NavbarLink({}) {
   return (
@@ -78,61 +79,56 @@ export function NavbarLink({}) {
             </li>
           </ul>
         </div>
-
-        {/* Mobile Menü */}
-        <div className="flex-none lg:hidden">
-          <div className="dropdown dropdown-end">
-            <button
-              tabIndex={0}
-              role="button"
-              className="btn btn-ghost btn-sm"
-              aria-label="Menü öffnen"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
-            </button>
-
-            <ul
-              tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
-            >
-              <li>
-                <Link to="/dashboard">Dashboard</Link>
-              </li>
-              <li>
-                <Link to="/profile">Profile</Link>
-              </li>
-              <li>
-                <Link to="/signin">Login</Link>
-              </li>
-              <li>
-                <Link to="/signup">Register</Link>
-              </li>
-            </ul>
-          </div>
+        <div className="hidden lg:block">
+          <UserAvatar />
         </div>
-        {/* Rechts: Logout-Button nur sichtbar, wenn eingeloggt */}
-        <SignedIn>
-          <div className="flex-none pr-4">
-            <SignOutButton redirectUrl="/">
-              <button className="btn btn-sm bg-red-500 hover:bg-red-600 text-white border-0">
-                Logout
-              </button>
-            </SignOutButton>
-          </div>
-        </SignedIn>
+      </div>
+      {/* Mobile Menü */}
+      <div className="flex-none lg:hidden">
+        <div className="dropdown dropdown-end">
+          <button
+            tabIndex={0}
+            role="button"
+            className="btn btn-ghost btn-sm"
+            aria-label="Menü öffnen"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+
+          <ul
+            tabIndex={0}
+            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+          >
+            <li>
+              <UserAvatar />
+            </li>
+            <li>
+              <Link to="/dashboard">Dashboard</Link>
+            </li>
+            <li>
+              <Link to="/profile">Profile</Link>
+            </li>
+            <li>
+              <Link to="/signin">Login</Link>
+            </li>
+            <li>
+              <Link to="/signup">Register</Link>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   );

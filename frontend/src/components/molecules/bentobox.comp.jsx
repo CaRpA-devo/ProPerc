@@ -13,17 +13,17 @@ export function BentoBox() {
   ]);
   return (
     <>
-      <section class="p-8 hero-section bg-base-300 border border-primary/20">
-        <div class="col-left col">
-          <a href="about.html" class="row box-1">
+      <section className="p-8 hero-section bg-base-300 border border-primary/20">
+        <div className="col-left col">
+          <a href="about.html" className="row box-1">
             <div>
               <NutritionChart />
             </div>
           </a>
         </div>
 
-        <div class="col-middle col">
-          <a href="#" class="row box-6">
+        <div className="col-middle col">
+          <a href="#" className="row box-6">
             <div>
               <CalorieChart data={data} />
               <button
@@ -36,17 +36,17 @@ export function BentoBox() {
           </a>
         </div>
         <div
-          class="col-right col 
+          className="col-right col 
  
 "
         >
-          <a href="#" class="row box-4">
+          <a href="#" className="row box-4">
             <div>
               <h2>GNARZ</h2>
             </div>
           </a>
 
-          <a href="#" class="row box-5">
+          <a href="#" className="row box-5">
             <div>
               <h2>JUNNNGE</h2>
             </div>
