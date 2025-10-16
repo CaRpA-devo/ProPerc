@@ -1,9 +1,8 @@
 import express from "express";
-
-import { clerkAuth } from "../middelwares/clerkauth.js";
 import { getProfile, saveProfile } from "../controllers/profile.controller.js";
+import { requireAuth } from "../middelwares/clerkauth.js";
 
-export const ProfileRouter = express.Router();
+export const profilerouter = express.Router();
 
-ProfileRouter.get("/", clerkAuth, getProfile);
-ProfileRouter.post("/", clerkAuth, saveProfile);
+profilerouter.get("/me", requireAuth, getProfile);
+profilerouter.post("/settings", requireAuth, saveProfile);

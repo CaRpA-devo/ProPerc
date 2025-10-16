@@ -1,18 +1,30 @@
-import { verifyToken } from "@clerk/backend";
+// src/middlewares/clerkauth.js
+import { verifyToken } from "@clerk/clerk-sdk-node";
 
-export const clerkAuth = async (req, res, next) => {
+export const requireAuth = async (req, res, next) => {
   try {
-    const header = req.headers.authorization;
-    if (!header?.startsWith("Bearer ")) {
-      return res.status(401).json({ error: "Kein Token gefunden" });
+    const authHeader = req.headers.authorization;
+
+    if (!authHeader || !authHeader.startsWith("Bearer ")) {
+      return res.status(401).json({ message: "Unauthenticated" });
     }
 
-    const token = header.split[1];
-    const payload = await verifyToken(token);
-    req.userId = payload.sub; // Clerk userId
+    const token = authHeader.substring(7); // "Bearer " entfernen
+
+    // Token mit Clerk verifizieren
+    const payload = await verifyToken(token, {
+      secretKey: process.env.CLERK_SECRET_KEY,
+    });
+
+    // User-Informationen in req.auth speichern
+    req.auth = {
+      userId: payload.sub,
+      sessionId: payload.sid,
+    };
+
     next();
-  } catch (err) {
-    console.error(err);
-    res.status(401).json({ error: "Ungültiges Token" });
+  } catch (error) {
+    console.error("Auth Error:", error);
+    res.status(401).json({ message: "Unauthenticated" });
   }
 };

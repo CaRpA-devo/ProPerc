@@ -1,33 +1,45 @@
 import express from "express";
 import { env } from "./src/config/config.js";
+import { Clerk } from "@clerk/clerk-sdk-node";
+
+Clerk({ apiKey: process.env.CLERK_SECRET_KEY });
 
 import { mongoConnect } from "./src/config/db.js";
 
 import { createError } from "./src/utils/createError.js";
 // import { user_router } from "./src/endpoints/users/router.js";
 import cors from "cors";
-import { ProfileRouter } from "./src/routes/profil.route.js";
-import { EntryRouter } from "./src/routes/entry.route.js";
+import { profilerouter } from "./src/routes/profil.route.js";
+import calcRouter from "./src/routes/calc.route.js";
 
 const app = express();
+
+// CORS konfigurieren: erlaubt Zugriff vom Frontend
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "http://localhost:5174",
+      "http://localhost:5175",
+    ],
+    credentials: true,
+  })
+);
 app.use(express.json());
-app.use(cors());
 
+// Datenbank verbinden
 await mongoConnect();
-// Hier binden wir unsere Routen ein:
 
-// app.use("/user", user_router);
+// Routen einbinden
+app.use("/api/profile", profilerouter);
+app.use("/api/calc", calcRouter);
 
-app.use("/api/profile", ProfileRouter);
-app.use("/api/entries", EntryRouter);
-
-// 404 Not Found
-
-app.all("/{*splat}", (req, res, next) => {
+// 404 Not Found Middleware
+app.all("/", (req, res, next) => {
   next(new createError("404 Not Found", 404));
 });
 
-// 500 Internal Server Error
+// 500 Internal Server Error Middleware
 app.use((err, req, res, next) => {
   res.status(err.status || 500).json({
     status: err.status || 500,
@@ -35,6 +47,7 @@ app.use((err, req, res, next) => {
   });
 });
 
+// Server starten
 app.listen(env.PORT, () => {
-  console.log(`Server is running on port ${env.PORT}`);
+  console.log(`Server läuft auf Port ${env.PORT}`);
 });
