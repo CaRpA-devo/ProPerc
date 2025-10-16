@@ -1,30 +1,20 @@
 import express from "express";
-import { env } from "./src/config/config.js";
-
-import { mongoConnect } from "./src/config/db.js";
-
-import { createError } from "./src/utils/createError.js";
-// import { user_router } from "./src/endpoints/users/router.js";
-import cors from "cors";
-import { ProfileRouter } from "./src/routes/profil.route.js";
-import { EntryRouter } from "./src/routes/entry.route.js";
+import { env } from "./config/config.js";
+import { AppError } from "./utils/AppError.js";
+import { mongoConnect } from "./config/db.js";
+import { user_router } from "./endpoints/user/router.js";
 
 const app = express();
 app.use(express.json());
-app.use(cors());
 
 await mongoConnect();
-// Hier binden wir unsere Routen ein:
 
-// app.use("/user", user_router);
-
-app.use("/api/profile", ProfileRouter);
-app.use("/api/entries", EntryRouter);
+app.use("/user", user_router);
 
 // 404 Not Found
 
 app.all("/{*splat}", (req, res, next) => {
-  next(new createError("404 Not Found", 404));
+  next(new AppError("404 Not Found", 404));
 });
 
 // 500 Internal Server Error
@@ -35,6 +25,6 @@ app.use((err, req, res, next) => {
   });
 });
 
-app.listen(env.PORT, () => {
-  console.log(`Server is running on port ${env.PORT}`);
+app.listen(env.port, () => {
+  console.log(`Server is running on port ${env.port}`);
 });

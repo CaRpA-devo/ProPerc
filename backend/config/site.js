@@ -1,30 +1,27 @@
 export const siteConfig = {
   dburl: {
     host: "http://localhost",
-    port: 4000,
-    baseUrl: "http://localhost:4000",
+    port: 3000,
   },
   social: {
     twitter: "https://twitter.com/ProPerc",
     mastodon: "https://mastodon.social/@ProPerc",
     github: "https://github.com/ProPerc",
     discord: "https://discord.gg/ProPerc",
-    instagram: "https://instagram.com/ProPerc",
+    instagram: "https://instagram.com/ProPerc"
   },
   meta: {
     index: {
       title: "ProPerc | Home",
       desc: "Deine App für Kalorienrechner, Fitness-Tracking und Gesundheit. Verliere Gewicht oder baue Muskeln auf.",
       bots: true,
-      keywords:
-        "Kalorienrechner, Fitness App, Kalorien zählen, Muskelaufbau, Abnehmen, Ernährung, Gesundheit, Sport",
+      keywords: "Kalorienrechner, Fitness App, Kalorien zählen, Muskelaufbau, Abnehmen, Ernährung, Gesundheit, Sport",
     },
     about: {
       title: "ProPerc | About",
       desc: "Erfahre mehr über ProPerc – deine App für Fitness, Ernährung und Gesundheit.",
       bots: true,
-      keywords:
-        "ProPerc, Fitness App, Gesundheit, Kalorienrechner, Ernährung, Training",
+      keywords: "ProPerc, Fitness App, Gesundheit, Kalorienrechner, Ernährung, Training",
     },
     signin: {
       title: "ProPerc | SignIn",
@@ -36,8 +33,7 @@ export const siteConfig = {
       title: "ProPerc | SignUp",
       desc: "Registriere dich kostenlos bei ProPerc und starte deine Fitness-Reise mit Kalorienrechner und Trainingsplänen.",
       bots: true,
-      keywords:
-        "ProPerc, Registrierung, Konto erstellen, Fitness App, Kalorienrechner",
+      keywords: "ProPerc, Registrierung, Konto erstellen, Fitness App, Kalorienrechner",
     },
     dashboard: {
       title: "ProPerc | Dashboard",
@@ -49,8 +45,7 @@ export const siteConfig = {
       title: "ProPerc | Support",
       desc: "Hilfe und Unterstützung zu allen Themen rund um ProPerc – deine Fitness- und Kalorien-App.",
       bots: true,
-      keywords:
-        "ProPerc, Support, Hilfe, Kontakt, Fitness App, Kalorienrechner",
+      keywords: "ProPerc, Support, Hilfe, Kontakt, Fitness App, Kalorienrechner",
     },
     list: {
       title: "ProPerc | Listen",

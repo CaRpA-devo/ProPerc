@@ -1,42 +1,38 @@
 import "./App.css";
-import { Route, Routes } from "react-router-dom";
-import { UserProvider } from "./context/UserContext";
+import "./index.css";
+import { Route, Routes } from "react-router";
 import { IndexPage } from "./components/pages/index.page.jsx";
-import { DashboardPage } from "./components/pages/dashboard.page.jsx";
+import { DashboardPage } from "./components/pages/dashboard.page";
 
-import NotFoundPage from "./components/pages/notfound.page.jsx";
+import NotFoundPage from "./components/pages/notfound.page";
 import { SettingsPage } from "./components/pages/settings.page.jsx";
 import { WikiPage } from "./components/pages/wiki.page.jsx";
-import { SignInPage } from "./components/pages/signin.page.jsx";
-import { SignUpPage } from "./components/pages/signup.page.jsx";
-import { StartSettingsUserPage } from "./components/pages/start-settings-user-page";
 
 function App() {
   return (
-    <UserProvider>
+    <>
       <Routes>
         {/* Public Pages */}
         <Route path="/" element={<IndexPage />} />
-        Signin/Signout
-        <Route element={<SignInPage />} path="/signin" />
-        <Route element={<SignInPage />} path="/signin/factor-one" />
-        <Route element={<SignInPage />} path="/signin/reset-password" />
-        <Route element={<SignInPage />} path="/signin/reset-password-success" />
-        <Route element={<SignInPage />} path="/signin/sso-callback" />
-        <Route element={<SignUpPage />} path="/signup" />
-        <Route element={<SignUpPage />} path="/signup/verify-email-address" />
+
+        {/* SignIn / SignOut */}
+        {/* TODO brauchen wir nicht erst für regestrierung so ist das übern händler geregelt */}
+        {/* <Route path="/signin/*" element={<SignInPage />} />
+        <Route path="/signup/*" element={<SignUpPage />} /> */}
+
         {/* Dashboard */}
-        <Route element={<DashboardPage />} path="/dashboard" />
+        <Route element={<DashboardPage />} path="/dashboard"></Route>
+
         {/* Settings */}
-        <Route element={<SettingsPage />} path="/settings" />
+        <Route element={<SettingsPage />} path="/settings"></Route>
+
         {/* Wiki */}
-        <Route element={<WikiPage />} path="/wiki" />
-        {/* Onboarding */}
-        <Route element={<StartSettingsUserPage />} path="/onboarding" />
+        <Route element={<WikiPage />} path="/wiki"></Route>
+
         {/* 404-Route*/}
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
-    </UserProvider>
+    </>
   );
 }
 export default App;

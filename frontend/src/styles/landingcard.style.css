@@ -1,0 +1,4 @@
+.glass-overlay-bg2 {
+  background: linear-gradient(135deg, #0d1b1e 0%, #1be521 60%, #c4ff00 100%),
+    rgba(255, 255, 255, 0.1); /* optionaler Overlay */
+}
