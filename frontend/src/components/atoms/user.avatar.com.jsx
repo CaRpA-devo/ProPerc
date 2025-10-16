@@ -17,7 +17,15 @@ export function UserAvatar() {
       />
 
       {/* Username oder Vorname anzeigen */}
-      <p>{user.user?.username || user.user?.firstName}</p>
+      <p>
+        {user.user?.username
+          ? user.user.username.charAt(0).toUpperCase() +
+            user.user.username.slice(1)
+          : user.user?.firstName
+          ? user.user.firstName.charAt(0).toUpperCase() +
+            user.user.firstName.slice(1)
+          : ""}
+      </p>
     </div>
   );
 }

@@ -55,6 +55,14 @@ export function NavbarLink({}) {
             </li>
             <li>
               <Link
+                to="/food"
+                className="text-base font-medium hover:text-primary transition-colors py-2"
+              >
+                Ernährung
+              </Link>
+            </li>
+            <li>
+              <Link
                 to="/profile"
                 className="text-base font-medium hover:text-primary transition-colors py-2"
               >

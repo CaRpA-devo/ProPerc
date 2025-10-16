@@ -1,5 +1,5 @@
-import { NavbarLink } from "../organisms/navbarlink.org";
-import { Footer } from "../organisms/footer.org";
+import { NavbarLink } from "../organisms/navbarlink.org.jsx";
+import { Footer } from "../organisms/footer.org.jsx";
 
 export function DashboardLayout({ children }) {
   return (

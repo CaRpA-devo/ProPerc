@@ -1,88 +1,267 @@
+/* Grid-basierte BentoBox */
 .hero-section {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1.5fr 1.5fr; /* Linke Spalte kleiner, rechte größer */
+  grid-template-rows: 1fr;
   width: 80vw;
-  gap: 0.5rem;
-  border-radius: 1.2rem;
+  max-height: 85vh; /* Mehr Höhe für das Diagramm */
+  min-height: 60vh; /* Minimale Höhe für bessere Responsivität */
+  height: auto;
+  gap: 0.25rem; /* Kleinere Abstände */
+  border-radius: 0.8rem;
   background-color: #111010;
+  padding: 0.25rem; /* Weniger Padding */
+  overflow: hidden; /* Verhindert Überlauf */
+
+  /* Responsive Grid Layout */
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    max-height: 95vh;
+    min-height: 70vh;
+    width: 95vw;
+    gap: 0.15rem;
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    max-height: 100vh;
+    min-height: 80vh;
+    width: 95vw;
+    padding: 0.1rem;
+    gap: 0.1rem;
+  }
+
+  @media (max-width: 480px) {
+    width: 90vw;
+    max-height: 100vh;
+    min-height: 100vh;
+    padding: 0.05rem;
+    border-radius: 0.3rem;
+    gap: 0.05rem;
+  }
 
   .col {
-    flex: 1;
-    height: 60vh;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    min-width: 10rem;
+    display: grid;
+    gap: 0.25rem; /* Kleinere Abstände zwischen Boxen */
+    min-height: 0;
 
     .row {
       display: flex;
       justify-content: center;
       align-items: center;
-      border-radius: 1rem;
-      transition: 0.4s ease;
+      border-radius: 0.6rem; /* Kleinere Border-Radius */
+      transition: all 0.3s ease;
       cursor: pointer;
       text-decoration: none;
       color: #171717;
+      overflow: hidden;
+      padding: 0.5rem; /* Kompakteres Padding */
+      min-height: 80px; /* Minimale Höhe für bessere Responsivität */
+      flex-shrink: 0; /* Verhindert Schrumpfung */
 
       &:hover {
         transform: scale(1.02);
         box-shadow: 0 0 8px rgba(58, 111, 78, 0.8),
           0 0 15px rgba(58, 111, 78, 0.6), 0 0 25px rgba(58, 111, 78, 0.4),
           0 0 40px rgba(58, 111, 78, 0.3);
-        transition: box-shadow 0.3s;
+        transition: all 0.3s ease;
+      }
+
+      /* Responsive Anpassungen für kleinere Bildschirme */
+      @media (max-width: 768px) {
+        min-height: 60px;
+        padding: 0.3rem;
+      }
+
+      @media (max-width: 480px) {
+        min-height: 50px;
+        padding: 0.2rem;
       }
     }
   }
-  .col-left {
-    flex: 2;
-    .row {
-      height: calc(100% / 1);
-    }
-  }
 
-  .col-middle {
-    .row {
-      height: 100%;
+  /* Grid Areas für bessere Kontrolle */
+  .col-left {
+    grid-column: 1;
+    grid-row: 1;
+    grid-template-columns: 1fr; /* 1 Spalte */
+    grid-template-rows: 1.5fr 1fr; /* UserProfile kleiner, Ernährungsplan gleich */
+    grid-template-areas:
+      "profile"
+      "nutrition";
+
+    @media (max-width: 1024px) {
+      grid-column: 1;
+      grid-row: 1;
+      grid-template-columns: 1fr;
+      grid-template-rows: 0.8fr 0.5fr;
+      grid-template-areas:
+        "profile"
+        "nutrition";
+      gap: 0.15rem;
+    }
+
+    @media (max-width: 768px) {
+      grid-column: 1;
+      grid-row: 1;
+      grid-template-columns: 1fr;
+      grid-template-rows: 0.7fr 0.4fr;
+      grid-template-areas:
+        "profile"
+        "nutrition";
+      gap: 0.1rem;
+    }
+
+    @media (max-width: 480px) {
+      grid-template-columns: 1fr;
+      grid-template-rows: 0.6fr 0.3fr;
+      grid-template-areas:
+        "profile"
+        "nutrition";
+      gap: 0.05rem;
     }
   }
 
   .col-right {
-    .row {
-      height: calc(100% / 1);
+    grid-column: 2;
+    grid-row: 1;
+    grid-template-rows: 1fr 1fr;
+    gap: 0.25rem; /* Kleinere Abstände */
+
+    @media (max-width: 1024px) {
+      grid-column: 1;
+      grid-row: 2;
+      grid-template-rows: 1fr 0.5fr;
+      gap: 0.15rem;
+    }
+
+    @media (max-width: 768px) {
+      grid-column: 1;
+      grid-row: 2;
+      grid-template-rows: 1fr 0.4fr;
+      gap: 0.1rem;
+    }
+
+    @media (max-width: 480px) {
+      grid-template-rows: 1fr 0.3fr;
+      gap: 0.05rem;
     }
   }
 }
 
+/* Box-Styles */
 .box-1 {
   background-color: #272727;
-  background-image: url("./src/backgrounds/1.webp");
-  background-size: cover;
-  background-position: center;
+  grid-area: profile; /* Spannt über beide Spalten der ersten Reihe */
+  overflow: hidden; /* Verhindert Überlauf */
+  word-wrap: break-word; /* Textumbruch bei langen Wörtern */
+
   h2 {
     background-color: aliceblue;
-    padding: 1rem;
-    border-radius: 1rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    font-size: 1.1rem; /* Kleinere Schriftgröße */
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  h3,
+  h4,
+  p {
+    font-size: 0.9rem; /* Kleinere Schriftgrößen */
+    margin: 0.25rem 0;
   }
 }
 
 .box-2 {
   background-color: #272727;
+
+  h2 {
+    font-size: 0.9rem;
+    margin: 0;
+    color: #fff;
+    line-height: 1.2;
+  }
+
+  p {
+    font-size: 0.7rem;
+    margin: 0;
+    color: #ccc;
+    line-height: 1.2;
+  }
+
+  @media (max-width: 768px) {
+    h2 {
+      font-size: 0.8rem;
+    }
+
+    p {
+      font-size: 0.65rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    h2 {
+      font-size: 0.7rem;
+    }
+
+    p {
+      font-size: 0.6rem;
+    }
+  }
 }
 
 .box-3 {
   background-color: #272727;
-  background-image: url("./src/backgrounds/4.webp");
-  background-size: cover;
-  background-position: center;
+
   h2 {
-    background-color: aliceblue;
-    padding: 1rem;
-    border-radius: 1rem;
+    font-size: 0.9rem;
+    margin: 0;
+    color: #fff;
+    line-height: 1.2;
+  }
+
+  p {
+    font-size: 0.7rem;
+    margin: 0;
+    color: #ccc;
+    line-height: 1.2;
+  }
+
+  @media (max-width: 768px) {
+    h2 {
+      font-size: 0.8rem;
+    }
+
+    p {
+      font-size: 0.65rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    h2 {
+      font-size: 0.7rem;
+    }
+
+    p {
+      font-size: 0.6rem;
+    }
   }
 }
 
 .box-4 {
   background-color: #272727;
+  grid-area: nutrition; /* Ernährungsplan in der linken Spalte */
+
+  h2 {
+    font-size: 1rem;
+    margin: 0;
+    color: #fff;
+  }
 }
 
 .box-5 {
@@ -91,13 +270,68 @@
 
 .box-6 {
   background-color: #272727;
-  background-image: url("./src/backgrounds/2.webp");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+
   h2 {
-    background-color: aliceblue;
-    padding: 1rem;
-    border-radius: 1rem;
+    font-size: 1rem;
+    margin: 0;
+    color: #fff;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+  }
+}
+
+/* Erweiterte Grid-Optionen für mehr Flexibilität */
+.grid-2x2 {
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.grid-3x1 {
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+}
+
+.grid-asymmetrical {
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+/* Spezielle Grid-Areas für komplexere Layouts */
+.grid-complex {
+  grid-template-areas:
+    "profile profile stats"
+    "profile profile chart"
+    "news news chart";
+
+  .profile-area {
+    grid-area: profile;
+  }
+  .stats-area {
+    grid-area: stats;
+  }
+  .chart-area {
+    grid-area: chart;
+  }
+  .news-area {
+    grid-area: news;
+  }
+}
+
+/* Responsive Anpassungen für Kalorien/Wasser Container */
+@media (max-width: 768px) {
+  .col-right .flex {
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+
+  .col-right .flex .row {
+    height: auto;
+    min-height: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .col-right .flex .row {
+    min-height: 45px;
   }
 }
