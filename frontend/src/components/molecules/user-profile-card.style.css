@@ -1,0 +1,153 @@
+.user-profile-card {
+  background: #272727;
+  border-radius: 1.2rem;
+  padding: 1.5rem;
+  color: #e0e0e0;
+  transition: all 0.3s ease;
+  border: 1px solid #3a6f4e40;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  height: 100%;
+}
+
+.user-profile-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 0 8px rgba(58, 111, 78, 0.8),
+    0 0 15px rgba(58, 111, 78, 0.6), 
+    0 0 25px rgba(58, 111, 78, 0.4);
+}
+
+.user-profile-header {
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #3a6f4e40;
+}
+
+.user-profile-header h2 {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+  background: linear-gradient(90deg, #3a6f4e, #4c9b6e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.user-profile-section {
+  margin-bottom: 1.5rem;
+}
+
+.user-profile-section:last-child {
+  margin-bottom: 0;
+}
+
+.user-profile-section h3 {
+  color: #4c9b6e;
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.user-profile-section h3::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 1.2rem;
+  background: linear-gradient(to bottom, #3a6f4e, #4c9b6e);
+  border-radius: 3px;
+}
+
+.user-detail {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #3a6f4e20;
+}
+
+.user-detail:last-child {
+  border-bottom: none;
+}
+
+.detail-label {
+  font-weight: 500;
+  color: #a0a0a0;
+}
+
+.detail-value {
+  font-weight: 500;
+  color: #fff;
+  text-align: right;
+}
+
+.bmi-display {
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  margin: 0.5rem 0;
+  font-weight: 600;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.bmi-untergewichtig {
+  background-color: rgba(59, 130, 246, 0.2);
+  color: #93c5fd;
+}
+
+.bmi-normalgewichtig {
+  background-color: rgba(34, 197, 94, 0.2);
+  color: #86efac;
+}
+
+.bmi-uebergewichtig {
+  background-color: rgba(234, 179, 8, 0.2);
+  color: #fde047;
+}
+
+.bmi-stark-uebergewichtig {
+  background-color: rgba(239, 68, 68, 0.2);
+  color: #fca5a5;
+}
+
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.tag {
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.tag-allergy {
+  background-color: rgba(251, 191, 36, 0.2);
+  color: #fcd34d;
+  border: 1px solid rgba(251, 191, 36, 0.3);
+}
+
+.tag-diet {
+  background-color: rgba(99, 102, 241, 0.2);
+  color: #a5b4fc;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+}
+
+@media (max-width: 768px) {
+  .user-profile-card {
+    padding: 1rem;
+  }
+  
+  .user-profile-header h2 {
+    font-size: 1.3rem;
+  }
+  
+  .user-profile-section h3 {
+    font-size: 1rem;
+  }
+}

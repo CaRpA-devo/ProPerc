@@ -1,6 +1,6 @@
 import "./App.css";
-
 import { Route, Routes } from "react-router-dom";
+import { UserProvider } from "./context/UserContext";
 import { IndexPage } from "./components/pages/index.page.jsx";
 import { DashboardPage } from "./components/pages/dashboard.page.jsx";
 
@@ -9,10 +9,11 @@ import { SettingsPage } from "./components/pages/settings.page.jsx";
 import { WikiPage } from "./components/pages/wiki.page.jsx";
 import { SignInPage } from "./components/pages/signin.page.jsx";
 import { SignUpPage } from "./components/pages/signup.page.jsx";
+import { StartSettingsUserPage } from "./components/pages/start-settings-user-page";
 
 function App() {
   return (
-    <>
+    <UserProvider>
       <Routes>
         {/* Public Pages */}
         <Route path="/" element={<IndexPage />} />
@@ -30,10 +31,12 @@ function App() {
         <Route element={<SettingsPage />} path="/settings" />
         {/* Wiki */}
         <Route element={<WikiPage />} path="/wiki" />
+        {/* Onboarding */}
+        <Route element={<StartSettingsUserPage />} path="/onboarding" />
         {/* 404-Route*/}
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
-    </>
+    </UserProvider>
   );
 }
 export default App;
