@@ -17,7 +17,7 @@ function App() {
       <Routes>
         {/* Public Pages */}
         <Route path="/" element={<IndexPage />} />
-        Signin/Signout
+
         <Route element={<SignInPage />} path="/signin" />
         <Route element={<SignInPage />} path="/signin/factor-one" />
         <Route element={<SignInPage />} path="/signin/reset-password" />

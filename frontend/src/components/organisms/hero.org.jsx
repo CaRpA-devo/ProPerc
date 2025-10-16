@@ -1,6 +1,7 @@
 import heroBg from "../../assets/img/heroFruits.jpg";
 import { SignedOut } from "@clerk/clerk-react";
 import { Link } from "react-router";
+import { Button } from "../atoms/button.comp";
 
 export function Hero() {
   return (
