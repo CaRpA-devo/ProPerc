@@ -7,7 +7,7 @@ export const clerkAuth = async (req, res, next) => {
       return res.status(401).json({ error: "Kein Token gefunden" });
     }
 
-    const token = header.split(" ")[1];
+    const token = header.split[1];
     const payload = await verifyToken(token);
     req.userId = payload.sub; // Clerk userId
     next();
