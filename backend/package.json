@@ -15,6 +15,7 @@
     "nodemon": "^3.1.10"
   },
   "dependencies": {
+    "@clerk/backend": "^2.18.1",
     "bcrypt": "^6.0.0",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",

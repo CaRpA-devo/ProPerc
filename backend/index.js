@@ -4,23 +4,22 @@ import { env } from "./src/config/config.js";
 import { mongoConnect } from "./src/config/db.js";
 
 import { createError } from "./src/utils/createError.js";
-import { user_router } from "./src/endpoints/users/router.js";
+// import { user_router } from "./src/endpoints/users/router.js";
 import cors from "cors";
+import { ProfileRouter } from "./src/routes/profil.route.js";
+import { EntryRouter } from "./src/routes/entry.route.js";
 
 const app = express();
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(
-  cors({
-    origin: "http://localhost:5173/", // später auf Frontend-Domain einschränken
-    methods: ["GET", "POST"],
-    credentials: true,
-  })
-);
+app.use(cors());
 
 await mongoConnect();
+// Hier binden wir unsere Routen ein:
 
-app.use("/user", user_router);
+// app.use("/user", user_router);
+
+app.use("/api/profile", ProfileRouter);
+app.use("/api/entries", EntryRouter);
 
 // 404 Not Found
 
