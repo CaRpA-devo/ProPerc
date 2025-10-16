@@ -4,9 +4,9 @@ import { useLocation } from "react-router-dom";
 
 export function Navbar() {
   const location = useLocation();
-  
+
   // Zeige die Navbar nicht auf der Onboarding-Seite
-  if (location.pathname.startsWith('/onboarding')) {
+  if (location.pathname.startsWith("/onboarding")) {
     return null;
   }
 
@@ -44,20 +44,6 @@ export function Navbar() {
             className="h-12"
           />
         </NavLink>
-
-        {/* Navigation Links */}
-        <nav className="hidden md:flex items-center space-x-2">
-          <NavLink to="/">Startseite</NavLink>
-          <NavLink to="/planer">Ernährungsplaner</NavLink>
-          <NavLink to="/wiki">Ernährungswiki</NavLink>
-          <NavLink to="/support">Support</NavLink>
-          <NavLink 
-            to="/onboarding" 
-            className="bg-primary text-primary-content hover:bg-primary-focus"
-          >
-            Jetzt starten
-          </NavLink>
-        </nav>
 
         {/* Mobile Menu Button (optional) */}
         <button className="md:hidden p-2">
