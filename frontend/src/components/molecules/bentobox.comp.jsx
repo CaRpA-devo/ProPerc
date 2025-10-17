@@ -156,7 +156,7 @@ export function BentoBox() {
               </div>
             </div>
             <div className="row box-3 flex-1">
-              <div className="w-full h-full flex items-center justify-center bg-base-200 rounded border border-base-300">
+              <div className="flex items-center justify-center bg-base-200 rounded border border-base-300">
                 <h3 className="text-sm font-semibold text-primary">
                   Muskelaufbau
                 </h3>
