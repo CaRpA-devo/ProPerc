@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
+import { useAuth } from "@clerk/clerk-react";
 import { useDailyTracking } from "../hooks/useDailyTracking";
 import { useFavorites } from "../hooks/useFavorites";
 
@@ -13,6 +14,7 @@ export const useBackendFood = () => {
 };
 
 export const BackendFoodProvider = ({ children }) => {
+  const { isSignedIn, isLoaded } = useAuth();
   const [todayFoods, setTodayFoods] = useState([]);
   const [waterIntake, setWaterIntake] = useState(0);
   const [savedRecipes, setSavedRecipes] = useState([]);
@@ -38,12 +40,20 @@ export const BackendFoodProvider = ({ children }) => {
     removeFavorite: apiRemoveFavorite,
   } = useFavorites();
 
-  // Lade Daten beim Start
+  // Lade Daten nur wenn der Benutzer authentifiziert ist
   useEffect(() => {
-    loadTodayData();
-    loadFavoritesData();
-    loadLocalData();
-  }, []);
+    if (isLoaded) {
+      if (isSignedIn) {
+        loadTodayData();
+        loadFavoritesData();
+      } else {
+        // Benutzer ist nicht authentifiziert, setze Loading auf false
+        setIsLoading(false);
+      }
+      // Lokale Daten (Rezepte) immer laden
+      loadLocalData();
+    }
+  }, [isLoaded, isSignedIn]);
 
   // Lade heute's Tracking-Daten vom Backend
   const loadTodayData = async () => {

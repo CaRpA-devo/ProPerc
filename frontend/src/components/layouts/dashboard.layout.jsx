@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { Sidebar } from "../organisms/sidebar.org.jsx";
 import { Footer } from "../organisms/footer.org.jsx";
+import { BackToTopButton } from "../atoms/back-to-top.comp.jsx";
 
-export function DashboardLayout({ children }) {
+export function DashboardLayout({ children, withFooter }) {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
 
   const toggleSidebar = () => {
@@ -22,7 +23,8 @@ export function DashboardLayout({ children }) {
       `}
       >
         <main className="flex-1">{children}</main>
-        <Footer />
+        {withFooter && <Footer />}
+        <BackToTopButton />
       </div>
     </div>
   );
