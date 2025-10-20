@@ -98,12 +98,6 @@ router.post("/", requireAuth, async (req, res) => {
       {
         $set: {
           calculations: calculationData,
-          weight,
-          height,
-          age,
-          gender: sex,
-          goal,
-          activityLevel: activityFactor.toString(),
         },
       },
       { upsert: true, new: true }
