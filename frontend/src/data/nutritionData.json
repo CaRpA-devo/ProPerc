@@ -1,0 +1,493 @@
+{
+  "vitamine": {
+    "categoryName": "Vitamine",
+    "icon": "mdi:vitamin-outline",
+    "color": "green",
+    "description": "Vitamine sind essenzielle Mikronährstoffe, die der Körper nicht oder nur unzureichend selbst herstellen kann. Sie werden in zwei Hauptgruppen unterteilt:",
+    "subcategories": [
+      {
+        "name": "Fettlösliche Vitamine (Lipophil)",
+        "description": "Diese Vitamine werden im Fettgewebe gespeichert und benötigen Fett für ihre Aufnahme.",
+        "items": [
+          {
+            "id": "vitamin-a",
+            "name": "Vitamin A (Retinol)",
+            "function": "Wichtig für Sehkraft, Immunsystem, Zellwachstum und Hautgesundheit. Unterstützt die Regeneration nach dem Training.",
+            "dailyNeed": "Männer: 900 µg, Frauen: 700 µg, Sportler: bis 1000 µg",
+            "sources": "Karotten, Süßkartoffeln, Spinat, Kürbis, Leber, Eier, Milchprodukte",
+            "special": "Veganer: Beta-Carotin aus Pflanzen wird zu Vitamin A umgewandelt (Konversionsrate ca. 12:1)",
+            "link": "https://www.ncbi.nlm.nih.gov/books/NBK567740/"
+          },
+          {
+            "id": "vitamin-d",
+            "name": "Vitamin D (Calciferol)",
+            "function": "Reguliert Calcium-Aufnahme für Knochen- und Zahngesundheit. Unterstützt Muskelkraft, Immunsystem und Testosteronproduktion bei Sportlern.",
+            "dailyNeed": "20 µg (800 IE), Sportler/Winter: 25-50 µg (1000-2000 IE)",
+            "sources": "Sonnenlicht (15-30 Min/Tag), fetter Fisch (Lachs, Makrele), Eigelb, angereicherte Lebensmittel",
+            "special": "Veganer: Supplementierung oft notwendig (Vitamin D2 oder D3 aus Flechten). Im Winter kritisch für alle.",
+            "link": "https://ods.od.nih.gov/factsheets/VitaminD-HealthProfessional/"
+          },
+          {
+            "id": "vitamin-e",
+            "name": "Vitamin E (Tocopherol)",
+            "function": "Starkes Antioxidans, schützt Zellen vor oxidativem Stress durch Training. Unterstützt Regeneration und Entzündungshemmung.",
+            "dailyNeed": "15 mg, Sportler: bis 20 mg",
+            "sources": "Nüsse (Mandeln, Haselnüsse), Pflanzenöle (Weizenkeimöl, Sonnenblumenöl), Avocado, Spinat",
+            "special": "Veganer haben meist gute Versorgung durch pflanzliche Öle und Nüsse.",
+            "link": "https://ods.od.nih.gov/factsheets/VitaminE-HealthProfessional/"
+          },
+          {
+            "id": "vitamin-k",
+            "name": "Vitamin K (Phyllochinon)",
+            "function": "Essentiell für Blutgerinnung und Knochengesundheit. Unterstützt Calcium-Einlagerung in Knochen.",
+            "dailyNeed": "Männer: 120 µg, Frauen: 90 µg",
+            "sources": "Grünkohl, Spinat, Brokkoli, Rosenkohl, Natto (fermentierte Sojabohnen), Petersilie",
+            "special": "Vitamin K2 (aus fermentierten Lebensmitteln) besonders wichtig für Knochengesundheit. Veganer: auf K2-Quellen achten.",
+            "link": "https://ods.od.nih.gov/factsheets/VitaminK-HealthProfessional/"
+          }
+        ]
+      },
+      {
+        "name": "Wasserlösliche Vitamine (Hydrophil)",
+        "description": "Diese Vitamine werden nicht gespeichert und müssen täglich zugeführt werden. Überschüsse werden ausgeschieden.",
+        "items": [
+          {
+            "id": "vitamin-b1",
+            "name": "Vitamin B1 (Thiamin)",
+            "function": "Energiestoffwechsel (Kohlenhydrate), Nervensystem. Wichtig für Ausdauersportler.",
+            "dailyNeed": "Männer: 1,2 mg, Frauen: 1,0 mg, Sportler: bis 1,5 mg",
+            "sources": "Vollkornprodukte, Hülsenfrüchte, Schweinefleisch, Nüsse, Sonnenblumenkerne",
+            "special": "Veganer: Hefeflocken sind exzellente Quelle.",
+            "link": "https://ods.od.nih.gov/factsheets/Thiamin-HealthProfessional/"
+          },
+          {
+            "id": "vitamin-b2",
+            "name": "Vitamin B2 (Riboflavin)",
+            "function": "Energieproduktion, Zellwachstum, Antioxidans. Unterstützt Fettstoffwechsel.",
+            "dailyNeed": "Männer: 1,4 mg, Frauen: 1,1 mg, Sportler: bis 1,7 mg",
+            "sources": "Milchprodukte, Eier, Mandeln, Pilze, grünes Blattgemüse",
+            "special": "Veganer: auf angereicherte Pflanzendrinks und Pilze achten.",
+            "link": "https://ods.od.nih.gov/factsheets/Riboflavin-HealthProfessional/"
+          },
+          {
+            "id": "vitamin-b3",
+            "name": "Vitamin B3 (Niacin)",
+            "function": "Energiestoffwechsel, DNA-Reparatur, Hormonproduktion. Wichtig für Regeneration.",
+            "dailyNeed": "Männer: 16 mg, Frauen: 14 mg, Sportler: bis 20 mg",
+            "sources": "Fleisch, Fisch, Erdnüsse, Vollkorn, Pilze, Hülsenfrüchte",
+            "special": "Kann auch aus Tryptophan (Aminosäure) synthetisiert werden.",
+            "link": "https://ods.od.nih.gov/factsheets/Niacin-HealthProfessional/"
+          },
+          {
+            "id": "vitamin-b5",
+            "name": "Vitamin B5 (Pantothensäure)",
+            "function": "Energiestoffwechsel, Hormonproduktion (Cortisol), Wundheilung.",
+            "dailyNeed": "5 mg (alle Gruppen)",
+            "sources": "Weit verbreitet: Pilze, Avocado, Eier, Hülsenfrüchte, Vollkorn",
+            "special": "Mangel sehr selten, da in fast allen Lebensmitteln enthalten.",
+            "link": "https://ods.od.nih.gov/factsheets/PantothenicAcid-HealthProfessional/"
+          },
+          {
+            "id": "vitamin-b6",
+            "name": "Vitamin B6 (Pyridoxin)",
+            "function": "Proteinstoffwechsel, Neurotransmitter-Synthese, Immunfunktion. Essentiell für Muskelaufbau.",
+            "dailyNeed": "1,4 mg, Sportler: bis 2 mg",
+            "sources": "Geflügel, Fisch, Kartoffeln, Kichererbsen, Bananen, Haferflocken",
+            "special": "Bedarf steigt mit Proteinzufuhr. Sportler brauchen mehr.",
+            "link": "https://ods.od.nih.gov/factsheets/VitaminB6-HealthProfessional/"
+          },
+          {
+            "id": "vitamin-b7",
+            "name": "Vitamin B7 (Biotin)",
+            "function": "Stoffwechsel von Fetten, Kohlenhydraten und Proteinen. Wichtig für Haut, Haare und Nägel.",
+            "dailyNeed": "30-60 µg (alle Gruppen)",
+            "sources": "Eier (gekocht), Nüsse, Haferflocken, Sojabohnen, Pilze",
+            "special": "Rohes Eiweiß blockiert Biotin-Aufnahme. Immer kochen!",
+            "link": "https://ods.od.nih.gov/factsheets/Biotin-HealthProfessional/"
+          },
+          {
+            "id": "vitamin-b9",
+            "name": "Vitamin B9 (Folsäure/Folat)",
+            "function": "Zellteilung, DNA-Synthese, Blutbildung. Wichtig für Schwangere und Regeneration.",
+            "dailyNeed": "300 µg, Schwangere: 550 µg, Sportler: bis 400 µg",
+            "sources": "Grünes Blattgemüse, Hülsenfrüchte, Vollkorn, Orangen, Avocado",
+            "special": "Veganer meist gut versorgt. Hitzeempfindlich – Gemüse schonend garen.",
+            "link": "https://ods.od.nih.gov/factsheets/Folate-HealthProfessional/"
+          },
+          {
+            "id": "vitamin-b12",
+            "name": "Vitamin B12 (Cobalamin)",
+            "function": "Blutbildung, Nervensystem, DNA-Synthese. Kritisch für Energielevel und Konzentration.",
+            "dailyNeed": "4 µg, Sportler/Veganer: 6-10 µg",
+            "sources": "Fleisch, Fisch, Eier, Milchprodukte, angereicherte Lebensmittel",
+            "special": "VEGANER: Supplementierung zwingend erforderlich! Nur in tierischen Produkten oder angereicherten Lebensmitteln.",
+            "link": "https://ods.od.nih.gov/factsheets/VitaminB12-HealthProfessional/"
+          },
+          {
+            "id": "vitamin-c",
+            "name": "Vitamin C (Ascorbinsäure)",
+            "function": "Immunsystem, Kollagenbildung, Antioxidans. Verbessert Eisen-Aufnahme um das 3-4-fache! Regeneration nach Training.",
+            "dailyNeed": "110 mg, Sportler: 200 mg, Raucher: 155 mg",
+            "sources": "Paprika, Brokkoli, Zitrusfrüchte, Kiwi, Erdbeeren, Sanddorn",
+            "special": "Kombiniere Vitamin C mit eisenhaltigen Lebensmitteln (z.B. Spinat + Zitronensaft). Hitzeempfindlich!",
+            "link": "https://ods.od.nih.gov/factsheets/VitaminC-HealthProfessional/"
+          }
+        ]
+      }
+    ]
+  },
+  "mineralien": {
+    "categoryName": "Mineralien & Spurenelemente",
+    "icon": "mdi:atom",
+    "color": "blue",
+    "description": "Mineralien und Spurenelemente sind anorganische Nährstoffe, die für Stoffwechselprozesse, Knochenaufbau und Elektrolythaushalt essentiell sind.",
+    "items": [
+      {
+        "id": "calcium",
+        "name": "Calcium (Ca)",
+        "function": "Knochen- und Zahngesundheit, Muskelkontraktion, Nervensignale, Blutgerinnung.",
+        "dailyNeed": "1000 mg, Sportler: bis 1200 mg",
+        "sources": "Milchprodukte, grünes Gemüse (Brokkoli, Grünkohl), Mandeln, Sesam, Tofu, angereicherter Pflanzendrink",
+        "special": "Veganer: auf Calcium-Gehalt achten. Oxalsäure (Spinat, Rhabarber) hemmt Aufnahme. Vitamin D verbessert Aufnahme.",
+        "link": "https://ods.od.nih.gov/factsheets/Calcium-HealthProfessional/"
+      },
+      {
+        "id": "eisen",
+        "name": "Eisen (Fe)",
+        "function": "Sauerstofftransport im Blut (Hämoglobin), Energiestoffwechsel, Immunfunktion. Kritisch für Ausdauersportler.",
+        "dailyNeed": "Männer: 10 mg, Frauen: 15 mg, Sportler: bis 20 mg",
+        "sources": "Rotes Fleisch, Leber, Hülsenfrüchte, Spinat, Quinoa, Kürbiskerne, Haferflocken",
+        "special": "WICHTIG: Vitamin C verbessert pflanzliche Eisen-Aufnahme (Nicht-Häm-Eisen) um das 3-4-fache! Kaffee/Tee hemmen Aufnahme. Veganer: auf Kombination mit Vitamin C achten.",
+        "link": "https://ods.od.nih.gov/factsheets/Iron-HealthProfessional/"
+      },
+      {
+        "id": "jod",
+        "name": "Jod (I)",
+        "function": "Schilddrüsenhormone (Stoffwechselregulation), Energiehaushalt, Gehirnentwicklung.",
+        "dailyNeed": "200 µg, Schwangere: 230 µg",
+        "sources": "Jodiertes Salz, Seefisch, Algen (Nori, Wakame), Milchprodukte",
+        "special": "Veganer: Jodsalz verwenden oder Algen (Vorsicht: nicht überdosieren!). Kritischer Nährstoff in Deutschland.",
+        "link": "https://ods.od.nih.gov/factsheets/Iodine-HealthProfessional/"
+      },
+      {
+        "id": "kalium",
+        "name": "Kalium (K)",
+        "function": "Elektrolythaushalt, Muskelkontraktion, Nervensignale, Blutdruckregulation. Wichtig nach schweißtreibendem Training.",
+        "dailyNeed": "4000 mg, Sportler: bis 5000 mg",
+        "sources": "Bananen, Kartoffeln, Avocado, Spinat, Hülsenfrüchte, Trockenfrüchte",
+        "special": "Wird bei starkem Schwitzen verloren. Sportler: Elektrolytgetränke oder kaliumreiche Snacks.",
+        "link": "https://ods.od.nih.gov/factsheets/Potassium-HealthProfessional/"
+      },
+      {
+        "id": "magnesium",
+        "name": "Magnesium (Mg)",
+        "function": "Muskel- und Nervenfunktion, Energiestoffwechsel, Proteinsynthese, Knochengesundheit. Verhindert Krämpfe.",
+        "dailyNeed": "Männer: 350 mg, Frauen: 300 mg, Sportler: bis 450 mg",
+        "sources": "Nüsse, Samen, Vollkorn, Hülsenfrüchte, grünes Blattgemüse, Bananen",
+        "special": "Sportler haben erhöhten Bedarf. Magnesiummangel führt zu Muskelkrämpfen und Leistungsabfall.",
+        "link": "https://ods.od.nih.gov/factsheets/Magnesium-HealthProfessional/"
+      },
+      {
+        "id": "natrium",
+        "name": "Natrium (Na)",
+        "function": "Elektrolythaushalt, Flüssigkeitsregulation, Nervensignale, Muskelkontraktion.",
+        "dailyNeed": "1500 mg (Minimum), Sportler: bis 3000 mg",
+        "sources": "Kochsalz, verarbeitete Lebensmittel, Brot, Käse",
+        "special": "Sportler verlieren Natrium durch Schweiß. Bei langen Trainings Elektrolyte zuführen. Zu viel Natrium erhöht Blutdruck.",
+        "link": "https://www.ncbi.nlm.nih.gov/books/NBK554451/"
+      },
+      {
+        "id": "phosphor",
+        "name": "Phosphor (P)",
+        "function": "Knochen- und Zahngesundheit, Energiestoffwechsel (ATP), DNA/RNA-Synthese.",
+        "dailyNeed": "700 mg (alle Gruppen)",
+        "sources": "Milchprodukte, Fleisch, Fisch, Nüsse, Hülsenfrüchte, Vollkorn",
+        "special": "Mangel sehr selten, da in vielen Lebensmitteln enthalten. Überschuss kann Calcium-Aufnahme stören.",
+        "link": "https://ods.od.nih.gov/factsheets/Phosphorus-HealthProfessional/"
+      },
+      {
+        "id": "selen",
+        "name": "Selen (Se)",
+        "function": "Antioxidans, Schilddrüsenfunktion, Immunsystem, Zellschutz.",
+        "dailyNeed": "60-70 µg, Sportler: bis 100 µg",
+        "sources": "Paranüsse (2-3 Stück decken Tagesbedarf!), Fisch, Eier, Vollkorn",
+        "special": "Veganer: Paranüsse sind beste Quelle. Vorsicht vor Überdosierung (toxisch ab 400 µg/Tag).",
+        "link": "https://ods.od.nih.gov/factsheets/Selenium-HealthProfessional/"
+      },
+      {
+        "id": "zink",
+        "name": "Zink (Zn)",
+        "function": "Immunsystem, Wundheilung, Proteinsynthese, Testosteronproduktion. Wichtig für Muskelaufbau und Regeneration.",
+        "dailyNeed": "Männer: 10 mg, Frauen: 7 mg, Sportler: bis 15 mg",
+        "sources": "Fleisch, Austern, Kürbiskerne, Haferflocken, Hülsenfrüchte, Käse",
+        "special": "Veganer: Phytinsäure (Getreide, Hülsenfrüchte) hemmt Aufnahme. Einweichen/Keimen verbessert Bioverfügbarkeit.",
+        "link": "https://ods.od.nih.gov/factsheets/Zinc-HealthProfessional/"
+      }
+    ]
+  },
+  "proteine": {
+    "categoryName": "Proteine & Aminosäuren",
+    "icon": "mdi:dna",
+    "color": "orange",
+    "description": "Proteine bestehen aus Aminosäuren, die als Bausteine für Muskeln, Enzyme und Hormone dienen. Es gibt essenzielle (müssen zugeführt werden) und nicht-essenzielle (kann der Körper selbst herstellen) Aminosäuren.",
+    "subcategories": [
+      {
+        "name": "Essenzielle Aminosäuren",
+        "description": "Diese Aminosäuren kann der Körper nicht selbst herstellen und müssen über die Nahrung aufgenommen werden.",
+        "items": [
+          {
+            "id": "leucin",
+            "name": "Leucin",
+            "function": "Wichtigste BCAA für Muskelaufbau und -erhalt. Aktiviert mTOR (Wachstumssignal). Verhindert Muskelabbau.",
+            "dailyNeed": "3-6 g, Sportler: 8-10 g",
+            "sources": "Hühnchen, Rindfleisch, Thunfisch, Eier, Milchprodukte, Sojabohnen, Linsen",
+            "special": "Veganer: Kombination aus Hülsenfrüchten und Getreide für vollständiges Aminosäureprofil.",
+            "link": "https://pubmed.ncbi.nlm.nih.gov/21297567/"
+          },
+          {
+            "id": "isoleucin",
+            "name": "Isoleucin",
+            "function": "BCAA für Energieproduktion während Training, Blutzuckerregulation, Wundheilung.",
+            "dailyNeed": "2-4 g, Sportler: 5-7 g",
+            "sources": "Fleisch, Fisch, Eier, Käse, Kichererbsen, Quinoa, Nüsse",
+            "special": "Wichtig für Ausdauersportler. Unterstützt Glukoseaufnahme in Muskelzellen.",
+            "link": "https://pubmed.ncbi.nlm.nih.gov/19056590/"
+          },
+          {
+            "id": "lysin",
+            "name": "Lysin",
+            "function": "Kollagenbildung, Calcium-Absorption, Immunfunktion, Hormonproduktion.",
+            "dailyNeed": "2-3 g, Sportler: 3-4 g",
+            "sources": "Fleisch, Fisch, Eier, Milchprodukte, Hülsenfrüchte, Quinoa",
+            "special": "Kritisch für Veganer, die viel Getreide essen (niedriger Lysingehalt). Hülsenfrüchte sind gute Quelle.",
+            "link": "https://pubmed.ncbi.nlm.nih.gov/17215598/"
+          },
+          {
+            "id": "methionin",
+            "name": "Methionin",
+            "function": "Antioxidans (Glutathion-Vorläufer), Entgiftung, Fettstoffwechsel, Proteinsynthese.",
+            "dailyNeed": "1-2 g (alle Gruppen)",
+            "sources": "Fleisch, Fisch, Eier, Paranüsse, Sesam, Sonnenblumenkerne",
+            "special": "Veganer oft niedrigere Zufuhr, aber meist ausreichend. Wichtig für Lebergesundheit.",
+            "link": "https://pubmed.ncbi.nlm.nih.gov/16702333/"
+          },
+          {
+            "id": "phenylalanin",
+            "name": "Phenylalanin",
+            "function": "Vorläufer von Tyrosin, wichtig für Neurotransmitter (Dopamin, Noradrenalin), Stimmung und Fokus.",
+            "dailyNeed": "2-3 g (alle Gruppen)",
+            "sources": "Fleisch, Fisch, Eier, Milchprodukte, Sojabohnen, Kürbiskerne",
+            "special": "Wichtig für mentale Performance. Veganer: Soja und Nüsse als Quelle.",
+            "link": "https://pubmed.ncbi.nlm.nih.gov/17513421/"
+          },
+          {
+            "id": "threonin",
+            "name": "Threonin",
+            "function": "Kollagen- und Elastin-Bildung, Immunfunktion, Fettstoffwechsel.",
+            "dailyNeed": "1-2 g (alle Gruppen)",
+            "sources": "Fleisch, Fisch, Milchprodukte, Linsen, Kichererbsen",
+            "special": "Unterstützt Bindegewebe und Gelenke. Wichtig für Kraftsportler.",
+            "link": "https://pubmed.ncbi.nlm.nih.gov/11238150/"
+          },
+          {
+            "id": "tryptophan",
+            "name": "Tryptophan",
+            "function": "Vorläufer von Serotonin (Glückshormon) und Melatonin (Schlafhormon). Wichtig für Stimmung und Regeneration.",
+            "dailyNeed": "0,5-1 g (alle Gruppen)",
+            "sources": "Truthahn, Hühnchen, Eier, Käse, Nüsse, Samen, Bananen, Hafer",
+            "special": "Abends mit Kohlenhydraten kombinieren für besseren Schlaf. Kritisch bei Low-Carb-Diäten.",
+            "link": "https://pubmed.ncbi.nlm.nih.gov/19724292/"
+          },
+          {
+            "id": "valin",
+            "name": "Valin",
+            "function": "BCAA für Muskelaufbau, Energieproduktion, Nervensystem, Gewebereparatur.",
+            "dailyNeed": "2-4 g, Sportler: 5-7 g",
+            "sources": "Fleisch, Fisch, Milchprodukte, Sojabohnen, Erdnüsse, Pilze",
+            "special": "Zusammen mit Leucin und Isoleucin im Verhältnis 2:1:1 für optimale Wirkung.",
+            "link": "https://pubmed.ncbi.nlm.nih.gov/28852372/"
+          }
+        ]
+      },
+      {
+        "name": "Nicht-essenzielle Aminosäuren",
+        "description": "Diese Aminosäuren kann der Körper selbst herstellen, sind aber dennoch wichtig für Gesundheit und Leistung.",
+        "items": [
+          {
+            "id": "glutamin",
+            "name": "Glutamin",
+            "function": "WICHTIGSTE Aminosäure für Muskelaufbau und Darmgesundheit! Unterstützt Immunsystem, verhindert Muskelabbau, repariert Darmschleimhaut (z.B. bei Leaky Gut Syndrome).",
+            "dailyNeed": "5-10 g, Sportler: 10-20 g",
+            "sources": "Fleisch, Fisch, Eier, Milchprodukte, Kohl, Spinat, Petersilie",
+            "special": "Bei intensivem Training sinken Glutaminspiegel stark. Supplementierung empfohlen für Sportler und bei Darmproblemen (Leaky Gut, Reizdarm).",
+            "link": "https://pubmed.ncbi.nlm.nih.gov/19820007/"
+          },
+          {
+            "id": "arginin",
+            "name": "Arginin",
+            "function": "Stickstoffmonoxid-Produktion (Durchblutung), Immunfunktion, Wundheilung, Hormonausschüttung (Wachstumshormon).",
+            "dailyNeed": "3-6 g, Sportler: 6-10 g",
+            "sources": "Fleisch, Nüsse, Kürbiskerne, Kichererbsen, Haferflocken",
+            "special": "Verbessert Pump-Effekt beim Training. Oft in Pre-Workout-Supplements.",
+            "link": "https://pubmed.ncbi.nlm.nih.gov/21116024/"
+          },
+          {
+            "id": "glycin",
+            "name": "Glycin",
+            "function": "Kollagenbildung (Haut, Gelenke), Schlafqualität, Entgiftung, Kreatin-Synthese.",
+            "dailyNeed": "3-5 g (alle Gruppen)",
+            "sources": "Knochenbrühe, Gelatine, Fleisch mit Haut/Sehnen, Kollagen-Supplements",
+            "special": "Verbessert Schlafqualität (3 g vor dem Schlafengehen). Wichtig für Gelenke und Bindegewebe.",
+            "link": "https://pubmed.ncbi.nlm.nih.gov/22293292/"
+          },
+          {
+            "id": "prolin",
+            "name": "Prolin",
+            "function": "Kollagenbildung, Wundheilung, Gefäßgesundheit.",
+            "dailyNeed": "Kein spezifischer Bedarf (wird selbst hergestellt)",
+            "sources": "Gelatine, Fleisch, Käse, Kohl, Spargel",
+            "special": "Zusammen mit Vitamin C wichtig für Kollagensynthese. Unterstützt Gelenke und Haut.",
+            "link": "https://pubmed.ncbi.nlm.nih.gov/19263117/"
+          },
+          {
+            "id": "tyrosin",
+            "name": "Tyrosin",
+            "function": "Neurotransmitter-Synthese (Dopamin, Noradrenalin), Schilddrüsenhormone, Stressresistenz, Fokus.",
+            "dailyNeed": "1-3 g, Sportler/Stress: 3-5 g",
+            "sources": "Fleisch, Fisch, Eier, Milchprodukte, Mandeln, Avocado, Bananen",
+            "special": "Verbessert mentale Performance unter Stress. Oft in Pre-Workout oder bei kognitiven Anforderungen.",
+            "link": "https://pubmed.ncbi.nlm.nih.gov/25797188/"
+          }
+        ]
+      }
+    ]
+  },
+  "supplements": {
+    "categoryName": "Supplements",
+    "icon": "mdi:pill",
+    "color": "purple",
+    "description": "Nahrungsergänzungsmittel können bei erhöhtem Bedarf (Sport, Diät) oder gezielten Zielen (Muskelaufbau, Regeneration) sinnvoll sein.",
+    "items": [
+      {
+        "id": "bcaa",
+        "name": "BCAA (Leucin, Isoleucin, Valin)",
+        "function": "Verzweigtkettige Aminosäuren für Muskelaufbau, Verhinderung von Muskelabbau während Training, Reduktion von Muskelkater.",
+        "dosage": "5-10 g vor/während/nach Training (Verhältnis 2:1:1)",
+        "sources": "Supplement-Pulver oder Kapseln",
+        "special": "Für Sportler sinnvoll bei intensivem Training oder Kaloriendefizit. Nicht nötig bei ausreichend Protein.",
+        "warning": "Bei Nierenerkrankungen Arzt konsultieren.",
+        "link": "https://pubmed.ncbi.nlm.nih.gov/28852372/"
+      },
+      {
+        "id": "bromelain",
+        "name": "Bromelain",
+        "function": "Enzym aus Ananas. Entzündungshemmend, fördert Verdauung, unterstützt Wundheilung, reduziert Muskelkater.",
+        "dosage": "500-1000 mg pro Tag (zwischen Mahlzeiten für entzündungshemmende Wirkung)",
+        "sources": "Ananas (frisch), Supplement-Kapseln",
+        "special": "Besonders nach intensivem Training oder bei Gelenkschmerzen. Natürliche Alternative zu Schmerzmitteln.",
+        "warning": "Nicht bei Blutgerinnungsstörungen oder vor Operationen.",
+        "link": "https://pubmed.ncbi.nlm.nih.gov/24642205/"
+      },
+      {
+        "id": "creatin",
+        "name": "Creatin (Monohydrat)",
+        "function": "Erhöht ATP-Speicher in Muskeln. Verbessert Kraft, Schnellkraft, Muskelaufbau und kognitive Leistung.",
+        "dosage": "3-5 g täglich (dauerhaft), optional: 20 g/Tag für 5-7 Tage (Ladephase)",
+        "sources": "Supplement-Pulver (Monohydrat ist beste Form), gering in Fleisch",
+        "special": "Eines der am besten erforschten und effektivsten Supplements für Kraft- und Muskelaufbau. Für Veganer besonders empfohlen (kein Creatin in pflanzlicher Ernährung).",
+        "warning": "1-2 L zusätzlich Wasser trinken. Bei Nierenerkrankungen Arzt konsultieren.",
+        "link": "https://pubmed.ncbi.nlm.nih.gov/33557850/"
+      },
+      {
+        "id": "curcumin",
+        "name": "Curcumin (aus Kurkuma)",
+        "function": "Starkes Antioxidans und Entzündungshemmer. Unterstützt Gelenkgesundheit, Regeneration, Immunsystem.",
+        "dosage": "500-1000 mg pro Tag (mit Piperin/schwarzem Pfeffer für bessere Aufnahme)",
+        "sources": "Kurkuma-Wurzel, Supplement-Kapseln mit Piperin",
+        "special": "Veganer-freundlich. Reduziert Muskelkater und Entzündungen. Gut für Gelenke bei intensivem Training.",
+        "warning": "Kann Blutverdünnung verstärken. Vor Operationen absetzen.",
+        "link": "https://pubmed.ncbi.nlm.nih.gov/32531395/"
+      },
+      {
+        "id": "dha",
+        "name": "DHA (Docosahexaensäure, Omega-3)",
+        "function": "Essenzielle Fettsäure für Gehirn, Augen, Herz-Kreislauf. Entzündungshemmend, unterstützt Regeneration.",
+        "dosage": "250-500 mg DHA + EPA pro Tag, Sportler: 1000-2000 mg",
+        "sources": "Fetter Fisch (Lachs, Makrele), Algenöl (vegane Alternative)",
+        "special": "VEGANER: Algenöl ist die einzige pflanzliche DHA-Quelle! ALA aus Leinsamen wird nur zu 5-10% zu DHA umgewandelt.",
+        "warning": "Hochdosiert (>3 g) kann Blutgerinnung beeinflussen.",
+        "link": "https://ods.od.nih.gov/factsheets/Omega3FattyAcids-HealthProfessional/"
+      },
+      {
+        "id": "melatonin",
+        "name": "Melatonin",
+        "function": "Schlafhormon. Verkürzt Einschlafzeit, reguliert Schlaf-Wach-Rhythmus. Wichtig für Regeneration.",
+        "dosage": "0,5-5 mg 30-60 Min vor dem Schlafengehen",
+        "sources": "Supplement-Tabletten, gering in Kirschen, Walnüssen",
+        "special": "Hilfreich bei Jetlag, Schichtarbeit oder Schlafproblemen. Sportler: guter Schlaf = bessere Regeneration.",
+        "warning": "Nicht dauerhaft hochdosiert einnehmen. Kann am nächsten Tag Müdigkeit verursachen.",
+        "link": "https://pubmed.ncbi.nlm.nih.gov/23691095/"
+      },
+      {
+        "id": "nattokinase",
+        "name": "Nattokinase",
+        "function": "Enzym aus fermentierten Sojabohnen (Natto). Unterstützt Herz-Kreislauf-System, fördert Durchblutung, kann Blutgerinnung beeinflussen.",
+        "dosage": "100-200 mg pro Tag (2000-4000 FU)",
+        "sources": "Natto (fermentierte Sojabohnen), Supplement-Kapseln",
+        "special": "Veganer-freundlich. Wird untersucht zur Unterstützung der Gefäßgesundheit.",
+        "warning": "NICHT bei Blutgerinnungsstörungen oder mit Blutverdünnern! Vor Operationen absetzen. Arzt konsultieren!",
+        "link": "https://pubmed.ncbi.nlm.nih.gov/32048672/"
+      },
+      {
+        "id": "omega-3",
+        "name": "Omega-3 (EPA + DHA)",
+        "function": "Entzündungshemmend, Herz-Kreislauf-Gesundheit, Gehirnfunktion, Gelenkgesundheit, Regeneration.",
+        "dosage": "1000-2000 mg EPA+DHA pro Tag, Sportler: 2000-3000 mg",
+        "sources": "Fischöl, Krillöl, Algenöl (vegan)",
+        "special": "Eines der wichtigsten Supplements für Sportler und Veganer. Reduziert Entzündungen und Muskelkater.",
+        "warning": "Hochdosiert kann Blutgerinnung beeinflussen. Kühl lagern.",
+        "link": "https://ods.od.nih.gov/factsheets/Omega3FattyAcids-HealthProfessional/"
+      },
+      {
+        "id": "protein-pulver",
+        "name": "Protein-Pulver (Whey, Casein, vegan)",
+        "function": "Praktische Proteinquelle für Muskelaufbau und Regeneration. Whey (schnell), Casein (langsam), vegan (Erbse, Reis, Hanf).",
+        "dosage": "20-40 g pro Portion, insgesamt 1,6-2,2 g Protein/kg Körpergewicht pro Tag",
+        "sources": "Whey, Casein, Soja, Erbsen, Reis, Hanf",
+        "special": "Nicht zwingend nötig, aber praktisch. Veganer: auf vollständiges Aminosäureprofil achten (Kombination aus Erbse + Reis).",
+        "warning": "Bei Laktoseintoleranz: veganes Protein oder Isolat wählen.",
+        "link": "https://pubmed.ncbi.nlm.nih.gov/28698222/"
+      },
+      {
+        "id": "tribulus-terrestris",
+        "name": "Tribulus Terrestris",
+        "function": "Pflanzliches Extrakt. Wird zur Unterstützung von Testosteron, Libido und sportlicher Leistung beworben. Wissenschaftliche Evidenz ist begrenzt.",
+        "dosage": "500-1500 mg pro Tag (standardisiert auf Saponine)",
+        "sources": "Supplement-Kapseln oder Pulver",
+        "special": "Beliebt bei Kraftsportlern, aber Wirkung auf Testosteron bei gesunden Männern nicht eindeutig belegt.",
+        "warning": "Kann mit Medikamenten interagieren. Bei Hormonempfindlichkeit oder Schwangerschaft nicht einnehmen.",
+        "link": "https://pubmed.ncbi.nlm.nih.gov/17530942/"
+      },
+      {
+        "id": "vitamin-d3",
+        "name": "Vitamin D3 (Cholecalciferol)",
+        "function": "Knochengesundheit, Immunsystem, Muskelkraft, Testosteronproduktion. Kritisch im Winter und für Veganer.",
+        "dosage": "1000-2000 IE (25-50 µg) täglich, bei Mangel: 4000 IE",
+        "sources": "Supplement-Tropfen oder Kapseln (D3 aus Flechten für Veganer)",
+        "special": "Eines der wichtigsten Supplements in Deutschland (mangelnde Sonne). Sportler: verbessert Muskelkraft und Regeneration.",
+        "warning": "Blutspiegel sollte bei 30-50 ng/ml liegen. Überdosierung selten, aber möglich.",
+        "link": "https://ods.od.nih.gov/factsheets/VitaminD-HealthProfessional/"
+      },
+      {
+        "id": "zma",
+        "name": "ZMA (Zink, Magnesium, Vitamin B6)",
+        "function": "Unterstützt Testosteronproduktion, Muskelregeneration, Schlafqualität, Immunsystem.",
+        "dosage": "Zink: 15-30 mg, Magnesium: 200-400 mg, B6: 10-15 mg (abends vor dem Schlafengehen)",
+        "sources": "Supplement-Kombination",
+        "special": "Besonders für Sportler mit intensivem Training. Verbessert Schlaf und Regeneration.",
+        "warning": "Nicht zusammen mit Calcium einnehmen (hemmt Aufnahme). Auf nüchternen Magen nehmen.",
+        "link": "https://pubmed.ncbi.nlm.nih.gov/10919966/"
+      }
+    ]
+  }
+}
