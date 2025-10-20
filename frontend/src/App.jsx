@@ -18,8 +18,9 @@ import FoodPage from "./components/pages/food.page.jsx";
 import AgbPage from "./components/pages/agb.page.jsx";
 import AboutUsPage from "./components/pages/aboutus.page.jsx";
 import PlanerPage from "./components/pages/planer.page.jsx";
-import ProfilPage from "./components/pages/profil.page.jsx";
+import ProfilePage from "./components/pages/profile.page.jsx";
 import SupportPage from "./components/pages/support.page.jsx";
+import ProfileSettingsPage from "./components/pages/profile-settings.page.jsx";
 
 function App() {
   return (
@@ -76,8 +77,10 @@ function App() {
           <Route element={<AgbPage />} path="/agb" />
           <Route element={<AboutUsPage />} path="/aboutus" />
           <Route element={<PlanerPage />} path="/planer" />
-          <Route element={<ProfilPage />} path="/profil" />
+          <Route element={<ProfilePage />} path="/profile" />
+          <Route element={<ProfileSettingsPage />} path="/profile-settings" />
           <Route element={<SupportPage />} path="/support" />
+
           {/* Onboarding */}
           <Route element={<SetupPage />} path="/onboarding" />
           {/* 404-Route*/}

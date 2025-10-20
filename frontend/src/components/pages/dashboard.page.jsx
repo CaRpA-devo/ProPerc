@@ -61,7 +61,7 @@ export function DashboardPage() {
                 </Link>
                 <Link
                   className="px-3 py-1 rounded bg-white border text-emerald-700 hover:bg-emerald-100"
-                  to="/profil"
+                  to="/profile"
                 >
                   Profil
                 </Link>
