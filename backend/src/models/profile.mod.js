@@ -17,6 +17,33 @@ const userSchema = new mongoose.Schema(
     dietaryRestrictions: [String],
     bmi: Number,
     bmiCategory: String,
+    // Berechnungsdaten
+    calculations: {
+      bmr: Number,
+      tdee: Number,
+      calorieTarget: Number,
+      macros: {
+        protein: {
+          g: Number,
+          calories: Number,
+          percent: Number,
+        },
+        fat: {
+          g: Number,
+          calories: Number,
+          percent: Number,
+        },
+        carbs: {
+          g: Number,
+          calories: Number,
+          percent: Number,
+        },
+      },
+      activityFactor: Number,
+      proteinFactor: Number,
+      fatPercent: Number,
+      lastCalculated: { type: Date, default: Date.now },
+    },
   },
   { timestamps: true }
 );

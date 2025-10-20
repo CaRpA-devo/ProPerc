@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { useFood } from "../../context/FoodContext";
+import { useBackendFood } from "../../context/BackendFoodContext";
 import FoodSearch from "./food-search.comp";
 
 const AdvancedFoodModal = ({ isOpen, onClose }) => {
-  const { addFood, saveRecipe, addToFavorites } = useFood();
+  const { addFood, saveRecipe, addToFavorites } = useBackendFood();
   const [foodName, setFoodName] = useState("");
   const [calories, setCalories] = useState("");
   const [protein, setProtein] = useState("");

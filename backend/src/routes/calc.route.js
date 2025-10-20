@@ -1,5 +1,6 @@
 import express from "express";
 import { requireAuth } from "../middelwares/clerkauth.js";
+import { User } from "../models/profile.mod.js";
 
 const router = express.Router();
 
@@ -13,9 +14,8 @@ function calcBMR({ sex, weight, height, age }) {
   }
 }
 
-router.post("/", requireAuth, (req, res) => {
+router.post("/", requireAuth, async (req, res) => {
   try {
-    console.log("Calc Route - Received request body:", req.body);
     const {
       weight, // kg
       height, // cm
@@ -27,20 +27,12 @@ router.post("/", requireAuth, (req, res) => {
       fatPercent = 0.22, // percent of calories for fat (e.g. 0.22)
     } = req.body;
 
-    console.log("Calc Route - Parsed values:", {
-      weight,
-      height,
-      age,
-      sex,
-      activityFactor,
-      goal,
-      proteinFactor,
-      fatPercent,
-    });
-
     if (!weight || !height || !age) {
       return res.status(400).json({ error: "weight, height and age required" });
     }
+
+    // Clerk User ID aus dem Request holen
+    const clerkId = req.auth.userId;
 
     // 1) BMR
     const bmr = calcBMR({ sex, weight, height, age });
@@ -73,23 +65,6 @@ router.post("/", requireAuth, (req, res) => {
     const fat_percent = +((fat_cals / calorieTarget) * 100).toFixed(1);
     const carbs_percent = +((remaining_cals / calorieTarget) * 100).toFixed(1);
 
-    console.log("Calc Route - Calculated percentages:", {
-      protein_percent,
-      fat_percent,
-      carbs_percent,
-    });
-    console.log("Calc Route - Calculated grams:", {
-      protein_g,
-      fat_g,
-      carbs_g,
-    });
-    console.log("Calc Route - Calculated calories:", {
-      protein_cals,
-      fat_cals,
-      remaining_cals,
-      calorieTarget,
-    });
-
     const result = {
       bmr: Math.round(bmr),
       tdee: Math.round(tdee),
@@ -105,7 +80,64 @@ router.post("/", requireAuth, (req, res) => {
       },
     };
 
+    // Berechnungsdaten in MongoDB speichern
+    const calculationData = {
+      bmr: result.bmr,
+      tdee: result.tdee,
+      calorieTarget: result.calorieTarget,
+      macros: result.macros,
+      activityFactor,
+      proteinFactor,
+      fatPercent,
+      lastCalculated: new Date(),
+    };
+
+    // User finden oder erstellen und Berechnungen aktualisieren
+    await User.findOneAndUpdate(
+      { clerkId },
+      {
+        $set: {
+          calculations: calculationData,
+          weight,
+          height,
+          age,
+          gender: sex,
+          goal,
+          activityLevel: activityFactor.toString(),
+        },
+      },
+      { upsert: true, new: true }
+    );
+
     return res.json(result);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "server error" });
+  }
+});
+
+// Route zum Abrufen der gespeicherten Berechnungen des Users
+router.get("/", requireAuth, async (req, res) => {
+  try {
+    const clerkId = req.auth.userId;
+
+    const user = await User.findOne({ clerkId });
+
+    if (!user || !user.calculations) {
+      return res.status(404).json({ error: "Keine Berechnungen gefunden" });
+    }
+
+    return res.json({
+      calculations: user.calculations,
+      profile: {
+        weight: user.weight,
+        height: user.height,
+        age: user.age,
+        gender: user.gender,
+        goal: user.goal,
+        activityLevel: user.activityLevel,
+      },
+    });
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: "server error" });
