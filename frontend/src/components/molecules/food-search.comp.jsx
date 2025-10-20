@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useFoodApi } from "../../hooks/useFoodApi";
-import { useFood } from "../../context/FoodContext";
+import { useBackendFood } from "../../context/BackendFoodContext";
 
 const FoodSearch = ({ onFoodSelect, showRecommendations = true }) => {
   const {
@@ -11,7 +11,7 @@ const FoodSearch = ({ onFoodSelect, showRecommendations = true }) => {
     searchFoods,
     enhanceFoodsWithProfile,
   } = useFoodApi();
-  const { addFood, addToFavorites, favoriteFoods } = useFood();
+  const { addFood, addToFavorites, favoriteFoods } = useBackendFood();
   const [query, setQuery] = useState("");
   const [showResults, setShowResults] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("all");

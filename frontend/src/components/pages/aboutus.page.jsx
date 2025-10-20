@@ -1,6 +1,6 @@
 import Aurora from "../animations/aurora.animation.ani.jsx";
 
-export default function PlanerPage() {
+export default function AboutUsPage() {
   return (
     <div className="min-h-screen bg-base-200 flex items-center justify-center relative overflow-hidden">
       {/* Aurora BG*/}
@@ -15,9 +15,9 @@ export default function PlanerPage() {
       {/* Content*/}
       <div className="relative z-10 text-center px-4">
         <div className="max-w-md mx-auto">
-          <h1 className="text-4xl font-bold text-primary mb-2">Planer</h1>
+          <h1 className="text-4xl font-bold text-primary mb-2">Über uns</h1>
           <p className="text-base text-base-content">
-            Du befindest dich auf der Planer-Seite.
+            Du befindest dich auf der About-Us-Seite.
           </p>
         </div>
       </div>

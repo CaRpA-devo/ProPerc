@@ -1,7 +1,7 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import { UserProvider } from "./context/UserContext";
-import { FoodProvider } from "./context/FoodContext";
+import { BackendFoodProvider } from "./context/BackendFoodContext";
 import { IndexPage } from "./components/pages/index.page.jsx";
 import { DashboardPage } from "./components/pages/dashboard.page.jsx";
 import { SetupGuard } from "./components/atoms/setup-guard.comp.jsx";
@@ -14,10 +14,17 @@ import { SignUpPage } from "./components/pages/signup.page.jsx";
 import { SetupPage } from "./components/pages/setup.page.jsx";
 import FoodPage from "./components/pages/food.page.jsx";
 
+// zur entwicklung
+import AgbPage from "./components/pages/agb.page.jsx";
+import AboutUsPage from "./components/pages/aboutus.page.jsx";
+import PlanerPage from "./components/pages/planer.page.jsx";
+import ProfilPage from "./components/pages/profil.page.jsx";
+import SupportPage from "./components/pages/support.page.jsx";
+
 function App() {
   return (
     <UserProvider>
-      <FoodProvider>
+      <BackendFoodProvider>
         <Routes>
           {/* Public Pages */}
           <Route path="/" element={<IndexPage />} />
@@ -61,14 +68,22 @@ function App() {
             }
             path="/food"
           />
+
+          {/* zur entwicklung */}
           {/* Wiki */}
           <Route element={<WikiPage />} path="/wiki" />
+          {/* Dev-Links Ziele */}
+          <Route element={<AgbPage />} path="/agb" />
+          <Route element={<AboutUsPage />} path="/aboutus" />
+          <Route element={<PlanerPage />} path="/planer" />
+          <Route element={<ProfilPage />} path="/profil" />
+          <Route element={<SupportPage />} path="/support" />
           {/* Onboarding */}
           <Route element={<SetupPage />} path="/onboarding" />
           {/* 404-Route*/}
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
-      </FoodProvider>
+      </BackendFoodProvider>
     </UserProvider>
   );
 }

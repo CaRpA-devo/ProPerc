@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { DashboardLayout } from "../layouts/dashboard.layout";
 import { SectionWrapper } from "../atoms/sectionwrapper.comp";
 import { Button } from "../atoms/button.comp";
-import { useFood } from "../../context/FoodContext";
+import { useBackendFood } from "../../context/BackendFoodContext";
 import { useCalculator } from "../../hooks/useCalculator";
 import { useProfile } from "../../hooks/useProfile";
 import { useFoodApi } from "../../hooks/useFoodApi";
@@ -26,7 +26,7 @@ const FoodPage = () => {
     removeFromFavorites,
     getTodayCalories,
     getTodayMacros,
-  } = useFood();
+  } = useBackendFood();
 
   const [activeTab, setActiveTab] = useState("today");
   const [showAddFood, setShowAddFood] = useState(false);

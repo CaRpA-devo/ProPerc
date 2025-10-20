@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useFood } from "../../context/FoodContext";
+import { useBackendFood } from "../../context/BackendFoodContext";
 
 const TodayStatusBox = ({ calculations, userData }) => {
   const navigate = useNavigate();
@@ -10,7 +10,7 @@ const TodayStatusBox = ({ calculations, userData }) => {
     getTodayCalories,
     getTodayMacros,
     updateWater,
-  } = useFood();
+  } = useBackendFood();
   const [currentTime, setCurrentTime] = useState(new Date());
 
   // Funktionen für Wasser

@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import { useFood } from "../../context/FoodContext";
+import { useBackendFood } from "../../context/BackendFoodContext";
 
 const DebugPanel = () => {
   const {
     todayFoods,
     waterIntake,
-    forceReset,
+    resetDay,
     getTodayCalories,
     getTodayMacros,
-  } = useFood();
+  } = useBackendFood();
   const [isOpen, setIsOpen] = useState(false);
 
   if (!isOpen) {
@@ -60,7 +60,7 @@ const DebugPanel = () => {
 
       <div className="mt-3 space-y-2">
         <button
-          onClick={forceReset}
+          onClick={resetDay}
           className="w-full bg-red-500 text-white py-1 px-3 rounded text-sm hover:bg-red-600 transition-colors"
         >
           Reset alle Daten
