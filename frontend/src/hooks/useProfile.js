@@ -56,7 +56,46 @@ export function useProfile(navigate) {
         if (text) {
           try {
             const data = JSON.parse(text);
-            setFormData((prev) => ({ ...prev, ...data }));
+
+            // Normalisierung von Backend-Werten auf Frontend-Formdaten
+            const normalizeGoal = (goal) => {
+              if (!goal) return "maintain";
+              if (goal === "muscle_gain") return "gain";
+              if (goal === "weight_loss") return "lose";
+              if (["lose", "maintain", "gain"].includes(goal)) return goal;
+              return "maintain";
+            };
+
+            const normalizeActivityLevel = (value) => {
+              if (!value) return "";
+              // Bereits einer der erwarteten Keys
+              const known = [
+                "sedentary",
+                "light",
+                "moderate",
+                "active",
+                "very_active",
+              ];
+              if (known.includes(value)) return value;
+              // Numerische/faktorische Werte (z.B. "1.55") in Keys mappen
+              const n = parseFloat(value);
+              if (Number.isFinite(n)) {
+                if (n <= 1.3) return "sedentary";
+                if (n <= 1.5) return "light";
+                if (n <= 1.7) return "moderate";
+                if (n <= 1.9) return "active";
+                return "very_active";
+              }
+              return "";
+            };
+
+            const normalized = {
+              ...data,
+              goal: normalizeGoal(data.goal),
+              activityLevel: normalizeActivityLevel(data.activityLevel),
+            };
+
+            setFormData((prev) => ({ ...prev, ...normalized }));
           } catch {
             console.error("Backend liefert kein JSON:", text);
           }
