@@ -63,9 +63,6 @@ export const saveProfile = async (req, res) => {
     const clerkId = req.auth.userId;
     const updates = req.body;
 
-    console.log("Profile Controller - Saving profile for clerkId:", clerkId);
-    console.log("Profile Controller - Updates:", updates);
-
     // BMI berechnen wenn Gewicht und Größe vorhanden sind
     if (updates.weight && updates.height) {
       updates.bmi = calculateBMI(
@@ -75,7 +72,6 @@ export const saveProfile = async (req, res) => {
         updates.heightUnit
       );
       updates.bmiCategory = getBMICategory(updates.bmi);
-      console.log("Profile Controller - Calculated BMI:", updates.bmi);
     }
 
     const user = await User.findOneAndUpdate(
@@ -83,9 +79,6 @@ export const saveProfile = async (req, res) => {
       { $set: updates },
       { new: true, upsert: true }
     );
-
-    console.log("Profile Controller - User saved:", !!user);
-    console.log("Profile Controller - User data:", user);
     res.json(user);
   } catch (err) {
     console.error("Profile Controller - Error:", err);

@@ -5,12 +5,15 @@ import { Clerk } from "@clerk/clerk-sdk-node";
 Clerk({ apiKey: process.env.CLERK_SECRET_KEY });
 
 import { mongoConnect } from "./src/config/db.js";
+import dailyResetService from "./src/services/dailyReset.service.js";
 
 import { createError } from "./src/utils/createError.js";
 // import { user_router } from "./src/endpoints/users/router.js";
 import cors from "cors";
 import { profilerouter } from "./src/routes/profil.route.js";
 import calcRouter from "./src/routes/calc.route.js";
+import dailyTrackingRouter from "./src/routes/dailyTracking.route.js";
+import favoritesRouter from "./src/routes/favorites.route.js";
 
 const app = express();
 
@@ -30,9 +33,14 @@ app.use(express.json());
 // Datenbank verbinden
 await mongoConnect();
 
+// Daily Reset Service starten
+dailyResetService.start();
+
 // Routen einbinden
 app.use("/api/profile", profilerouter);
 app.use("/api/calc", calcRouter);
+app.use("/api/daily-tracking", dailyTrackingRouter);
+app.use("/api/favorites", favoritesRouter);
 
 // 404 Not Found Middleware
 app.all("/", (req, res, next) => {

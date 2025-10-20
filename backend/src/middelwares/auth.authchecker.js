@@ -8,5 +8,5 @@ export const authChecker = (req, res, next) => {
     return;
   }
 
-  next(createError("Unauthorized", 401)); // Mit Fehler, Error-handling Middleware aufgerufen wird
+  next(createError(401, "Unauthorized")); // Mit Fehler, Error-handling Middleware aufgerufen wird
 };
