@@ -1,26 +1,33 @@
-import Aurora from "../animations/aurora.animation.ani.jsx";
+import { useNavigate } from "react-router-dom";
+import { DashboardLayout } from "../layouts/dashboard.layout.jsx";
+import { SupportTemplate } from "../templates/Support/support-template.comp.jsx";
+import { SupportForm } from "../organisms/Support/support-form.comp.jsx";
+import { FAQList } from "../organisms/Support/faq-list.comp.jsx";
+import supportApiService from "../../services/supportApi.js";
 
 export default function SupportPage() {
+  const navigate = useNavigate();
+
+  const handleSubmit = async (formData) => {
+    try {
+      const response = await supportApiService.createTicket(formData);
+      
+      // Navigiere zur Bestätigungsseite mit Ticket-ID
+      navigate(`/support/confirmation`, {
+        state: { ticket: response.ticket },
+      });
+    } catch (error) {
+      // Fehler wird im Form behandelt
+      throw error;
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-base-200 flex items-center justify-center relative overflow-hidden">
-      {/* Aurora BG*/}
-      <div className="absolute inset-0 opacity-20">
-        <Aurora
-          colorStops={["#2eb872", "#ffd166", "#118ab2"]}
-          blend={0.4}
-          amplitude={1.2}
-          speed={0.3}
-        />
-      </div>
-      {/* Content*/}
-      <div className="relative z-10 text-center px-4">
-        <div className="max-w-md mx-auto">
-          <h1 className="text-4xl font-bold text-primary mb-2">Support</h1>
-          <p className="text-base text-base-content">
-            Du befindest dich auf der Support-Seite.
-          </p>
-        </div>
-      </div>
-    </div>
+    <DashboardLayout>
+      <SupportTemplate
+        form={<SupportForm onSubmit={handleSubmit} />}
+        faq={<FAQList />}
+      />
+    </DashboardLayout>
   );
 }

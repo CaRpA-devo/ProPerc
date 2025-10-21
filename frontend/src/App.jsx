@@ -20,6 +20,7 @@ import AboutUsPage from "./components/pages/aboutus.page.jsx";
 import PlanerPage from "./components/pages/planer.page.jsx";
 import ProfilePage from "./components/pages/profile.page.jsx";
 import SupportPage from "./components/pages/support.page.jsx";
+import SupportConfirmationPage from "./components/pages/support-confirmation.page.jsx";
 import ProfileSettingsPage from "./components/pages/profile-settings.page.jsx";
 
 function App() {
@@ -80,7 +81,10 @@ function App() {
           <Route element={<ProfilePage />} path="/profile" />
           <Route element={<ProfileSettingsPage />} path="/profile-settings" />
           <Route element={<SupportPage />} path="/support" />
-
+          <Route
+            element={<SupportConfirmationPage />}
+            path="/support/confirmation"
+          />
           {/* Onboarding */}
           <Route element={<SetupPage />} path="/onboarding" />
           {/* 404-Route*/}
