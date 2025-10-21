@@ -20,6 +20,7 @@ import AboutUsPage from "./components/pages/aboutus.page.jsx";
 import PlanerPage from "./components/pages/planer.page.jsx";
 import ProfilPage from "./components/pages/profil.page.jsx";
 import SupportPage from "./components/pages/support.page.jsx";
+import SupportConfirmationPage from "./components/pages/support-confirmation.page.jsx";
 
 function App() {
   return (
@@ -78,6 +79,7 @@ function App() {
           <Route element={<PlanerPage />} path="/planer" />
           <Route element={<ProfilPage />} path="/profil" />
           <Route element={<SupportPage />} path="/support" />
+          <Route element={<SupportConfirmationPage />} path="/support/confirmation" />
           {/* Onboarding */}
           <Route element={<SetupPage />} path="/onboarding" />
           {/* 404-Route*/}
