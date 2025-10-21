@@ -80,7 +80,16 @@ function App() {
           {/* Planer */}
           <Route element={<PlanerPage />} path="/planer" />
           {/* Profil */}
-          <Route element={<ProfilPage />} path="/profil" />
+          <Route element={<ProfilePage />} path="/profile" />
+          {/* Profil Einstellungen */}
+          <Route
+            element={
+              <SetupGuard>
+                <ProfileSettingsPage />
+              </SetupGuard>
+            }
+            path="/profile-settings"
+          />
           {/* AGB */}
           <Route element={<AgbPage />} path="/agb" />
           {/* About Us */}
