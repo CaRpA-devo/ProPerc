@@ -124,65 +124,65 @@ export function UserProfileCard() {
   }
 
   return (
-    <div className="user-profile-card">
+    <div className="user-profile-card bg-gradient-to-br from-green-500/20 to-blue-500/20 backdrop-blur-sm border border-green-800/30 rounded-lg">
       <div className="user-profile-header flex justify-between items-center">
-        <h2>Dein Profil</h2>
+        <h2 className="text-white">👤 Dein Profil</h2>
       </div>
 
       <div className="user-profile-content">
         {/* Wichtigste Daten - Horizontales Layout */}
         <div className="main-stats">
           <div className="stat-item">
-            <div className="stat-value">{userData.age || "--"}</div>
-            <div className="stat-label">Jahre</div>
+            <div className="stat-value text-white">{userData.age || "--"}</div>
+            <div className="stat-label text-white/80">Jahre</div>
           </div>
           <div className="stat-item">
-            <div className="stat-value">
+            <div className="stat-value text-white">
               {userData.height
                 ? `${userData.height} ${userData.heightUnit}`
                 : "--"}
             </div>
-            <div className="stat-label">Größe</div>
+            <div className="stat-label text-white/80">Größe</div>
           </div>
           <div className="stat-item weight-item">
-            <div className="stat-value">
+            <div className="stat-value text-white">
               {userData.weight
                 ? `${userData.weight} ${userData.weightUnit}`
                 : "--"}
             </div>
-            <div className="stat-label">Aktuell</div>
+            <div className="stat-label text-white/80">Aktuell</div>
           </div>
           <div className="stat-item weight-item">
-            <div className="stat-value">
+            <div className="stat-value text-white">
               {userData.targetWeight
                 ? `${userData.targetWeight} ${userData.weightUnit}`
                 : "--"}
             </div>
-            <div className="stat-label">Ziel</div>
+            <div className="stat-label text-white/80">Ziel</div>
           </div>
           <div className={`stat-item bmi-stat ${getBMIClass(userData.bmi)}`}>
-            <div className="stat-value">{userData.bmi || "--"}</div>
-            <div className="stat-label">BMI</div>
+            <div className="stat-value text-white">{userData.bmi || "--"}</div>
+            <div className="stat-label text-white/80">BMI</div>
           </div>
         </div>
 
         {/* Weitere Informationen - Kompakt */}
         <div className="additional-info">
           <div className="info-row">
-            <span className="info-label">Geschlecht:</span>
-            <span className="info-value">
+            <span className="info-label text-white/80">Geschlecht:</span>
+            <span className="info-value text-white">
               {formatGender(userData.gender) || "--"}
             </span>
           </div>
           <div className="info-row">
-            <span className="info-label">Aktivitätsstufe:</span>
-            <span className="info-value">
+            <span className="info-label text-white/80">Aktivitätsstufe:</span>
+            <span className="info-value text-white">
               {getActivityLevelLabel(userData.activityLevel) || "--"}
             </span>
           </div>
           <div className="info-row">
-            <span className="info-label">Ziel:</span>
-            <span className="info-value">
+            <span className="info-label text-white/80">Ziel:</span>
+            <span className="info-value text-white">
               {userData.goal === "lose"
                 ? "Abnehmen"
                 : userData.goal === "gain"
@@ -193,8 +193,8 @@ export function UserProfileCard() {
             </span>
           </div>
           <div className="info-row ">
-            <span className="info-label ">Ernährung:</span>
-            <span className="info-value">
+            <span className="info-label text-white/80">Ernährung:</span>
+            <span className="info-value text-white">
               {formatDietType(userData.dietType) || "--"}
             </span>
           </div>
@@ -205,30 +205,36 @@ export function UserProfileCard() {
           (userData.dietaryRestrictions &&
             userData.dietaryRestrictions.length > 0)) && (
           <div className="restrictions ">
-            <div className="restrictions-label borderbottom ">
+            <div className="restrictions-label borderbottom text-white/80">
               Einschränkungen:
             </div>
             <div className="restrictions-tags mb-5 flex flex-wrap gap-1 items-center">
               {userData.allergies?.map((allergy, index) => (
-                <span key={index} className="restriction-tag">
+                <span
+                  key={index}
+                  className="restriction-tag bg-white/20 backdrop-blur-sm border border-white/30 text-white"
+                >
                   {allergy}
                 </span>
               ))}
               {userData.dietaryRestrictions?.map((restriction, index) => (
-                <span key={`r-${index}`} className="restriction-tag">
+                <span
+                  key={`r-${index}`}
+                  className="restriction-tag bg-white/20 backdrop-blur-sm border border-white/30 text-white"
+                >
                   {restriction}
                 </span>
               ))}
               <button
                 onClick={() => navigate("/setup")}
-                className="btn btn-primary btn-xs"
+                className="btn bg-green-500/20 backdrop-blur-sm border border-green-500/30 text-green-400 hover:bg-green-500/30 btn-xs"
               >
                 Profil bearbeiten
               </button>
             </div>
             <div className="  mt-1">
-              <p className=" text-gray-400">
-                <span className="  paragraph pt-1 mt-1 border-gray-400">
+              <p className=" text-white/60">
+                <span className="  paragraph pt-1 mt-1 border-white/30">
                   Du kannst jederzeit deine Eingaben im Profil bearbeiten
                 </span>
               </p>

@@ -30,12 +30,12 @@ const TodayStatusBox = ({ calculations, userData }) => {
 
   if (!calculations) {
     return (
-      <div className="w-full h-full flex flex-col items-center justify-center p-3 bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg">
+      <div className="w-full h-full flex flex-col items-center justify-center p-3 bg-gradient-to-br from-green-500/20 to-blue-500/20 backdrop-blur-sm border border-green-800/30 rounded-lg">
         <div className="text-center">
-          <h3 className="text-sm font-semibold text-gray-600 mb-2">
-            Heute's Status
+          <h3 className="text-sm font-semibold text-white mb-2">
+            📊 Heute's Status
           </h3>
-          <p className="text-xs text-gray-500">Lade Daten...</p>
+          <p className="text-xs text-white/70">Lade Daten...</p>
         </div>
       </div>
     );
@@ -89,26 +89,24 @@ const TodayStatusBox = ({ calculations, userData }) => {
   };
 
   return (
-    <div className="w-full h-full flex flex-col p-3 bg-gradient-to-br from-blue-50 to-indigo-100 rounded-lg">
+    <div className="w-full h-full flex flex-col p-3 bg-gradient-to-br from-green-500/20 to-blue-500/20 backdrop-blur-sm border border-green-800/30 rounded-lg">
       {/* Header */}
       <div className="text-center mb-3">
-        <h3 className="text-sm font-bold text-indigo-700 mb-1">
-          Heute's Status
-        </h3>
-        <p className="text-xs text-indigo-600">{getTimeMessage()}</p>
+        <h3 className="text-sm font-bold text-white mb-1">📊 Heute's Status</h3>
+        <p className="text-xs text-white/80">{getTimeMessage()}</p>
       </div>
 
       {/* Kalorien-Status */}
-      <div className="bg-white/60 rounded-lg p-2 mb-2">
+      <div className="bg-white/20 backdrop-blur-sm rounded-lg p-2 mb-2">
         <div className="flex justify-between items-center mb-1">
-          <span className="text-xs font-semibold text-gray-700">Kalorien</span>
+          <span className="text-xs font-semibold text-white">🔥 Kalorien</span>
           <span
             className={`text-xs font-bold ${getStatusColor(calorieProgress)}`}
           >
             {caloriesConsumed} / {calorieTarget}
           </span>
         </div>
-        <div className="w-full bg-gray-200 rounded-full h-2">
+        <div className="w-full bg-white/30 rounded-full h-2">
           <div
             className={`h-2 rounded-full transition-all duration-300 ${getProgressBarColor(
               calorieProgress
@@ -116,7 +114,7 @@ const TodayStatusBox = ({ calculations, userData }) => {
             style={{ width: `${Math.min(calorieProgress, 100)}%` }}
           ></div>
         </div>
-        <p className="text-xs text-gray-600 mt-1 text-center">
+        <p className="text-xs text-white/80 mt-1 text-center">
           {calorieProgress >= 100
             ? "Ziel erreicht! 🎉"
             : `${Math.round(calorieTarget - caloriesConsumed)} kcal übrig`}
@@ -125,18 +123,18 @@ const TodayStatusBox = ({ calculations, userData }) => {
 
       {/* Wasser-Status */}
       <div
-        className="bg-white/60 rounded-lg p-2 mb-2"
+        className="bg-white/20 backdrop-blur-sm rounded-lg p-2 mb-2"
         key={`water-section-${waterIntake}`}
       >
         <div className="flex justify-between items-center mb-1">
-          <span className="text-xs font-semibold text-gray-700">Wasser</span>
+          <span className="text-xs font-semibold text-white">💧 Wasser</span>
           <span
             className={`text-xs font-bold ${getStatusColor(waterProgress)}`}
           >
             {waterIntake} / 8 Gläser
           </span>
         </div>
-        <div className="w-full bg-gray-200 rounded-full h-2">
+        <div className="w-full bg-white/30 rounded-full h-2">
           <div
             className={`h-2 rounded-full transition-all duration-300 ${getProgressBarColor(
               waterProgress
@@ -144,7 +142,7 @@ const TodayStatusBox = ({ calculations, userData }) => {
             style={{ width: `${Math.min(waterProgress, 100)}%` }}
           ></div>
         </div>
-        <p className="text-xs text-gray-600 mt-1 text-center">
+        <p className="text-xs text-white/80 mt-1 text-center">
           {waterProgress >= 100
             ? "Hydriert! 💧"
             : `${8 - waterIntake} Gläser übrig`}
@@ -154,44 +152,44 @@ const TodayStatusBox = ({ calculations, userData }) => {
         <div className="flex gap-1 mt-2">
           <button
             onClick={() => handleWaterChange(-1)}
-            className="flex-1 bg-blue-500/20 hover:bg-blue-500/30 text-blue-600 text-xs py-1 px-2 rounded transition-colors disabled:opacity-50"
+            className="flex-1 bg-blue-500/50 backdrop-blur-sm border-2 border-blue-300 hover:bg-blue-500/60 text-white text-xs py-1 px-2 rounded transition-colors disabled:opacity-50 font-bold"
             disabled={waterIntake <= 0}
           >
-            - Wasser
+            ➖ Wasser
           </button>
           <button
             onClick={() => handleWaterChange(1)}
-            className="flex-1 bg-blue-500/20 hover:bg-blue-500/30 text-blue-600 text-xs py-1 px-2 rounded transition-colors disabled:opacity-50"
+            className="flex-1 bg-blue-500/50 backdrop-blur-sm border-2 border-blue-300 hover:bg-blue-500/60 text-white text-xs py-1 px-2 rounded transition-colors disabled:opacity-50 font-bold"
             disabled={waterIntake >= 8}
           >
-            + Wasser
+            ➕ Wasser
           </button>
         </div>
       </div>
 
       {/* Makro-Status (kompakt) */}
-      <div className="bg-white/40 rounded-lg p-2">
-        <p className="text-xs font-semibold text-gray-700 mb-1 text-center">
-          Makros heute
+      <div className="bg-white/20 backdrop-blur-sm rounded-lg p-2">
+        <p className="text-xs font-semibold text-white mb-1 text-center">
+          📊 Makros heute
         </p>
         <div className="grid grid-cols-3 gap-1 text-xs">
           <div className="text-center">
-            <div className="text-red-600 font-bold">
+            <div className="text-red-400 font-bold">
               {Math.round(proteinProgress)}%
             </div>
-            <div className="text-gray-600">Protein</div>
+            <div className="text-white/80">Protein</div>
           </div>
           <div className="text-center">
-            <div className="text-yellow-600 font-bold">
+            <div className="text-yellow-400 font-bold">
               {Math.round(fatProgress)}%
             </div>
-            <div className="text-gray-600">Fett</div>
+            <div className="text-white/80">Fett</div>
           </div>
           <div className="text-center">
-            <div className="text-blue-600 font-bold">
+            <div className="text-blue-400 font-bold">
               {Math.round(carbsProgress)}%
             </div>
-            <div className="text-gray-600">Carbs</div>
+            <div className="text-white/80">Carbs</div>
           </div>
         </div>
       </div>
@@ -200,17 +198,17 @@ const TodayStatusBox = ({ calculations, userData }) => {
       <div className="flex gap-1 mt-2">
         <button
           onClick={() => navigate("/food")}
-          className="w-full bg-primary/20 hover:bg-primary/30 text-primary text-xs py-1 px-2 rounded transition-colors"
+          className="w-full bg-green-500/20 backdrop-blur-sm border border-green-500/30 hover:bg-green-500/30 text-green-400 text-xs py-1 px-2 rounded transition-colors"
         >
-          + Essen hinzufügen
+          🍽️ Essen hinzufügen
         </button>
       </div>
 
       {/* Heute gegessene Nahrungsmittel */}
       {todayFoods.length > 0 && (
-        <div className="mt-2 bg-white/40 rounded-lg p-2">
-          <p className="text-xs font-semibold text-gray-700 mb-1">
-            Heute gegessen:
+        <div className="mt-2 bg-white/20 backdrop-blur-sm rounded-lg p-2">
+          <p className="text-xs font-semibold text-white mb-1">
+            🍽️ Heute gegessen:
           </p>
           <div className="space-y-1 max-h-20 overflow-y-auto">
             {todayFoods.map((food) => (
@@ -218,8 +216,8 @@ const TodayStatusBox = ({ calculations, userData }) => {
                 key={food.id}
                 className="flex justify-between items-center text-xs"
               >
-                <span className="text-gray-700 truncate">{food.name}</span>
-                <span className="text-gray-600">
+                <span className="text-white/90 truncate">{food.name}</span>
+                <span className="text-white/70">
                   {Math.round(food.calories)} kcal
                 </span>
               </div>

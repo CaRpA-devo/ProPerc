@@ -13,7 +13,7 @@ export function DashboardPage() {
           {/* Header & User */}
           <div className="flex  md:flex-row items-start md:items-center justify-between gap-4 my-8">
             <div>
-              <h1 className="text-3xl md:text-4xl font-bold text-emerald-900 mb-2">
+              <h1 className="text-5xl font-bold text-primary mb-6">
                 Willkommen zurück{" "}
                 <span>
                   {user.user?.username
@@ -26,7 +26,7 @@ export function DashboardPage() {
                 </span>
                 !
               </h1>
-              <p className="text-emerald-700 text-lg">
+              <p className="text-base-content/80 text-lg">
                 Dein persönliches Gesundheits-Dashboard
               </p>
             </div>

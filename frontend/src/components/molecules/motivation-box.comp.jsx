@@ -3,12 +3,12 @@ import React from "react";
 const MotivationBox = ({ userData, calculations }) => {
   if (!userData || !calculations) {
     return (
-      <div className="w-full h-full flex flex-col items-center justify-center p-3 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-lg">
+      <div className="w-full h-full flex flex-col items-center justify-center p-3 bg-gradient-to-br from-green-500/20 to-blue-500/20 backdrop-blur-sm border border-green-800/30 rounded-lg">
         <div className="text-center">
-          <h3 className="text-sm font-semibold text-primary mb-2">
-            Motivation
+          <h3 className="text-sm font-semibold text-white mb-2">
+            💚 Motivation
           </h3>
-          <p className="text-xs text-gray-500">Lade Daten...</p>
+          <p className="text-xs text-white/70">Lade Daten...</p>
         </div>
       </div>
     );
@@ -45,7 +45,7 @@ const MotivationBox = ({ userData, calculations }) => {
             title: "Muskelaufbau! 💪",
             message: `${Math.round(Math.abs(weightDiff))}kg bis zum Ziel`,
             emoji: "🏋️",
-            color: "from-blue-500/20 to-purple-500/20",
+            color: "from-green-500/20 to-blue-500/20",
           };
         } else {
           return {
@@ -95,31 +95,33 @@ const MotivationBox = ({ userData, calculations }) => {
 
   return (
     <div
-      className={`w-full h-full flex flex-col p-3 bg-gradient-to-br ${motivation.color} rounded-lg`}
+      className={`w-full h-full flex flex-col p-3 bg-gradient-to-br ${motivation.color} backdrop-blur-sm border border-green-800/30 rounded-lg`}
     >
       {/* Hauptmotivation */}
       <div className="text-center mb-3">
-        <div className="text-2xl mb-1">{motivation.emoji}</div>
-        <h3 className="text-sm font-bold text-primary mb-1">
+        <div className="text-3xl mb-2">{motivation.emoji}</div>
+        <h3 className="text-sm font-bold text-white mb-2">
           {motivation.title}
         </h3>
-        <p className="text-xs text-gray-700 font-medium">
+        <p className="text-xs text-white font-medium bg-white/20 backdrop-blur-sm rounded-lg px-3 py-2">
           {motivation.message}
         </p>
       </div>
 
       {/* Aktivitäts-Tipp */}
-      <div className="bg-white/30 rounded-lg p-2 mb-2">
-        <p className="text-xs text-center font-medium text-gray-800">
+      <div className="bg-white/30 backdrop-blur-sm border border-white/40 rounded-lg p-2 mb-2">
+        <p className="text-xs text-center font-bold text-white">
           {activityTip}
         </p>
       </div>
 
       {/* Kalorien-Status */}
-      <div className="bg-white/20 rounded-lg p-2">
+      <div className="bg-white/20 backdrop-blur-sm border border-white/30 rounded-lg p-2">
         <div className="text-center">
-          <p className="text-xs font-semibold text-gray-700">{calorieStatus}</p>
-          <p className="text-xs text-gray-600">{calorieTarget} kcal/Tag</p>
+          <p className="text-xs font-bold text-white">{calorieStatus}</p>
+          <p className="text-xs text-white font-medium">
+            {calorieTarget} kcal/Tag
+          </p>
         </div>
       </div>
 
@@ -128,7 +130,7 @@ const MotivationBox = ({ userData, calculations }) => {
         <div className="mt-2">
           <div className="w-full bg-white/30 rounded-full h-1.5">
             <div
-              className="bg-primary h-1.5 rounded-full transition-all duration-300"
+              className="bg-green-400 h-1.5 rounded-full transition-all duration-300"
               style={{
                 width:
                   goal === "lose"
@@ -155,7 +157,7 @@ const MotivationBox = ({ userData, calculations }) => {
               }}
             ></div>
           </div>
-          <p className="text-xs text-center text-gray-600 mt-1">
+          <p className="text-xs text-center text-white font-bold mt-1 bg-white/30 backdrop-blur-sm border border-white/40 rounded-lg px-3 py-2 shadow-lg">
             {goal === "lose" &&
               weightDiff > 0 &&
               `${Math.round(weightDiff)}kg übrig`}

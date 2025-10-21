@@ -10,11 +10,11 @@ import {
 const MacroDiagram = ({ calculations }) => {
   if (!calculations || !calculations.macros) {
     return (
-      <div className="p-2 rounded-lg h-full flex flex-col items-center justify-center">
-        <h3 className="text-sm text-primary font-semibold mb-2">
-          Makroverteilung
+      <div className="p-2 rounded-lg h-full flex flex-col items-center justify-center bg-gradient-to-br from-green-500/20 to-blue-500/20 backdrop-blur-sm border border-green-800/30">
+        <h3 className="text-sm text-white font-semibold mb-2">
+          📊 Makroverteilung
         </h3>
-        <p className="text-xs text-gray-500">Keine Daten verfügbar</p>
+        <p className="text-xs text-white/70">Keine Daten verfügbar</p>
       </div>
     );
   }
@@ -82,15 +82,15 @@ const MacroDiagram = ({ calculations }) => {
   };
 
   return (
-    <div className="p-2 rounded-lg h-full flex flex-col">
-      <h3 className="text-sm text-primary font-semibold mb-2 text-center">
-        Makroverteilung
+    <div className="p-2 rounded-lg h-full flex flex-col bg-gradient-to-br from-green-500/20 to-blue-500/20 backdrop-blur-sm border border-green-800/30">
+      <h3 className="text-sm text-white font-semibold mb-2 text-center">
+        📊 Makroverteilung
       </h3>
 
       {/* Kalorienziel */}
       <div className="text-center mb-2">
-        <div className="text-lg font-bold text-primary">{calorieTarget}</div>
-        <div className="text-xs text-gray-500">kcal/Tag</div>
+        <div className="text-lg font-bold text-white">{calorieTarget}</div>
+        <div className="text-xs text-white/80">kcal/Tag</div>
       </div>
 
       {/* Diagramm */}
@@ -123,7 +123,7 @@ const MacroDiagram = ({ calculations }) => {
               className="w-2 h-2 rounded flex-shrink-0"
               style={{ backgroundColor: entry.fill }}
             ></div>
-            <span className="text-gray-300">
+            <span className="text-white/80">
               {entry.name} ({entry.value}%)
             </span>
           </div>
@@ -131,14 +131,14 @@ const MacroDiagram = ({ calculations }) => {
       </div>
 
       {/* Zusätzliche Infos */}
-      <div className="border-t border-gray-600 pt-1 mt-1">
+      <div className="border-t border-white/30 pt-1 mt-1">
         <div className="flex justify-between text-xs">
-          <span className="text-gray-400">BMR:</span>
-          <span className="text-primary font-medium">{bmr} kcal</span>
+          <span className="text-white/70">BMR:</span>
+          <span className="text-white font-medium">{bmr} kcal</span>
         </div>
         <div className="flex justify-between text-xs">
-          <span className="text-gray-400">TDEE:</span>
-          <span className="text-primary font-medium">{tdee} kcal</span>
+          <span className="text-white/70">TDEE:</span>
+          <span className="text-white font-medium">{tdee} kcal</span>
         </div>
       </div>
     </div>

@@ -116,13 +116,13 @@ export function BentoBox() {
 
   return (
     <>
-      <section className="p-2 hero-section bg-base-300 border border-primary/20">
+      <section className="p-2 hero-section bg-base-200 border border-green-800/30">
         {/* User Profile - Links (großer Bereich) */}
         <div className="col-left col">
-          <div className="row box-1">
+          <div>
             <UserProfileCard />
           </div>
-          <div className="row box-4">
+          <div>
             {loading ? (
               <div className="flex items-center justify-center h-full">
                 <div className="loading loading-spinner loading-md"></div>
@@ -142,34 +142,31 @@ export function BentoBox() {
         <div className="col-right col">
           {/* Obere Reihe - 2 Boxen */}
           <div className="flex gap-1 h-full mb-1">
-            <div className="row box-2 flex-1">
-              <div className="w-full h-full p-4 bg-gradient-to-br from-green-50 to-blue-50 rounded border border-green-200 flex flex-col items-center justify-center text-center">
-                <h3 className="text-sm font-semibold text-green-800 mb-2">
-                  Motivation
-                </h3>
-                <blockquote className="text-xs text-gray-700 italic mb-2">
-                  "{motivationQuote.text}"
-                </blockquote>
-                <cite className="text-xs text-gray-500">
-                  — {motivationQuote.author}
-                </cite>
-              </div>
+            <div className="flex-1 p-2 bg-gradient-to-br from-green-500/20 to-blue-500/20 backdrop-blur-sm border border-green-800/30 rounded flex flex-col items-center justify-center text-center">
+              <h3 className="text-xs font-semibold text-white mb-1">
+                💚 Motivation
+              </h3>
+              <blockquote className="text-xs text-white/90 italic mb-1">
+                "{motivationQuote.text}"
+              </blockquote>
+              <cite className="text-xs text-white/70">
+                — {motivationQuote.author}
+              </cite>
             </div>
-            <div className="row box-3 flex-1">
-              <div className="flex items-center justify-center bg-base-200 rounded border border-base-300">
-                <h3 className="text-sm font-semibold text-primary">
-                  Muskelaufbau
-                </h3>
-              </div>
+            <div className="flex-1 p-2 bg-gradient-to-br from-green-500/20 to-blue-500/20 backdrop-blur-sm border border-green-800/30 rounded flex flex-col items-center justify-center text-center">
+              <h3 className="text-xs font-semibold text-white mb-1">
+                💪 Muskelaufbau
+              </h3>
+              <p className="text-xs text-white/80">Kraft & Masse aufbauen</p>
             </div>
           </div>
 
           {/* Untere Reihe - 2 Boxen */}
           <div className="flex gap-1 h-full">
-            <div className="row box-2 flex-1">
+            <div className="flex-1">
               <TodayStatusBox calculations={calculations} userData={userData} />
             </div>
-            <div className="row box-3 flex-1">
+            <div className="flex-1">
               <MotivationBox userData={userData} calculations={calculations} />
             </div>
           </div>

@@ -178,12 +178,12 @@ const AdvancedFoodModal = ({ isOpen, onClose }) => {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-lg p-6 w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+      <div className="bg-base-100 border border-green-800/30 rounded-lg p-6 w-full max-w-2xl max-h-[90vh] overflow-y-auto">
         <div className="flex justify-between items-center mb-6">
-          <h3 className="text-2xl font-bold text-gray-800">Essen hinzufügen</h3>
+          <h3 className="text-2xl font-bold text-white">🍽️ Essen hinzufügen</h3>
           <button
             onClick={handleClose}
-            className="text-gray-500 hover:text-gray-700 text-2xl"
+            className="text-white/60 hover:text-white text-2xl bg-red-500/20 backdrop-blur-sm border border-red-500/30 hover:bg-red-500/30 rounded-full w-8 h-8 flex items-center justify-center transition-colors"
           >
             ×
           </button>
@@ -197,10 +197,10 @@ const AdvancedFoodModal = ({ isOpen, onClose }) => {
                 type="radio"
                 checked={useApiSearch}
                 onChange={() => setUseApiSearch(true)}
-                className="w-4 h-4 text-primary border-gray-300 focus:ring-primary"
+                className="w-4 h-4 text-green-500 border-green-800/30 focus:ring-green-500"
               />
-              <span className="text-sm font-medium text-gray-700">
-                API-Suche (empfohlen)
+              <span className="text-sm font-medium text-white">
+                🔍 API-Suche (empfohlen)
               </span>
             </label>
             <label className="flex items-center space-x-2">
@@ -208,10 +208,10 @@ const AdvancedFoodModal = ({ isOpen, onClose }) => {
                 type="radio"
                 checked={!useApiSearch}
                 onChange={() => setUseApiSearch(false)}
-                className="w-4 h-4 text-primary border-gray-300 focus:ring-primary"
+                className="w-4 h-4 text-green-500 border-green-800/30 focus:ring-green-500"
               />
-              <span className="text-sm font-medium text-gray-700">
-                Lokale Datenbank
+              <span className="text-sm font-medium text-white">
+                💾 Lokale Datenbank
               </span>
             </label>
           </div>
@@ -220,8 +220,9 @@ const AdvancedFoodModal = ({ isOpen, onClose }) => {
         {/* API-Suche */}
         {useApiSearch && (
           <div className="mb-6">
-            <p className="text-sm font-medium text-gray-700 mb-3">
-              Intelligente Suche mit Allergien- und Ernährungsweise-Filterung:
+            <p className="text-sm font-medium text-white/80 mb-3">
+              🔍 Intelligente Suche mit Allergien- und
+              Ernährungsweise-Filterung:
             </p>
             <FoodSearch onFoodSelect={handleApiFoodSelect} />
           </div>
@@ -232,14 +233,14 @@ const AdvancedFoodModal = ({ isOpen, onClose }) => {
           <>
             {/* Kategorien */}
             <div className="mb-6">
-              <p className="text-sm font-medium text-gray-700 mb-3">
-                Kategorien:
+              <p className="text-sm font-medium text-white/80 mb-3">
+                📂 Kategorien:
               </p>
               <div className="flex flex-wrap gap-2">
                 {categories.map((category) => (
                   <button
                     key={category}
-                    className="px-3 py-1 bg-gray-100 hover:bg-gray-200 rounded-full text-sm transition-colors"
+                    className="px-3 py-1 bg-gray-500/20 backdrop-blur-sm border border-green-800/30 text-white hover:bg-gray-500/30 rounded-full text-sm transition-colors"
                   >
                     {category}
                   </button>
@@ -249,19 +250,19 @@ const AdvancedFoodModal = ({ isOpen, onClose }) => {
 
             {/* Quick-Add Buttons */}
             <div className="mb-6">
-              <p className="text-sm font-medium text-gray-700 mb-3">
-                Schnellauswahl:
+              <p className="text-sm font-medium text-white/80 mb-3">
+                ⚡ Schnellauswahl:
               </p>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-2 max-h-40 overflow-y-auto">
                 {commonFoods.map((food, index) => (
                   <button
                     key={index}
                     onClick={() => quickAddFood(food)}
-                    className="text-xs bg-gray-100 hover:bg-gray-200 p-3 rounded-lg text-left transition-colors"
+                    className="text-xs bg-gray-500/20 backdrop-blur-sm border border-green-800/30 hover:bg-gray-500/30 p-3 rounded-lg text-left transition-colors"
                   >
-                    <div className="font-medium">{food.name}</div>
-                    <div className="text-gray-600">{food.calories} kcal</div>
-                    <div className="text-gray-500 text-xs">{food.category}</div>
+                    <div className="font-medium text-white">{food.name}</div>
+                    <div className="text-white/80">{food.calories} kcal</div>
+                    <div className="text-white/60 text-xs">{food.category}</div>
                   </button>
                 ))}
               </div>
@@ -273,28 +274,28 @@ const AdvancedFoodModal = ({ isOpen, onClose }) => {
           {/* Grunddaten */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Nahrungsmittel *
+              <label className="block text-sm font-medium text-white mb-2">
+                🍎 Nahrungsmittel *
               </label>
               <input
                 type="text"
                 value={foodName}
                 onChange={(e) => setFoodName(e.target.value)}
-                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                className="w-full p-3 bg-base-200 border border-green-800/30 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500/50 text-white placeholder-white/60"
                 placeholder="z.B. Apfel, Hähnchenbrust..."
                 required
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Menge (in 100g)
+              <label className="block text-sm font-medium text-white mb-2">
+                ⚖️ Menge (in 100g)
               </label>
               <input
                 type="number"
                 step="0.1"
                 value={quantity}
                 onChange={(e) => setQuantity(e.target.value)}
-                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                className="w-full p-3 bg-base-200 border border-green-800/30 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500/50 text-white placeholder-white/60"
                 placeholder="1"
               />
             </div>
@@ -302,14 +303,14 @@ const AdvancedFoodModal = ({ isOpen, onClose }) => {
 
           {/* Nährwerte */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Kalorien (pro 100g) *
+            <label className="block text-sm font-medium text-white mb-2">
+              🔥 Kalorien (pro 100g) *
             </label>
             <input
               type="number"
               value={calories}
               onChange={(e) => setCalories(e.target.value)}
-              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+              className="w-full p-3 bg-base-200 border border-green-800/30 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500/50 text-white placeholder-white/60"
               placeholder="52"
               required
             />
@@ -317,41 +318,41 @@ const AdvancedFoodModal = ({ isOpen, onClose }) => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Protein (g)
+              <label className="block text-sm font-medium text-white mb-2">
+                💪 Protein (g)
               </label>
               <input
                 type="number"
                 step="0.1"
                 value={protein}
                 onChange={(e) => setProtein(e.target.value)}
-                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                className="w-full p-3 bg-base-200 border border-green-800/30 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500/50 text-white placeholder-white/60"
                 placeholder="0.3"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Fett (g)
+              <label className="block text-sm font-medium text-white mb-2">
+                🧈 Fett (g)
               </label>
               <input
                 type="number"
                 step="0.1"
                 value={fat}
                 onChange={(e) => setFat(e.target.value)}
-                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                className="w-full p-3 bg-base-200 border border-green-800/30 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500/50 text-white placeholder-white/60"
                 placeholder="0.2"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Kohlenhydrate (g)
+              <label className="block text-sm font-medium text-white mb-2">
+                🍞 Kohlenhydrate (g)
               </label>
               <input
                 type="number"
                 step="0.1"
                 value={carbs}
                 onChange={(e) => setCarbs(e.target.value)}
-                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                className="w-full p-3 bg-base-200 border border-green-800/30 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500/50 text-white placeholder-white/60"
                 placeholder="14"
               />
             </div>
@@ -359,42 +360,42 @@ const AdvancedFoodModal = ({ isOpen, onClose }) => {
 
           {/* Berechnete Gesamtwerte */}
           {calories && quantity && (
-            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-4 rounded-lg">
-              <p className="text-sm font-medium text-gray-700 mb-3">
-                Gesamtwerte:
+            <div className="bg-gradient-to-r from-green-500/20 to-blue-500/20 backdrop-blur-sm border border-green-800/30 p-4 rounded-lg">
+              <p className="text-sm font-medium text-white mb-3">
+                📊 Gesamtwerte:
               </p>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
                 <div className="text-center">
-                  <div className="font-bold text-lg text-blue-600">
+                  <div className="font-bold text-lg text-blue-400">
                     {Math.round(
                       parseFloat(calories || 0) * parseFloat(quantity)
                     )}
                   </div>
-                  <div className="text-gray-600">kcal</div>
+                  <div className="text-white/80">kcal</div>
                 </div>
                 <div className="text-center">
-                  <div className="font-bold text-lg text-red-600">
+                  <div className="font-bold text-lg text-red-400">
                     {Math.round(
                       parseFloat(protein || 0) * parseFloat(quantity) * 10
                     ) / 10}
                   </div>
-                  <div className="text-gray-600">Protein</div>
+                  <div className="text-white/80">Protein</div>
                 </div>
                 <div className="text-center">
-                  <div className="font-bold text-lg text-yellow-600">
+                  <div className="font-bold text-lg text-yellow-400">
                     {Math.round(
                       parseFloat(fat || 0) * parseFloat(quantity) * 10
                     ) / 10}
                   </div>
-                  <div className="text-gray-600">Fett</div>
+                  <div className="text-white/80">Fett</div>
                 </div>
                 <div className="text-center">
-                  <div className="font-bold text-lg text-green-600">
+                  <div className="font-bold text-lg text-green-400">
                     {Math.round(
                       parseFloat(carbs || 0) * parseFloat(quantity) * 10
                     ) / 10}
                   </div>
-                  <div className="text-gray-600">Carbs</div>
+                  <div className="text-white/80">Carbs</div>
                 </div>
               </div>
             </div>
@@ -407,10 +408,10 @@ const AdvancedFoodModal = ({ isOpen, onClose }) => {
                 type="checkbox"
                 checked={saveAsRecipe}
                 onChange={(e) => setSaveAsRecipe(e.target.checked)}
-                className="w-4 h-4 text-primary border-gray-300 rounded focus:ring-primary"
+                className="w-4 h-4 text-green-500 border-green-800/30 rounded focus:ring-green-500"
               />
-              <span className="text-sm text-gray-700">
-                Als Rezept speichern für später
+              <span className="text-sm text-white">
+                👨‍🍳 Als Rezept speichern für später
               </span>
             </label>
             <label className="flex items-center space-x-3">
@@ -418,10 +419,10 @@ const AdvancedFoodModal = ({ isOpen, onClose }) => {
                 type="checkbox"
                 checked={addToFavs}
                 onChange={(e) => setAddToFavs(e.target.checked)}
-                className="w-4 h-4 text-primary border-gray-300 rounded focus:ring-primary"
+                className="w-4 h-4 text-green-500 border-green-800/30 rounded focus:ring-green-500"
               />
-              <span className="text-sm text-gray-700">
-                Zu Favoriten hinzufügen
+              <span className="text-sm text-white">
+                💚 Zu Favoriten hinzufügen
               </span>
             </label>
           </div>
@@ -431,15 +432,15 @@ const AdvancedFoodModal = ({ isOpen, onClose }) => {
             <button
               type="button"
               onClick={handleClose}
-              className="flex-1 px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
+              className="flex-1 px-6 py-3 bg-gray-500/20 backdrop-blur-sm border border-gray-500/30 text-white rounded-lg hover:bg-gray-500/30 transition-colors"
             >
-              Abbrechen
+              ❌ Abbrechen
             </button>
             <button
               type="submit"
-              className="flex-1 px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors font-medium"
+              className="flex-1 px-6 py-3 bg-green-500/20 backdrop-blur-sm border border-green-500/30 text-green-400 rounded-lg hover:bg-green-500/30 transition-colors font-medium"
             >
-              Hinzufügen
+              ➕ Hinzufügen
             </button>
           </div>
         </form>
