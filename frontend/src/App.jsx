@@ -41,6 +41,8 @@ function App() {
           <Route element={<SignInPage />} path="/signin/sso-callback" />
           <Route element={<SignUpPage />} path="/signup" />
           <Route element={<SignUpPage />} path="/signup/verify-email-address" />
+          <Route element={<SignUpPage />} path="/signup/sso-callback" />
+          <Route element={<SignUpPage />} path="/signup/continue" />
           {/* Dashboard - nur für Benutzer mit abgeschlossenem Setup */}
           <Route
             element={
@@ -71,20 +73,18 @@ function App() {
             path="/food"
           />
 
-          {/* zur entwicklung */}
           {/* Wiki */}
           <Route element={<WikiPage />} path="/wiki" />
-          {/* Dev-Links Ziele */}
-          <Route element={<AgbPage />} path="/agb" />
-          <Route element={<AboutUsPage />} path="/aboutus" />
-          <Route element={<PlanerPage />} path="/planer" />
-          <Route element={<ProfilePage />} path="/profile" />
-          <Route element={<ProfileSettingsPage />} path="/profile-settings" />
+          {/* Support */}
           <Route element={<SupportPage />} path="/support" />
-          <Route
-            element={<SupportConfirmationPage />}
-            path="/support/confirmation"
-          />
+          {/* Planer */}
+          <Route element={<PlanerPage />} path="/planer" />
+          {/* Profil */}
+          <Route element={<ProfilPage />} path="/profil" />
+          {/* AGB */}
+          <Route element={<AgbPage />} path="/agb" />
+          {/* About Us */}
+          <Route element={<AboutUsPage />} path="/aboutus" />
           {/* Onboarding */}
           <Route element={<SetupPage />} path="/onboarding" />
           {/* 404-Route*/}

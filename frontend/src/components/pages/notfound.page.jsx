@@ -7,13 +7,13 @@ export default function NotFoundPage() {
 
   return (
     <div className="min-h-screen bg-base-200 flex items-center justify-center relative overflow-hidden">
-      {/* Aurora BG*/}
-      <div className="absolute inset-0 opacity-20">
+      {/* Aurora BG - Full Page */}
+      <div className="fixed inset-0 w-full h-full opacity-30 z-0">
         <Aurora
           colorStops={["#2eb872", "#ffd166", "#118ab2"]}
-          blend={0.4}
-          amplitude={1.2}
-          speed={0.3}
+          blend={0.8}
+          amplitude={2.0}
+          speed={0.5}
         />
       </div>
       {/* Content*/}

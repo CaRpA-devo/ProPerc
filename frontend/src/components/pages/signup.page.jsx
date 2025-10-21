@@ -59,8 +59,10 @@ export function SignUpPage() {
               }}
               fallback={<Loader />}
               path="/signup"
-              forceRedirectUrl={"/dashboard"}
+              forceRedirectUrl={"/setup"}
               signInUrl="/signin"
+              redirectUrl="/setup"
+              afterSignUpUrl="/setup"
             />
           </section>
         </div>

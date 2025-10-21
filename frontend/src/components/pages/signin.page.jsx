@@ -61,6 +61,8 @@ export function SignInPage() {
               path="/signin"
               forceRedirectUrl={"/dashboard"}
               signUpUrl="/signup"
+              redirectUrl="/dashboard"
+              afterSignInUrl="/dashboard"
             />
           </section>
         </div>
