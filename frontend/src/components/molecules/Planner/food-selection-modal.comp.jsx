@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { Button } from "../../atoms/button.comp.jsx";
+import { useFoodApi } from "../../../hooks/useFoodApi";
+import FoodSearch from "../food-search.comp";
+import { useBackendFood } from "../../../context/BackendFoodContext";
 
 /**
  * FoodSelectionModal - Modal zur Auswahl von Mahlzeiten
@@ -30,6 +33,17 @@ export const FoodSelectionModal = ({
     fat: "",
   });
 
+  const {
+    searchResults,
+    recommendations,
+    loading: foodApiLoading,
+    error: foodApiError,
+    searchFoods,
+    enhanceFoodsWithProfile,
+  } = useFoodApi();
+
+  const { addToFavorites, favoriteFoods } = useBackendFood();
+
   if (!isOpen) return null;
 
   const mealTypeLabels = {
@@ -40,7 +54,7 @@ export const FoodSelectionModal = ({
   };
 
   const filteredFavorites = favorites.filter((food) =>
-    food.description?.toLowerCase().includes(searchTerm.toLowerCase())
+    food.name?.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   const filteredRecipes = recipes.filter((recipe) =>
@@ -48,16 +62,19 @@ export const FoodSelectionModal = ({
   );
 
   const handleSelectFood = (food) => {
-    onSelect({
-      id: Date.now().toString(),
-      name: food.description || food.name,
+    // Prüfen ob es ein Suchresultat oder ein Favorit/Rezept ist
+    const foodData = {
+      id: food._id || Date.now().toString(),
+      name: food.name || food.description,
       calories: food.calories || 0,
       protein: food.protein || 0,
       carbs: food.carbs || 0,
       fat: food.fat || 0,
       mealType: selectedMealType,
       servings: 1,
-    });
+      source: food._id ? "favorite" : "search",
+    };
+    onSelect(foodData);
     onClose();
   };
 
@@ -73,7 +90,13 @@ export const FoodSelectionModal = ({
         mealType: selectedMealType,
         servings: 1,
       });
-      setCustomMeal({ name: "", calories: "", protein: "", carbs: "", fat: "" });
+      setCustomMeal({
+        name: "",
+        calories: "",
+        protein: "",
+        carbs: "",
+        fat: "",
+      });
       onClose();
     }
   };
@@ -81,10 +104,7 @@ export const FoodSelectionModal = ({
   return (
     <>
       {/* Backdrop */}
-      <div
-        className="fixed inset-0 bg-black/50 z-40"
-        onClick={onClose}
-      />
+      <div className="fixed inset-0 bg-black/50 z-40" onClick={onClose} />
 
       {/* Modal */}
       <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
@@ -110,7 +130,15 @@ export const FoodSelectionModal = ({
             {/* Tabs */}
             <div className="tabs tabs-boxed mb-4">
               <button
-                className={`tab ${activeTab === "favorites" ? "tab-active" : ""}`}
+                className={`tab ${activeTab === "search" ? "tab-active" : ""}`}
+                onClick={() => setActiveTab("search")}
+              >
+                🔍 Suche
+              </button>
+              <button
+                className={`tab ${
+                  activeTab === "favorites" ? "tab-active" : ""
+                }`}
                 onClick={() => setActiveTab("favorites")}
               >
                 💚 Favoriten ({favorites.length})
@@ -129,8 +157,8 @@ export const FoodSelectionModal = ({
               </button>
             </div>
 
-            {/* Search Bar */}
-            {activeTab !== "custom" && (
+            {/* Suchfilter für Favoriten und Rezepte */}
+            {(activeTab === "favorites" || activeTab === "recipes") && (
               <input
                 type="text"
                 placeholder="Suchen..."
@@ -142,6 +170,16 @@ export const FoodSelectionModal = ({
 
             {/* Content */}
             <div className="overflow-y-auto max-h-96">
+              {/* Suche Tab */}
+              {activeTab === "search" && (
+                <div className="space-y-4">
+                  <FoodSearch
+                    onFoodSelect={handleSelectFood}
+                    showRecommendations={true}
+                  />
+                </div>
+              )}
+
               {/* Favoriten Tab */}
               {activeTab === "favorites" && (
                 <div className="space-y-2">
@@ -155,16 +193,16 @@ export const FoodSelectionModal = ({
                   ) : (
                     filteredFavorites.map((food) => (
                       <button
-                        key={food.fdcId}
+                        key={food._id || Date.now()}
                         onClick={() => handleSelectFood(food)}
                         className="w-full p-4 text-left bg-base-200 hover:bg-base-300 rounded-lg transition-colors"
                       >
-                        <div className="font-semibold">{food.description}</div>
-                        <div className="text-sm text-base-content/60 mt-1">
-                          {Math.round(food.calories || 0)} kcal
-                          {food.protein && ` • P: ${Math.round(food.protein)}g`}
-                          {food.carbs && ` • K: ${Math.round(food.carbs)}g`}
-                          {food.fat && ` • F: ${Math.round(food.fat)}g`}
+                        <div className="font-semibold">{food.name}</div>
+                        <div className="grid grid-cols-4 text-sm text-base-content/60 mt-1">
+                          <div>{Math.round(food.calories || 0)} kcal</div>
+                          <div>P: {Math.round(food.protein || 0)}g</div>
+                          <div>K: {Math.round(food.carbs || 0)}g</div>
+                          <div>F: {Math.round(food.fat || 0)}g</div>
                         </div>
                       </button>
                     ))
@@ -228,7 +266,10 @@ export const FoodSelectionModal = ({
                         placeholder="0"
                         value={customMeal.calories}
                         onChange={(e) =>
-                          setCustomMeal({ ...customMeal, calories: e.target.value })
+                          setCustomMeal({
+                            ...customMeal,
+                            calories: e.target.value,
+                          })
                         }
                         className="input input-bordered"
                       />
@@ -243,7 +284,10 @@ export const FoodSelectionModal = ({
                         placeholder="0"
                         value={customMeal.protein}
                         onChange={(e) =>
-                          setCustomMeal({ ...customMeal, protein: e.target.value })
+                          setCustomMeal({
+                            ...customMeal,
+                            protein: e.target.value,
+                          })
                         }
                         className="input input-bordered"
                       />
@@ -258,7 +302,10 @@ export const FoodSelectionModal = ({
                         placeholder="0"
                         value={customMeal.carbs}
                         onChange={(e) =>
-                          setCustomMeal({ ...customMeal, carbs: e.target.value })
+                          setCustomMeal({
+                            ...customMeal,
+                            carbs: e.target.value,
+                          })
                         }
                         className="input input-bordered"
                       />

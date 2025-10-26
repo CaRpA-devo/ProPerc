@@ -168,15 +168,15 @@ const FoodSearch = ({ onFoodSelect, showRecommendations = true }) => {
 
       {/* Suchergebnisse */}
       {showResults && (
-        <div className="absolute z-50 w-full mt-2 bg-base-100 border border-green-800/30 rounded-lg shadow-lg max-h-96 overflow-y-auto">
+        <div className="absolute z-50 w-full  mt-2 bg-base-100 border border-green-800/30 rounded-lg shadow-lg max-h-96 overflow-y-auto">
           {filteredFoods.length === 0 ? (
-            <div className="p-4 text-center text-white/60">
+            <div className="p-4 text-center text-white/60  ">
               <div className="text-2xl mb-2">🔍</div>
               <p>Keine Ergebnisse gefunden</p>
               <p className="text-sm">Versuche einen anderen Suchbegriff</p>
             </div>
           ) : (
-            <div className="p-2">
+            <div className="p-2  ">
               {filteredFoods.map((food) => (
                 <FoodItem
                   key={food.id}
