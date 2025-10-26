@@ -31,7 +31,7 @@ export function Hero() {
 
   return (
     <div
-      className="hero min-h-screen relative overflow-hidden contrast-110 saturate-125 brightness-105"
+      className="hero min-h-screen relative overflow-hidden contrast-110 saturate-125 brightness-110"
       style={{ backgroundImage: `url(${heroBg})` }}
     >
       <div className="hero-content text-neutral-content w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -42,7 +42,11 @@ export function Hero() {
               className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6"
               style={{ color: "#073c26" }}
             >
-              Deine <span style={{ color: "#ffd166" }}>Balance</span> schon
+              Deine <span style={{ 
+                color: "#ffd166", 
+                WebkitTextStroke: "0.8px #073c26",
+                textShadow: "1px 1px 3px rgba(7, 60, 38, 0.2)"
+              }}>Balance</span> schon
               gefunden?
             </h1>
             <p
