@@ -251,8 +251,9 @@ export function Sidebar({ isCollapsed, onToggle }) {
   return (
     <div
       className={`
-       fixed left-0 top-0 bottom-0 bg-base-200/90 z-40 border-r border-base-300
-       transition-all duration-300 ease-in-out
+       sticky top-0 bg-base-200/90 z-40 border-r border-base-300
+       transition-all duration-300 ease-in-out self-start
+       h-screen
        ${isCollapsed ? "w-16" : "w-64"}
      `}
       style={{
