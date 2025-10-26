@@ -1,3 +1,4 @@
+import "../molecules/bentobox.style.css";
 import { UserProfileCard } from "./user-profile-card.comp";
 import MacroDiagram from "./macro-diagram.comp";
 import MotivationBox from "./motivation-box.comp";
@@ -115,25 +116,21 @@ export function BentoBox() {
   ]);
 
   return (
-    <section className="w-full max-w-[1920px] mx-auto p-4 space-y-4">
-      {/* Main grid with glass effect wrapper */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 p-6 rounded-2xl bg-gradient-to-b from-black/90 to-gray-950/95 backdrop-blur-md border border-white/5 shadow-xl">
-        {/* Left column (66%) - Profile & Macros */}
-        <div className="lg:col-span-2 space-y-6">
-          {/* Profile Card with glass effect */}
-          <div className="bg-black/60 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-white/5 transition-all duration-300 hover:border-white/10 hover:shadow-2xl">
+    <>
+      <section className="p-2 hero-section bg-base-200 border border-green-800/30">
+        {/* User Profile - Links (großer Bereich) */}
+        <div className="col-left col">
+          <div>
             <UserProfileCard />
           </div>
-
-          {/* Macro Diagram with glass effect */}
-          <div className="bg-black/60 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-white/5 transition-all duration-300 hover:border-white/10 hover:shadow-2xl">
+          <div>
             {loading ? (
-              <div className="flex items-center justify-center p-4">
+              <div className="flex items-center justify-center h-full">
                 <div className="loading loading-spinner loading-md"></div>
-                <span className="ml-3">Berechne Makros...</span>
+                <span className="ml-2">Berechne Makros...</span>
               </div>
             ) : error ? (
-              <div className="flex items-center justify-center p-4 text-error">
+              <div className="flex items-center justify-center h-full text-error">
                 <span>Fehler beim Laden</span>
               </div>
             ) : (
@@ -142,39 +139,35 @@ export function BentoBox() {
           </div>
         </div>
 
-        {/* Right column (33%) - Info Cards */}
-        <div className="lg:col-span-1 space-y-6">
-          {/* Upper grid row */}
-          <div className="grid grid-cols-1 gap-6">
-            {/* Diet Plan with glass effect - Full width */}
-            <div className="bg-black/60 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-white/5 transition-all duration-300 hover:border-white/10 hover:shadow-2xl">
-              <PersonalizedDietBox userData={userData} />
-            </div>
-
-            {/* Motivation Quote with dark gradient - Full width */}
-            <div className="bg-gradient-to-br from-black/80 to-gray-900/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-white/5 transition-all duration-300 hover:border-white/10 hover:shadow-2xl flex flex-col justify-center items-center text-center">
-              <h3 className="text-base font-semibold mb-4">💚 Motivation</h3>
-              <blockquote className="text-sm italic mb-3">
+        {/* Rechte Spalte - 4 Boxen (2 oben, 2 unten) */}
+        <div className="col-right col">
+          {/* Obere Reihe - 2 Boxen */}
+          <div className="flex gap-1 h-full mb-1">
+            <div className="flex-1 p-2 bg-gradient-to-br from-green-500/20 to-blue-500/20 backdrop-blur-sm border border-green-800/30 rounded flex flex-col items-center justify-center text-center">
+              <h3 className="text-xs font-semibold text-white mb-1">
+                💚 Motivation
+              </h3>
+              <blockquote className="text-xs text-white/90 italic mb-1">
                 "{motivationQuote.text}"
               </blockquote>
-              <cite className="text-xs text-gray-400">
+              <cite className="text-xs text-white/70">
                 — {motivationQuote.author}
               </cite>
             </div>
-          </div>{" "}
-          {/* Lower grid row - Full width boxes */}
-          <div className="grid grid-cols-1 gap-6 min-h-[200px]">
-            {/* Today Status - Full width */}
-            <div className="bg-black/60 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-white/5 transition-all duration-300 hover:border-white/10 hover:shadow-2xl">
+            <PersonalizedDietBox userData={userData} />
+          </div>
+
+          {/* Untere Reihe - 2 Boxen */}
+          <div className="flex gap-1 h-full">
+            <div className="flex-1">
               <TodayStatusBox calculations={calculations} userData={userData} />
             </div>
-            {/* Weight Maintenance Box - Full width */}
-            <div className="bg-black/60 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-white/5 transition-all duration-300 hover:border-white/10 hover:shadow-2xl">
+            <div className="flex-1">
               <MotivationBox userData={userData} calculations={calculations} />
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }

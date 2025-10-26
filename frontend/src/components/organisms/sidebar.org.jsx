@@ -7,38 +7,7 @@ export function Sidebar({ isCollapsed, onToggle }) {
   const location = useLocation();
   const { isSignedIn } = useUser();
 
-  // Aurora-Container mit absoluter Positionierung über die ganze Sidebar
-  const auroraStyle = {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    pointerEvents: "none", // Damit Clicks durch die Animation durchgehen
-    zIndex: 0, // Unter dem Inhalt
-  };
-
   const navigationItems = [
-    {
-      name: "News",
-      path: "/news",
-      icon: (
-        <svg
-          className="w-5 h-5"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2 2 0 00-2-2h-2"
-          />
-        </svg>
-      ),
-      requiresAuth: true,
-    },
     {
       name: "Dashboard",
       path: "/dashboard",
@@ -282,7 +251,7 @@ export function Sidebar({ isCollapsed, onToggle }) {
   return (
     <div
       className={`
-       fixed left-0 top-0 bottom-0 bg-base-200/90 z-40 border-r border-base-300
+       fixed left-0 top-0 bottom-0 bg-base-200 z-40 border-r border-base-300
        transition-all duration-300 ease-in-out
        ${isCollapsed ? "w-16" : "w-64"}
      `}
@@ -292,12 +261,12 @@ export function Sidebar({ isCollapsed, onToggle }) {
       }}
     >
       {/* Aurora Background */}
-      <div className="absolute inset-0 opacity-30 pointer-events-none">
+      <div className="absolute inset-0 opacity-20 pointer-events-none">
         <Aurora
-          colorStops={["#2eb872", "#1a1a1a", "#ffd166"]}
-          blend={0.6}
-          amplitude={1.2}
-          speed={0.2}
+          colorStops={["#2eb872", "#ffd166"]}
+          blend={0.4}
+          amplitude={0.8}
+          speed={0.3}
         />
       </div>
 

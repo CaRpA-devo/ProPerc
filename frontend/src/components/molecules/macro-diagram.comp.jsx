@@ -2,54 +2,10 @@ import React from "react";
 import {
   RadialBarChart,
   RadialBar,
+  Legend,
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
-
-// Einzelne Makro-Karte Komponente
-const MacroCard = ({ title, value, grams, calories, color, icon }) => {
-  const data = [
-    {
-      name: title,
-      value: value,
-      grams,
-      calories,
-      fill: color,
-    },
-  ];
-
-  return (
-    <div className="flex-1 p-3 bg-gradient-to-br from-green-500/10 to-blue-500/10 backdrop-blur-sm border border-green-800/30 rounded-lg">
-      <div className="flex items-center justify-between mb-2">
-        <h4 className="text-sm text-white font-medium flex items-center gap-1">
-          {icon} {title}
-        </h4>
-        <span className="text-xs text-white/80">{value}%</span>
-      </div>
-
-      <div className="h-[80px]">
-        <ResponsiveContainer width="100%" height="100%">
-          <RadialBarChart
-            cx="50%"
-            cy="50%"
-            innerRadius="65%"
-            outerRadius="100%"
-            data={data}
-            startAngle={180}
-            endAngle={0}
-          >
-            <RadialBar background dataKey="value" cornerRadius={15} />
-          </RadialBarChart>
-        </ResponsiveContainer>
-      </div>
-
-      <div className="text-center space-y-1 mt-1">
-        <div className="text-sm font-semibold text-white">{grams}g</div>
-        <div className="text-xs text-white/70">{calories} kcal</div>
-      </div>
-    </div>
-  );
-};
 
 const MacroDiagram = ({ calculations }) => {
   if (!calculations || !calculations.macros) {
@@ -66,6 +22,65 @@ const MacroDiagram = ({ calculations }) => {
   const { macros, calorieTarget, bmr, tdee } = calculations;
   const { protein, fat, carbs } = macros;
 
+  // Daten für RadialBarChart vorbereiten
+  const data = [
+    {
+      name: "Protein",
+      value: protein.percent,
+      grams: protein.g,
+      calories: protein.calories,
+      fill: "#ff6b6b",
+    },
+    {
+      name: "Fett",
+      value: fat.percent,
+      grams: fat.g,
+      calories: fat.calories,
+      fill: "#4ecdc4",
+    },
+    {
+      name: "Kohlenhydrate",
+      value: carbs.percent,
+      grams: carbs.g,
+      calories: carbs.calories,
+      fill: "#45b7d1",
+    },
+  ];
+
+  // Custom Tooltip
+  const CustomTooltip = ({ active, payload }) => {
+    if (active && payload && payload.length) {
+      const data = payload[0].payload;
+      return (
+        <div className="rounded-lg bg-base-100/90 p-3 shadow-xl border border-gray-600">
+          <p className="text-white font-semibold text-sm">{data.name}</p>
+          <p className="text-gray-300 text-xs">
+            {data.grams}g ({data.value}%)
+          </p>
+          <p className="text-gray-300 text-xs">{data.calories} kcal</p>
+        </div>
+      );
+    }
+    return null;
+  };
+
+  // Custom Legend
+  const CustomLegend = ({ payload }) => {
+    return (
+      <div className="flex flex-col gap-1 mt-2">
+        {payload.map((entry, index) => (
+          <div key={index} className="flex items-center gap-1 text-xs">
+            <div
+              className="w-2 h-2 rounded"
+              style={{ backgroundColor: entry.color }}
+            ></div>
+            <span className="text-gray-300">{entry.value}</span>
+          </div>
+        ))}
+      </div>
+    );
+  };
+
   return (
     <div className="p-2 rounded-lg h-full flex flex-col bg-gradient-to-br from-green-500/20 to-blue-500/20 backdrop-blur-sm border border-green-800/30">
       <h3 className="text-sm text-white font-semibold mb-2 text-center">
@@ -73,41 +88,50 @@ const MacroDiagram = ({ calculations }) => {
       </h3>
 
       {/* Kalorienziel */}
-      <div className="text-center mb-3">
+      <div className="text-center mb-2">
         <div className="text-lg font-bold text-white">{calorieTarget}</div>
         <div className="text-xs text-white/80">kcal/Tag</div>
       </div>
 
-      {/* Makro-Karten Grid */}
-      <div className="grid grid-cols-3 gap-2 flex-1">
-        <MacroCard
-          title="Protein"
-          value={protein.percent}
-          grams={protein.g}
-          calories={protein.calories}
-          color="#FF6B6B" // Kräftiges Rot für Protein
-          icon="🥩"
-        />
-        <MacroCard
-          title="Fett"
-          value={fat.percent}
-          grams={fat.g}
-          calories={fat.calories}
-          color="#FFD93D" // Warmes Gelb für Fett
-          icon="🥑"
-        />
-        <MacroCard
-          title="Carbs"
-          value={carbs.percent}
-          grams={carbs.g}
-          calories={carbs.calories}
-          color="#6BCB77" // Frisches Grün für Kohlenhydrate
-          icon="🌾"
-        />
+      {/* Diagramm */}
+      <div className="flex-1">
+        <ResponsiveContainer width="100%" height={120}>
+          <RadialBarChart
+            cx="50%"
+            cy="50%"
+            innerRadius="15%"
+            outerRadius="90%"
+            data={data}
+            startAngle={180}
+            endAngle={0}
+          >
+            <RadialBar background dataKey="value" />
+            <Tooltip
+              content={<CustomTooltip />}
+              position={{ x: "50%", y: "50%" }}
+              wrapperStyle={{ transform: "translate(-50%, -50%)" }}
+            />
+          </RadialBarChart>
+        </ResponsiveContainer>
+      </div>
+
+      {/* Legende unter dem Diagramm */}
+      <div className="flex justify-center gap-4 mt-1">
+        {data.map((entry, index) => (
+          <div key={index} className="flex items-center gap-1 text-xs">
+            <div
+              className="w-2 h-2 rounded flex-shrink-0"
+              style={{ backgroundColor: entry.fill }}
+            ></div>
+            <span className="text-white/80">
+              {entry.name} ({entry.value}%)
+            </span>
+          </div>
+        ))}
       </div>
 
       {/* Zusätzliche Infos */}
-      <div className="border-t border-white/30 pt-2 mt-3">
+      <div className="border-t border-white/30 pt-1 mt-1">
         <div className="flex justify-between text-xs">
           <span className="text-white/70">BMR:</span>
           <span className="text-white font-medium">{bmr} kcal</span>
