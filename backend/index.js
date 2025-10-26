@@ -14,6 +14,7 @@ import { profilerouter } from "./src/routes/profil.route.js";
 import calcRouter from "./src/routes/calc.route.js";
 import dailyTrackingRouter from "./src/routes/dailyTracking.route.js";
 import favoritesRouter from "./src/routes/favorites.route.js";
+import { mealPlanRouter } from "./src/routes/mealPlan.route.js";
 
 const app = express();
 
@@ -41,6 +42,7 @@ app.use("/api/profile", profilerouter);
 app.use("/api/calc", calcRouter);
 app.use("/api/daily-tracking", dailyTrackingRouter);
 app.use("/api/favorites", favoritesRouter);
+app.use("/api/planner", mealPlanRouter);
 
 // 404 Not Found Middleware
 app.all("/", (req, res, next) => {

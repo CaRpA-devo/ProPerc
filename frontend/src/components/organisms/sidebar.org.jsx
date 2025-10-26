@@ -380,7 +380,7 @@ export function Sidebar({ isCollapsed, onToggle }) {
         </div>
 
         {/* Navigation */}
-        <nav className="flex-1 overflow-y-auto scrollbar-thin scrollbar-thumb-base-300 scrollbar-track-transparent">
+        <nav className="flex-1 overflow-y-auto scrollbar-thin scrollbar-thumb-base-300 scrollbar-track-transparent sticky top-0">
           <ul className={`space-y-2 ${isCollapsed ? "p-2" : "p-4"}`}>
             {filteredItems.map((item, index) => {
               const isActive = location.pathname === item.path;
