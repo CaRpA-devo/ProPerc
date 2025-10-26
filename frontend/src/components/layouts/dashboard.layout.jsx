@@ -11,15 +11,14 @@ export function DashboardLayout({ children, withFooter }) {
   };
 
   return (
-    <div className="min-h-screen bg-base-100">
+    <div className="min-h-screen bg-base-100 flex">
       {/* Sidebar */}
       <Sidebar isCollapsed={sidebarCollapsed} onToggle={toggleSidebar} />
 
       {/* Main Content Area */}
       <div
         className={`
-        transition-all duration-300 ease-in-out min-h-screen flex flex-col
-        ${sidebarCollapsed ? "ml-16" : "ml-64"}
+        transition-all duration-300 ease-in-out min-h-screen flex flex-col flex-1
       `}
       >
         <main className="flex-1">{children}</main>

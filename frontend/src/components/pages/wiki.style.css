@@ -16,7 +16,7 @@
 .wiki-title {
   font-size: 2.5rem;
   font-weight: 800;
-  background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+  background: linear-gradient(135deg, #2eb872, #c4ff0d);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -25,7 +25,7 @@
 
 .wiki-subtitle {
   font-size: 1.125rem;
-  color: var(--light-text);
+  color: #ffffff;
   opacity: 0.8;
 }
 
@@ -36,29 +36,31 @@
   gap: 1rem;
   margin-bottom: 2rem;
   padding: 1.5rem;
-  background-color: var(--first-bg);
+  background-color: rgba(42, 42, 42, 0.5);
+  backdrop-filter: blur(4px);
   border-radius: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .wiki-search-input {
   width: 100%;
   padding: 0.75rem 1rem;
   font-size: 1rem;
-  border: 2px solid var(--primary-green);
+  border: 2px solid #2eb872;
   border-radius: 0.5rem;
-  background-color: var(--second-bg);
-  color: var(--light-text);
+  background-color: rgba(42, 42, 42, 0.8);
+  color: #ffffff;
   transition: all 0.3s ease;
 }
 
 .wiki-search-input:focus {
   outline: none;
-  border-color: var(--accent-yellow);
+  border-color: #c4ff0d;
   box-shadow: 0 0 0 3px rgba(196, 255, 0, 0.1);
 }
 
 .wiki-search-input::placeholder {
-  color: var(--light-text);
+  color: #ffffff;
   opacity: 0.5;
 }
 
@@ -76,8 +78,8 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  background-color: var(--second-bg);
-  color: var(--light-text);
+  background-color: rgba(42, 42, 42, 0.8);
+  color: #ffffff;
 }
 
 .wiki-filter-chip:hover {
@@ -139,10 +141,12 @@
 }
 
 .wiki-category-card {
-  background-color: var(--first-bg);
+  background-color: rgba(42, 42, 42, 0.5);
+  backdrop-filter: blur(4px);
   border-radius: 1rem;
   padding: 1.5rem;
   transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .wiki-category-card:hover {
@@ -183,7 +187,7 @@
 
 .wiki-category-description {
   font-size: 0.95rem;
-  color: var(--light-text);
+  color: #ffffff;
   opacity: 0.8;
   margin-bottom: 1.5rem;
   line-height: 1.6;
@@ -197,13 +201,13 @@
 .wiki-subcategory-title {
   font-size: 1.25rem;
   font-weight: 600;
-  color: var(--accent-yellow);
+  color: #c4ff0d;
   margin-bottom: 0.5rem;
 }
 
 .wiki-subcategory-description {
   font-size: 0.9rem;
-  color: var(--light-text);
+  color: #ffffff;
   opacity: 0.7;
   margin-bottom: 1rem;
   font-style: italic;
@@ -217,7 +221,7 @@
 }
 
 .wiki-nutrient-item {
-  background-color: var(--second-bg);
+  background-color: rgba(42, 42, 42, 0.8);
   border-radius: 0.75rem;
   padding: 1rem;
   cursor: pointer;
@@ -260,12 +264,12 @@
 .wiki-nutrient-name {
   font-size: 1.125rem;
   font-weight: 600;
-  color: var(--light-text);
+  color: #ffffff;
 }
 
 .wiki-nutrient-toggle {
   font-size: 1.25rem;
-  color: var(--accent-yellow);
+  color: #c4ff0d;
   transition: transform 0.3s ease;
 }
 
@@ -286,7 +290,7 @@
 .wiki-nutrient-section-title {
   font-size: 0.875rem;
   font-weight: 700;
-  color: var(--accent-yellow);
+  color: #c4ff0d;
   text-transform: uppercase;
   margin-bottom: 0.5rem;
   letter-spacing: 0.5px;
@@ -294,12 +298,12 @@
 
 .wiki-nutrient-section-content {
   font-size: 0.95rem;
-  color: var(--light-text);
+  color: #ffffff;
   line-height: 1.6;
 }
 
 .wiki-nutrient-section-content strong {
-  color: var(--accent-yellow);
+  color: #c4ff0d;
   font-weight: 600;
 }
 
@@ -322,7 +326,7 @@
 
 .wiki-warning-content {
   font-size: 0.9rem;
-  color: var(--light-text);
+  color: #ffffff;
   line-height: 1.5;
 }
 
@@ -331,7 +335,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  color: var(--primary-green);
+  color: #2eb872;
   font-size: 0.875rem;
   font-weight: 600;
   text-decoration: none;
@@ -340,7 +344,7 @@
 }
 
 .wiki-external-link:hover {
-  color: var(--accent-yellow);
+  color: #c4ff0d;
   text-decoration: underline;
 }
 
@@ -352,7 +356,7 @@
 .wiki-no-results {
   text-align: center;
   padding: 3rem 1rem;
-  color: var(--light-text);
+  color: #ffffff;
   opacity: 0.6;
 }
 
@@ -451,38 +455,4 @@
 
 .wiki-nutrient-content {
   animation: slideDown 0.3s ease-out;
-}
-
-/* Scroll to Top Button */
-.wiki-scroll-top {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  background-color: var(--primary-green);
-  color: white;
-  width: 3rem;
-  height: 3rem;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease;
-  z-index: 1000;
-}
-
-.wiki-scroll-top:hover {
-  background-color: var(--accent-yellow);
-  transform: translateY(-4px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
-}
-
-@media (max-width: 768px) {
-  .wiki-scroll-top {
-    width: 2.5rem;
-    height: 2.5rem;
-    bottom: 1.5rem;
-    right: 1.5rem;
-  }
 }

@@ -6,7 +6,7 @@ export function BackToTopButton() {
   // Show button when page is scrolled down
   useEffect(() => {
     const toggleVisibility = () => {
-      if (window.pageYOffset > 300) {
+      if (window.pageYOffset > 0) {
         setIsVisible(true);
       } else {
         setIsVisible(false);

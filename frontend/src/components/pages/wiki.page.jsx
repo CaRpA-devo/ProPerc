@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { DashboardLayout } from "../layouts/dashboard.layout";
 import { Icon } from "@iconify/react";
 import nutritionData from "../../data/nutritionData.json";
@@ -9,16 +9,6 @@ export function WikiPage() {
   const [activeFilter, setActiveFilter] = useState("all");
   const [openCategories, setOpenCategories] = useState({});
   const [openNutrients, setOpenNutrients] = useState({});
-  const [showScrollTop, setShowScrollTop] = useState(false);
-
-  // Scroll to Top Button Visibility
-  useEffect(() => {
-    const handleScroll = () => {
-      setShowScrollTop(window.scrollY > 300);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   // Toggle Category
   const toggleCategory = (categoryKey) => {
@@ -36,11 +26,6 @@ export function WikiPage() {
     }));
   };
 
-  // Scroll to Top
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
   // Filter & Search Logic
   const categories = Object.entries(nutritionData);
   const filteredCategories = categories.filter(([key]) => {
@@ -55,7 +40,11 @@ export function WikiPage() {
       if (category.subcategories) {
         category.subcategories.forEach((subcategory) => {
           subcategory.items.forEach((item) => {
-            items.push({ ...item, categoryKey, subcategoryName: subcategory.name });
+            items.push({
+              ...item,
+              categoryKey,
+              subcategoryName: subcategory.name,
+            });
           });
         });
       } else if (category.items) {
@@ -83,7 +72,8 @@ export function WikiPage() {
         <div className="wiki-header">
           <h1 className="wiki-title">PercyPedia</h1>
           <p className="wiki-subtitle">
-            Dein umfassendes Ernährungs-Lexikon für Vitamine, Mineralien, Proteine & Supplements
+            Dein umfassendes Ernährungs-Lexikon für Vitamine, Mineralien,
+            Proteine & Supplements
           </p>
         </div>
 
@@ -106,34 +96,44 @@ export function WikiPage() {
           <div className="wiki-filter-chips">
             <button
               onClick={() => setActiveFilter("all")}
-              className={`wiki-filter-chip ${activeFilter === "all" ? "active" : ""}`}
+              className={`wiki-filter-chip ${
+                activeFilter === "all" ? "active" : ""
+              }`}
             >
               Alle
             </button>
             <button
               onClick={() => setActiveFilter("vitamine")}
-              className={`wiki-filter-chip vitamine ${activeFilter === "vitamine" ? "active" : ""}`}
+              className={`wiki-filter-chip vitamine ${
+                activeFilter === "vitamine" ? "active" : ""
+              }`}
             >
               <Icon icon="mdi:vitamin-outline" className="inline mr-1" />
               Vitamine
             </button>
             <button
               onClick={() => setActiveFilter("mineralien")}
-              className={`wiki-filter-chip mineralien ${activeFilter === "mineralien" ? "active" : ""}`}
+              className={`wiki-filter-chip mineralien ${
+                activeFilter === "mineralien" ? "active" : ""
+              }`}
             >
               <Icon icon="mdi:atom" className="inline mr-1" />
               Mineralien
             </button>
             <button
               onClick={() => setActiveFilter("proteine")}
-              className={`wiki-filter-chip proteine ${activeFilter === "proteine" ? "active" : ""}`}
+              className={`wiki-filter-chip proteine ${
+                activeFilter === "proteine" ? "active" : ""
+              }`}
             >
               <Icon icon="mdi:dna" className="inline mr-1" />
               Proteine
             </button>
             <button
               onClick={() => setActiveFilter("supplements")}
-              className={`wiki-filter-chip supplements ${activeFilter === "supplements" ? "active" : ""}`}
+              className={`wiki-filter-chip supplements ${
+                activeFilter === "supplements" ? "active" : ""
+              }`}
             >
               <Icon icon="mdi:pill" className="inline mr-1" />
               Supplements
@@ -145,14 +145,17 @@ export function WikiPage() {
         {searchTerm && (
           <div className="mb-6">
             <h2 className="text-xl font-bold text-light-text mb-4">
-              {searchResults.length} Ergebnis{searchResults.length !== 1 ? "se" : ""} für "{searchTerm}"
+              {searchResults.length} Ergebnis
+              {searchResults.length !== 1 ? "se" : ""} für "{searchTerm}"
             </h2>
             {searchResults.length > 0 ? (
               <div className="wiki-nutrient-list">
                 {searchResults.map((item) => (
                   <div
                     key={item.id}
-                    className={`wiki-nutrient-item ${item.categoryKey} ${openNutrients[item.id] ? "open" : ""}`}
+                    className={`wiki-nutrient-item ${item.categoryKey} ${
+                      openNutrients[item.id] ? "open" : ""
+                    }`}
                   >
                     <div
                       className="wiki-nutrient-header"
@@ -161,15 +164,21 @@ export function WikiPage() {
                       <h3 className="wiki-nutrient-name">{item.name}</h3>
                       <Icon
                         icon="mdi:chevron-down"
-                        className={`wiki-nutrient-toggle ${openNutrients[item.id] ? "open" : ""}`}
+                        className={`wiki-nutrient-toggle ${
+                          openNutrients[item.id] ? "open" : ""
+                        }`}
                       />
                     </div>
 
                     {openNutrients[item.id] && (
                       <div className="wiki-nutrient-content">
                         <div className="wiki-nutrient-section">
-                          <h4 className="wiki-nutrient-section-title">Funktion</h4>
-                          <p className="wiki-nutrient-section-content">{item.function}</p>
+                          <h4 className="wiki-nutrient-section-title">
+                            Funktion
+                          </h4>
+                          <p className="wiki-nutrient-section-content">
+                            {item.function}
+                          </p>
                         </div>
 
                         <div className="wiki-nutrient-section">
@@ -182,21 +191,33 @@ export function WikiPage() {
                         </div>
 
                         <div className="wiki-nutrient-section">
-                          <h4 className="wiki-nutrient-section-title">Quellen</h4>
-                          <p className="wiki-nutrient-section-content">{item.sources}</p>
+                          <h4 className="wiki-nutrient-section-title">
+                            Quellen
+                          </h4>
+                          <p className="wiki-nutrient-section-content">
+                            {item.sources}
+                          </p>
                         </div>
 
                         {item.special && (
                           <div className="wiki-nutrient-section">
-                            <h4 className="wiki-nutrient-section-title">Besonderheiten</h4>
-                            <p className="wiki-nutrient-section-content">{item.special}</p>
+                            <h4 className="wiki-nutrient-section-title">
+                              Besonderheiten
+                            </h4>
+                            <p className="wiki-nutrient-section-content">
+                              {item.special}
+                            </p>
                           </div>
                         )}
 
                         {item.warning && (
                           <div className="wiki-warning-box">
-                            <h4 className="wiki-warning-title">⚠️ Wichtiger Hinweis</h4>
-                            <p className="wiki-warning-content">{item.warning}</p>
+                            <h4 className="wiki-warning-title">
+                              ⚠️ Wichtiger Hinweis
+                            </h4>
+                            <p className="wiki-warning-content">
+                              {item.warning}
+                            </p>
                           </div>
                         )}
 
@@ -208,7 +229,10 @@ export function WikiPage() {
                             className="wiki-external-link"
                           >
                             <span>Mehr erfahren</span>
-                            <Icon icon="mdi:open-in-new" className="wiki-external-link-icon" />
+                            <Icon
+                              icon="mdi:open-in-new"
+                              className="wiki-external-link-icon"
+                            />
                           </a>
                         )}
                       </div>
@@ -231,30 +255,42 @@ export function WikiPage() {
         {!searchTerm && (
           <div className="wiki-categories">
             {filteredCategories.map(([categoryKey, category]) => (
-              <div key={categoryKey} className={`wiki-category-card category-${categoryKey}`}>
+              <div
+                key={categoryKey}
+                className={`wiki-category-card category-${categoryKey}`}
+              >
                 <div
                   className="wiki-category-header"
                   onClick={() => toggleCategory(categoryKey)}
                 >
-                  <Icon icon={category.icon} className={`wiki-category-icon category-${categoryKey}`} />
+                  <Icon
+                    icon={category.icon}
+                    className={`wiki-category-icon category-${categoryKey}`}
+                  />
                   <h2 className={`wiki-category-title category-${categoryKey}`}>
                     {category.categoryName}
                   </h2>
                   <Icon
                     icon="mdi:chevron-down"
-                    className={`wiki-category-toggle ${openCategories[categoryKey] ? "open" : ""}`}
+                    className={`wiki-category-toggle ${
+                      openCategories[categoryKey] ? "open" : ""
+                    }`}
                   />
                 </div>
 
                 {openCategories[categoryKey] && (
                   <div className="wiki-category-content">
-                    <p className="wiki-category-description">{category.description}</p>
+                    <p className="wiki-category-description">
+                      {category.description}
+                    </p>
 
                     {/* Subcategories (Vitamine & Proteine) */}
                     {category.subcategories &&
                       category.subcategories.map((subcategory, subIndex) => (
                         <div key={subIndex} className="wiki-subcategory">
-                          <h3 className="wiki-subcategory-title">{subcategory.name}</h3>
+                          <h3 className="wiki-subcategory-title">
+                            {subcategory.name}
+                          </h3>
                           <p className="wiki-subcategory-description">
                             {subcategory.description}
                           </p>
@@ -263,29 +299,41 @@ export function WikiPage() {
                             {subcategory.items.map((item) => (
                               <div
                                 key={item.id}
-                                className={`wiki-nutrient-item ${categoryKey} ${openNutrients[item.id] ? "open" : ""}`}
+                                className={`wiki-nutrient-item ${categoryKey} ${
+                                  openNutrients[item.id] ? "open" : ""
+                                }`}
                               >
                                 <div
                                   className="wiki-nutrient-header"
                                   onClick={() => toggleNutrient(item.id)}
                                 >
-                                  <h3 className="wiki-nutrient-name">{item.name}</h3>
+                                  <h3 className="wiki-nutrient-name">
+                                    {item.name}
+                                  </h3>
                                   <Icon
                                     icon="mdi:chevron-down"
-                                    className={`wiki-nutrient-toggle ${openNutrients[item.id] ? "open" : ""}`}
+                                    className={`wiki-nutrient-toggle ${
+                                      openNutrients[item.id] ? "open" : ""
+                                    }`}
                                   />
                                 </div>
 
                                 {openNutrients[item.id] && (
                                   <div className="wiki-nutrient-content">
                                     <div className="wiki-nutrient-section">
-                                      <h4 className="wiki-nutrient-section-title">Funktion</h4>
-                                      <p className="wiki-nutrient-section-content">{item.function}</p>
+                                      <h4 className="wiki-nutrient-section-title">
+                                        Funktion
+                                      </h4>
+                                      <p className="wiki-nutrient-section-content">
+                                        {item.function}
+                                      </p>
                                     </div>
 
                                     <div className="wiki-nutrient-section">
                                       <h4 className="wiki-nutrient-section-title">
-                                        {item.dailyNeed ? "Tagesbedarf" : "Dosierung"}
+                                        {item.dailyNeed
+                                          ? "Tagesbedarf"
+                                          : "Dosierung"}
                                       </h4>
                                       <p className="wiki-nutrient-section-content">
                                         {item.dailyNeed || item.dosage}
@@ -293,21 +341,33 @@ export function WikiPage() {
                                     </div>
 
                                     <div className="wiki-nutrient-section">
-                                      <h4 className="wiki-nutrient-section-title">Quellen</h4>
-                                      <p className="wiki-nutrient-section-content">{item.sources}</p>
+                                      <h4 className="wiki-nutrient-section-title">
+                                        Quellen
+                                      </h4>
+                                      <p className="wiki-nutrient-section-content">
+                                        {item.sources}
+                                      </p>
                                     </div>
 
                                     {item.special && (
                                       <div className="wiki-nutrient-section">
-                                        <h4 className="wiki-nutrient-section-title">Besonderheiten</h4>
-                                        <p className="wiki-nutrient-section-content">{item.special}</p>
+                                        <h4 className="wiki-nutrient-section-title">
+                                          Besonderheiten
+                                        </h4>
+                                        <p className="wiki-nutrient-section-content">
+                                          {item.special}
+                                        </p>
                                       </div>
                                     )}
 
                                     {item.warning && (
                                       <div className="wiki-warning-box">
-                                        <h4 className="wiki-warning-title">⚠️ Wichtiger Hinweis</h4>
-                                        <p className="wiki-warning-content">{item.warning}</p>
+                                        <h4 className="wiki-warning-title">
+                                          ⚠️ Wichtiger Hinweis
+                                        </h4>
+                                        <p className="wiki-warning-content">
+                                          {item.warning}
+                                        </p>
                                       </div>
                                     )}
 
@@ -339,29 +399,41 @@ export function WikiPage() {
                         {category.items.map((item) => (
                           <div
                             key={item.id}
-                            className={`wiki-nutrient-item ${categoryKey} ${openNutrients[item.id] ? "open" : ""}`}
+                            className={`wiki-nutrient-item ${categoryKey} ${
+                              openNutrients[item.id] ? "open" : ""
+                            }`}
                           >
                             <div
                               className="wiki-nutrient-header"
                               onClick={() => toggleNutrient(item.id)}
                             >
-                              <h3 className="wiki-nutrient-name">{item.name}</h3>
+                              <h3 className="wiki-nutrient-name">
+                                {item.name}
+                              </h3>
                               <Icon
                                 icon="mdi:chevron-down"
-                                className={`wiki-nutrient-toggle ${openNutrients[item.id] ? "open" : ""}`}
+                                className={`wiki-nutrient-toggle ${
+                                  openNutrients[item.id] ? "open" : ""
+                                }`}
                               />
                             </div>
 
                             {openNutrients[item.id] && (
                               <div className="wiki-nutrient-content">
                                 <div className="wiki-nutrient-section">
-                                  <h4 className="wiki-nutrient-section-title">Funktion</h4>
-                                  <p className="wiki-nutrient-section-content">{item.function}</p>
+                                  <h4 className="wiki-nutrient-section-title">
+                                    Funktion
+                                  </h4>
+                                  <p className="wiki-nutrient-section-content">
+                                    {item.function}
+                                  </p>
                                 </div>
 
                                 <div className="wiki-nutrient-section">
                                   <h4 className="wiki-nutrient-section-title">
-                                    {item.dailyNeed ? "Tagesbedarf" : "Dosierung"}
+                                    {item.dailyNeed
+                                      ? "Tagesbedarf"
+                                      : "Dosierung"}
                                   </h4>
                                   <p className="wiki-nutrient-section-content">
                                     {item.dailyNeed || item.dosage}
@@ -369,21 +441,33 @@ export function WikiPage() {
                                 </div>
 
                                 <div className="wiki-nutrient-section">
-                                  <h4 className="wiki-nutrient-section-title">Quellen</h4>
-                                  <p className="wiki-nutrient-section-content">{item.sources}</p>
+                                  <h4 className="wiki-nutrient-section-title">
+                                    Quellen
+                                  </h4>
+                                  <p className="wiki-nutrient-section-content">
+                                    {item.sources}
+                                  </p>
                                 </div>
 
                                 {item.special && (
                                   <div className="wiki-nutrient-section">
-                                    <h4 className="wiki-nutrient-section-title">Besonderheiten</h4>
-                                    <p className="wiki-nutrient-section-content">{item.special}</p>
+                                    <h4 className="wiki-nutrient-section-title">
+                                      Besonderheiten
+                                    </h4>
+                                    <p className="wiki-nutrient-section-content">
+                                      {item.special}
+                                    </p>
                                   </div>
                                 )}
 
                                 {item.warning && (
                                   <div className="wiki-warning-box">
-                                    <h4 className="wiki-warning-title">⚠️ Wichtiger Hinweis</h4>
-                                    <p className="wiki-warning-content">{item.warning}</p>
+                                    <h4 className="wiki-warning-title">
+                                      ⚠️ Wichtiger Hinweis
+                                    </h4>
+                                    <p className="wiki-warning-content">
+                                      {item.warning}
+                                    </p>
                                   </div>
                                 )}
 
@@ -395,7 +479,10 @@ export function WikiPage() {
                                     className="wiki-external-link"
                                   >
                                     <span>Mehr erfahren</span>
-                                    <Icon icon="mdi:open-in-new" className="wiki-external-link-icon" />
+                                    <Icon
+                                      icon="mdi:open-in-new"
+                                      className="wiki-external-link-icon"
+                                    />
                                   </a>
                                 )}
                               </div>
@@ -409,13 +496,6 @@ export function WikiPage() {
               </div>
             ))}
           </div>
-        )}
-
-        {/* Scroll to Top Button */}
-        {showScrollTop && (
-          <button onClick={scrollToTop} className="wiki-scroll-top">
-            <Icon icon="mdi:arrow-up" className="text-2xl" />
-          </button>
         )}
       </div>
     </DashboardLayout>

@@ -20,7 +20,7 @@ export default function AboutUsPage() {
     },
     {
       name: "Patrick Kaiser",
-      image: "/img/GUYcvwJWgAEIFxc.jpeg",
+      image: "/img/patrick.png",
       github: "https://github.com/PatKaiUI",
     },
     {
