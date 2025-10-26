@@ -100,6 +100,8 @@ function App() {
 
             {/* Wiki */}
             <Route element={<WikiPage />} path="/wiki" />
+            {/* News */}
+            <Route element={<NewsPage />} path="/news" />
             {/* Support */}
             <Route element={<SupportPage />} path="/support" />
             {/* Planer */}
