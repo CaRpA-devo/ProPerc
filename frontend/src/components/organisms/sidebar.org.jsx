@@ -262,8 +262,9 @@ export function Sidebar({ isCollapsed, onToggle }) {
   return (
     <div
       className={`
-       fixed left-0 top-0 bottom-0 bg-base-200/90 z-40 border-r border-base-300
-       transition-all duration-300 ease-in-out
+       sticky top-0 bg-base-200/90 z-40 border-r border-base-300
+       transition-all duration-300 ease-in-out self-start
+       h-screen
        ${isCollapsed ? "w-16" : "w-64"}
      `}
       style={{
@@ -272,7 +273,10 @@ export function Sidebar({ isCollapsed, onToggle }) {
       }}
     >
       {/* Aurora Background */}
-      <div className="absolute inset-0 opacity-30 pointer-events-none">
+      <div
+        className="absolute inset-0 opacity-30 pointer-events-none"
+        style={{ overflow: "hidden" }}
+      >
         <Aurora
           colorStops={["#2eb872", "#1a1a1a", "#ffd166"]}
           blend={0.6}
