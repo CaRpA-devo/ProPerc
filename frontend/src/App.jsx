@@ -14,6 +14,7 @@ import { SignInPage } from "./components/pages/signin.page.jsx";
 import { SignUpPage } from "./components/pages/signup.page.jsx";
 import { SetupPage } from "./components/pages/setup.page.jsx";
 import FoodPage from "./components/pages/food.page.jsx";
+import NewsPage from "./components/pages/news.page.jsx";
 
 // zur entwicklung
 import AgbPage from "./components/pages/agb.page.jsx";
@@ -80,6 +81,8 @@ function App() {
 
             {/* Wiki */}
             <Route element={<WikiPage />} path="/wiki" />
+            {/* News */}
+            <Route element={<NewsPage />} path="/news" />
             {/* Support */}
             <Route element={<SupportPage />} path="/support" />
             {/* Planer */}
