@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { DashboardLayout } from "../layouts/dashboard.layout";
 import { Button } from "../atoms/button.comp";
 import { useBackendFood } from "../../context/BackendFoodContext";
 import { useCalculator } from "../../hooks/useCalculator";
 import { useProfile } from "../../hooks/useProfile";
 import { useFoodApi } from "../../hooks/useFoodApi";
-import AdvancedFoodModal from "../molecules/advanced-food-modal.comp";
 import FoodSearch from "../molecules/food-search.comp";
 
 const FoodPage = () => {
+  const navigate = useNavigate();
   const { formData: userData } = useProfile();
   const { calculations } = useCalculator();
   const {
@@ -28,7 +29,6 @@ const FoodPage = () => {
   } = useBackendFood();
 
   const [activeTab, setActiveTab] = useState("today");
-  const [showAddFood, setShowAddFood] = useState(false);
   const {
     recommendations,
     loading: apiLoading,
@@ -80,7 +80,7 @@ const FoodPage = () => {
             Verfolge deine Mahlzeiten, Kalorien und Makronährstoffe
           </p>
           <Button
-            onClick={() => setShowAddFood(true)}
+            onClick={() => navigate("/add-food-local")}
             className="mt-4 bg-primary/20 backdrop-blur-sm border border-primary/30 hover:bg-primary/30 text-primary"
           >
             🍽️ Essen hinzufügen
@@ -418,12 +418,6 @@ const FoodPage = () => {
           </div>
         </section>
       )}
-
-      {/* Advanced Food Modal */}
-      <AdvancedFoodModal
-        isOpen={showAddFood}
-        onClose={() => setShowAddFood(false)}
-      />
     </DashboardLayout>
   );
 };

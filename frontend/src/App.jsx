@@ -14,6 +14,8 @@ import { SignInPage } from "./components/pages/signin.page.jsx";
 import { SignUpPage } from "./components/pages/signup.page.jsx";
 import { SetupPage } from "./components/pages/setup.page.jsx";
 import FoodPage from "./components/pages/food.page.jsx";
+import AddFoodApiPage from "./components/pages/add-food-api.page.jsx";
+import AddFoodLocalPage from "./components/pages/add-food-local.page.jsx";
 
 // zur entwicklung
 import AgbPage from "./components/pages/agb.page.jsx";
@@ -76,6 +78,24 @@ function App() {
                 </SetupGuard>
               }
               path="/food"
+            />
+            {/* Add Food - API */}
+            <Route
+              element={
+                <SetupGuard>
+                  <AddFoodApiPage />
+                </SetupGuard>
+              }
+              path="/add-food-api"
+            />
+            {/* Add Food - Local */}
+            <Route
+              element={
+                <SetupGuard>
+                  <AddFoodLocalPage />
+                </SetupGuard>
+              }
+              path="/add-food-local"
             />
 
             {/* Wiki */}

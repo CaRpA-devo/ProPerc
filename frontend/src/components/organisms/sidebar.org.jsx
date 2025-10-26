@@ -7,6 +7,17 @@ export function Sidebar({ isCollapsed, onToggle }) {
   const location = useLocation();
   const { isSignedIn } = useUser();
 
+  // Aurora-Container mit absoluter Positionierung über die ganze Sidebar
+  const auroraStyle = {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    pointerEvents: "none", // Damit Clicks durch die Animation durchgehen
+    zIndex: 0, // Unter dem Inhalt
+  };
+
   const navigationItems = [
     {
       name: "Dashboard",
@@ -251,7 +262,7 @@ export function Sidebar({ isCollapsed, onToggle }) {
   return (
     <div
       className={`
-       fixed left-0 top-0 h-full bg-base-200 z-40 border-r border-base-300
+       fixed left-0 top-0 bottom-0 bg-base-200/90 z-40 border-r border-base-300
        transition-all duration-300 ease-in-out
        ${isCollapsed ? "w-16" : "w-64"}
      `}
@@ -261,17 +272,17 @@ export function Sidebar({ isCollapsed, onToggle }) {
       }}
     >
       {/* Aurora Background */}
-      <div className="absolute inset-0 opacity-20">
+      <div className="absolute inset-0 opacity-30 pointer-events-none">
         <Aurora
-          colorStops={["#2eb872", "#ffd166"]}
-          blend={0.4}
-          amplitude={0.8}
-          speed={0.3}
+          colorStops={["#2eb872", "#1a1a1a", "#ffd166"]}
+          blend={0.6}
+          amplitude={1.2}
+          speed={0.2}
         />
       </div>
 
       {/* Sidebar Content */}
-      <div className="relative z-10 h-full flex flex-col">
+      <div className="relative z-10 h-full flex flex-col min-h-0">
         {/* Logo Section */}
         <div className="border-b border-base-300 flex items-center">
           {!isCollapsed ? (
@@ -349,7 +360,7 @@ export function Sidebar({ isCollapsed, onToggle }) {
         </div>
 
         {/* Navigation */}
-        <nav className="flex-1 overflow-y-auto">
+        <nav className="flex-1 overflow-y-auto scrollbar-thin scrollbar-thumb-base-300 scrollbar-track-transparent">
           <ul className={`space-y-2 ${isCollapsed ? "p-2" : "p-4"}`}>
             {filteredItems.map((item, index) => {
               const isActive = location.pathname === item.path;
