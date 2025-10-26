@@ -17,7 +17,6 @@ import FoodPage from "./components/pages/food.page.jsx";
 import AddFoodApiPage from "./components/pages/add-food-api.page.jsx";
 import AddFoodLocalPage from "./components/pages/add-food-local.page.jsx";
 
-// zur entwicklung
 import AgbPage from "./components/pages/agb.page.jsx";
 import AboutUsPage from "./components/pages/aboutus.page.jsx";
 import PlanerPage from "./components/pages/planer.page.jsx";
@@ -25,6 +24,7 @@ import ProfilePage from "./components/pages/profile.page.jsx";
 import SupportPage from "./components/pages/support.page.jsx";
 import SupportConfirmationPage from "./components/pages/support-confirmation.page.jsx";
 import ProfileSettingsPage from "./components/pages/profile-settings.page.jsx";
+import NewsPage from "./components/pages/news.page.jsx";
 
 function App() {
   return (
@@ -100,6 +100,8 @@ function App() {
 
             {/* Wiki */}
             <Route element={<WikiPage />} path="/wiki" />
+            {/* News */}
+            <Route element={<NewsPage />} path="/news" />
             {/* Support */}
             <Route element={<SupportPage />} path="/support" />
             {/* Planer */}
