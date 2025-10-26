@@ -109,15 +109,15 @@ const FoodSearch = ({ onFoodSelect, showRecommendations = true }) => {
   const filteredFoods = getFilteredFoods();
 
   return (
-    <div className="relative" ref={searchRef}>
+    <div className="relative h-160" ref={searchRef}>
       {/* Suchfeld */}
-      <div className="relative">
+      <div className="relative ">
         <input
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Nahrungsmittel suchen..."
-          className="w-full p-3 pl-10 pr-4 bg-base-100 border border-green-800/30 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500/50 text-white placeholder-white/60"
+          className="w-full p-3 pl-10 pr-4 bg-base-100  border border-green-800/30 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500/50 text-white placeholder-white/60"
         />
         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
           <svg
@@ -168,7 +168,7 @@ const FoodSearch = ({ onFoodSelect, showRecommendations = true }) => {
 
       {/* Suchergebnisse */}
       {showResults && (
-        <div className="absolute z-50 w-full  mt-2 bg-base-100 border border-green-800/30 rounded-lg shadow-lg max-h-96 overflow-y-auto">
+        <div className="absolute z-50 w-full  mt-2 bg-base-100 border border-green-800/30 rounded-lg shadow-lg h-160 overflow-y-auto">
           {filteredFoods.length === 0 ? (
             <div className="p-4 text-center text-white/60  ">
               <div className="text-2xl mb-2">🔍</div>
