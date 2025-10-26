@@ -34,8 +34,6 @@ export function Hero() {
       className="hero min-h-screen relative overflow-hidden contrast-110 saturate-125 brightness-105"
       style={{ backgroundImage: `url(${heroBg})` }}
     >
-      <div className="hero-overlay bg-opacity-40"></div>
-
       <div className="hero-content text-neutral-content w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center w-full">
           {/* Text */}
