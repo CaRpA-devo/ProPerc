@@ -193,6 +193,51 @@ export function useProfile(navigate) {
     }
   };
 
+  const saveAndGoBack = async () => {
+    try {
+      console.log(
+        "useProfile - Saving profile and going back with data:",
+        formData
+      );
+      const token = await getToken();
+      const url = `${
+        import.meta.env.VITE_BACKEND_URL || "http://localhost:4000"
+      }/api/profile/settings`;
+      console.log("useProfile - Saving to URL:", url);
+
+      const res = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        credentials: "include",
+        body: JSON.stringify(formData),
+      });
+
+      console.log("useProfile - Response status:", res.status);
+
+      if (res.ok) {
+        const savedData = await res.json();
+        console.log("useProfile - Profile saved successfully:", savedData);
+        if (typeof navigate === "function") {
+          navigate("/dashboard");
+        } else {
+          console.warn("navigate function is not available, not redirecting");
+        }
+      } else {
+        const errorText = await res.text();
+        console.error(
+          "useProfile - Error saving profile:",
+          res.status,
+          errorText
+        );
+      }
+    } catch (err) {
+      console.error("useProfile - Exception:", err);
+    }
+  };
+
   return {
     loading,
     currentStep,
@@ -204,5 +249,6 @@ export function useProfile(navigate) {
     nextStep,
     prevStep,
     isStepComplete,
+    saveAndGoBack,
   };
 }

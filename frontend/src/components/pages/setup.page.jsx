@@ -46,6 +46,7 @@ export function SetupPage() {
     nextStep,
     prevStep,
     isStepComplete,
+    saveAndGoBack,
   } = useProfile(navigate);
 
   if (loading) return <p>Lade Profil...</p>;
@@ -267,9 +268,17 @@ export function SetupPage() {
             >
               Zurück
             </Button>
-            <Button onClick={nextStep} disabled={!isStepComplete(currentStep)}>
-              {currentStep === totalSteps ? "Abschließen" : "Weiter"}
-            </Button>
+            <div className="flex gap-2">
+              <Button variant="outline" onClick={saveAndGoBack}>
+                Speichern & Zurück
+              </Button>
+              <Button
+                onClick={nextStep}
+                disabled={!isStepComplete(currentStep)}
+              >
+                {currentStep === totalSteps ? "Abschließen" : "Weiter"}
+              </Button>
+            </div>
           </div>
         </div>
       </SectionWrapper>
