@@ -1,7 +1,7 @@
 {
   "vitamine": {
     "categoryName": "Vitamine",
-    "icon": "mdi:vitamin-outline",
+    "icon": "mdi:flask",
     "color": "green",
     "description": "Vitamine sind essenzielle Mikronährstoffe, die der Körper nicht oder nur unzureichend selbst herstellen kann. Sie werden in zwei Hauptgruppen unterteilt:",
     "subcategories": [

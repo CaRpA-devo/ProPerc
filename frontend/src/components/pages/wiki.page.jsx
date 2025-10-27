@@ -111,7 +111,7 @@ export function WikiPage() {
                   activeFilter === "vitamine" ? "text-green-500" : ""
                 }`}
               >
-                <Icon icon="mdi:vitamin-outline" className="mr-1" />
+                <Icon icon="mdi:flask" className="mr-1" />
                 Vitamine
               </button>
               <button
