@@ -95,7 +95,7 @@ const ROADMAP = [
     description:
       "Kuratierte Rezepte mit Nährwerten, Filter nach Zielen/Unverträglichkeiten und einfacher Planung.",
     status: "planned",
-    target: "2025 Q1",
+    target: "2026 Q1",
   },
 ];
 

@@ -3,6 +3,9 @@ import MacroDiagram from "./macro-diagram.comp";
 import MotivationBox from "./motivation-box.comp";
 import TodayStatusBox from "./today-status.comp";
 import PersonalizedDietBox from "./personalized-diet-box.comp";
+import WeekGoals from "./week-goals.comp";
+import TodayMeals from "./today-meals.comp";
+import NewsBox from "./news-box.comp";
 import { useCalculator } from "../../hooks/useCalculator";
 import { useProfile } from "../../hooks/useProfile";
 import { useEffect, useRef, useState } from "react";
@@ -11,10 +14,7 @@ export function BentoBox() {
   const { userData } = useProfile();
   const { calculateMacros, calculations, loading, error } = useCalculator();
   const hasCalculatedRef = useRef(false);
-  const [motivationQuote, setMotivationQuote] = useState({
-    text: "",
-    author: "",
-  });
+  const [currentQuoteIndex, setCurrentQuoteIndex] = useState(0);
 
   // Motivationssprüche für die Ernährungsplan-Box
   const nutritionMotivations = [
@@ -80,10 +80,13 @@ export function BentoBox() {
     },
   ];
 
-  // Wähle einen zufälligen Spruch beim Laden der Komponente
+  // Rotiere Motivationssprüche alle 5 Sekunden
   useEffect(() => {
-    const randomIndex = Math.floor(Math.random() * nutritionMotivations.length);
-    setMotivationQuote(nutritionMotivations[randomIndex]);
+    const interval = setInterval(() => {
+      setCurrentQuoteIndex((prev) => (prev + 1) % nutritionMotivations.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
   }, []);
 
   // Automatische Berechnung der Makros wenn Benutzerdaten verfügbar sind
@@ -140,6 +143,16 @@ export function BentoBox() {
               <MacroDiagram calculations={calculations} />
             )}
           </div>
+
+          {/* Week Goals with glass effect */}
+          <div className="bg-black/60 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-white/5 transition-all duration-300 hover:border-white/10 hover:shadow-2xl h-[400px]">
+            <WeekGoals />
+          </div>
+
+          {/* Today Meals with glass effect */}
+          <div className="bg-black/60 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-white/5 transition-all duration-300 hover:border-white/10 hover:shadow-2xl h-[400px]">
+            <TodayMeals />
+          </div>
         </div>
 
         {/* Right column (33%) - Info Cards */}
@@ -155,10 +168,10 @@ export function BentoBox() {
             <div className="bg-gradient-to-br from-black/80 to-gray-900/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-white/5 transition-all duration-300 hover:border-white/10 hover:shadow-2xl flex flex-col justify-center items-center text-center">
               <h3 className="text-base font-semibold mb-4">💚 Motivation</h3>
               <blockquote className="text-sm italic mb-3">
-                "{motivationQuote.text}"
+                "{nutritionMotivations[currentQuoteIndex].text}"
               </blockquote>
               <cite className="text-xs text-gray-400">
-                — {motivationQuote.author}
+                — {nutritionMotivations[currentQuoteIndex].author}
               </cite>
             </div>
           </div>{" "}
@@ -171,6 +184,10 @@ export function BentoBox() {
             {/* Weight Maintenance Box - Full width */}
             <div className="bg-black/60 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-white/5 transition-all duration-300 hover:border-white/10 hover:shadow-2xl">
               <MotivationBox userData={userData} calculations={calculations} />
+            </div>
+            {/* News Box - Full width */}
+            <div className="bg-black/60 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-white/5 transition-all duration-300 hover:border-white/10 hover:shadow-2xl h-[250px]">
+              <NewsBox />
             </div>
           </div>
         </div>

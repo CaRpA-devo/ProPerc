@@ -2,7 +2,6 @@ import { useState } from "react";
 import { DashboardLayout } from "../layouts/dashboard.layout";
 import { Icon } from "@iconify/react";
 import nutritionData from "../../data/nutritionData.json";
-import "./wiki.style.css";
 
 export function WikiPage() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -67,436 +66,473 @@ export function WikiPage() {
 
   return (
     <DashboardLayout>
-      <div className="wiki-container">
-        {/* Header */}
-        <div className="wiki-header">
-          <h1 className="wiki-title">PercyPedia</h1>
-          <p className="wiki-subtitle">
-            Dein umfassendes Ernährungs-Lexikon für Vitamine, Mineralien,
-            Proteine & Supplements
-          </p>
-        </div>
-
-        {/* Search & Filter */}
-        <div className="wiki-search-section">
-          <div className="relative">
-            <Icon
-              icon="mdi:magnify"
-              className="absolute left-3 top-1/2 transform -translate-y-1/2 text-2xl text-light-text opacity-50"
-            />
-            <input
-              type="text"
-              placeholder="Suche nach Nährstoffen, Funktionen oder Quellen..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="wiki-search-input pl-12"
-            />
+      <div className="relative min-h-[100svh] bg-base-200">
+        <div className="absolute inset-0 bg-base-200/50 backdrop-blur-sm"></div>
+        <div className="relative max-w-6xl mx-auto px-4 py-12">
+          {/* Header */}
+          <div className="text-center mb-8">
+            <h1 className="text-5xl font-bold text-primary mb-2">PercyPedia</h1>
+            <p className="text-base-content/80 text-lg">
+              Dein umfassendes Ernährungs-Lexikon für Vitamine, Mineralien,
+              Proteine & Supplements
+            </p>
           </div>
 
-          <div className="wiki-filter-chips">
-            <button
-              onClick={() => setActiveFilter("all")}
-              className={`wiki-filter-chip ${
-                activeFilter === "all" ? "active" : ""
-              }`}
-            >
-              Alle
-            </button>
-            <button
-              onClick={() => setActiveFilter("vitamine")}
-              className={`wiki-filter-chip vitamine ${
-                activeFilter === "vitamine" ? "active" : ""
-              }`}
-            >
-              <Icon icon="mdi:vitamin-outline" className="inline mr-1" />
-              Vitamine
-            </button>
-            <button
-              onClick={() => setActiveFilter("mineralien")}
-              className={`wiki-filter-chip mineralien ${
-                activeFilter === "mineralien" ? "active" : ""
-              }`}
-            >
-              <Icon icon="mdi:atom" className="inline mr-1" />
-              Mineralien
-            </button>
-            <button
-              onClick={() => setActiveFilter("proteine")}
-              className={`wiki-filter-chip proteine ${
-                activeFilter === "proteine" ? "active" : ""
-              }`}
-            >
-              <Icon icon="mdi:dna" className="inline mr-1" />
-              Proteine
-            </button>
-            <button
-              onClick={() => setActiveFilter("supplements")}
-              className={`wiki-filter-chip supplements ${
-                activeFilter === "supplements" ? "active" : ""
-              }`}
-            >
-              <Icon icon="mdi:pill" className="inline mr-1" />
-              Supplements
-            </button>
-          </div>
-        </div>
+          {/* Search & Filter */}
+          <div className="card bg-base-100 shadow-md rounded-2xl p-6 mb-8">
+            <div className="mb-4">
+              <div className="relative">
+                <Icon
+                  icon="mdi:magnify"
+                  className="absolute left-3 top-1/2 transform -translate-y-1/2 text-2xl text-base-content opacity-50"
+                />
+                <input
+                  type="text"
+                  placeholder="Suche nach Nährstoffen, Funktionen oder Quellen..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="input input-bordered w-full pl-12"
+                />
+              </div>
+            </div>
 
-        {/* Search Results */}
-        {searchTerm && (
-          <div className="mb-6">
-            <h2 className="text-xl font-bold text-light-text mb-4">
-              {searchResults.length} Ergebnis
-              {searchResults.length !== 1 ? "se" : ""} für "{searchTerm}"
-            </h2>
-            {searchResults.length > 0 ? (
-              <div className="wiki-nutrient-list">
-                {searchResults.map((item) => (
-                  <div
-                    key={item.id}
-                    className={`wiki-nutrient-item ${item.categoryKey} ${
-                      openNutrients[item.id] ? "open" : ""
-                    }`}
-                  >
+            <div className="flex flex-wrap gap-2">
+              <button
+                onClick={() => setActiveFilter("all")}
+                className={`btn btn-sm ${
+                  activeFilter === "all" ? "btn-primary" : "btn-ghost"
+                }`}
+              >
+                Alle
+              </button>
+              <button
+                onClick={() => setActiveFilter("vitamine")}
+                className={`btn btn-sm btn-ghost ${
+                  activeFilter === "vitamine" ? "text-green-500" : ""
+                }`}
+              >
+                <Icon icon="mdi:vitamin-outline" className="mr-1" />
+                Vitamine
+              </button>
+              <button
+                onClick={() => setActiveFilter("mineralien")}
+                className={`btn btn-sm btn-ghost ${
+                  activeFilter === "mineralien" ? "text-sky-500" : ""
+                }`}
+              >
+                <Icon icon="mdi:atom" className="mr-1" />
+                Mineralien
+              </button>
+              <button
+                onClick={() => setActiveFilter("proteine")}
+                className={`btn btn-sm btn-ghost ${
+                  activeFilter === "proteine" ? "text-yellow-500" : ""
+                }`}
+              >
+                <Icon icon="mdi:dna" className="mr-1" />
+                Proteine
+              </button>
+              <button
+                onClick={() => setActiveFilter("supplements")}
+                className={`btn btn-sm btn-ghost ${
+                  activeFilter === "supplements" ? "text-red-400" : ""
+                }`}
+              >
+                <Icon icon="mdi:pill" className="mr-1" />
+                Supplements
+              </button>
+            </div>
+          </div>
+
+          {/* Search Results */}
+          {searchTerm && (
+            <div className="mb-8">
+              <h2 className="text-2xl font-bold mb-4">
+                {searchResults.length} Ergebnis
+                {searchResults.length !== 1 ? "se" : ""} für "{searchTerm}"
+              </h2>
+              {searchResults.length > 0 ? (
+                <div className="space-y-4">
+                  {searchResults.map((item) => (
                     <div
-                      className="wiki-nutrient-header"
-                      onClick={() => toggleNutrient(item.id)}
+                      key={item.id}
+                      className="card bg-base-100/50 backdrop-blur-sm shadow-md rounded-2xl hover:shadow-xl transition-all"
                     >
-                      <h3 className="wiki-nutrient-name">{item.name}</h3>
+                      <div
+                        className="card-body cursor-pointer"
+                        onClick={() => toggleNutrient(item.id)}
+                      >
+                        <div className="flex justify-between items-center">
+                          <h3 className="card-title">{item.name}</h3>
+                          <Icon
+                            icon="mdi:chevron-down"
+                            className={`text-2xl transition-transform ${
+                              openNutrients[item.id] ? "rotate-180" : ""
+                            }`}
+                          />
+                        </div>
+                        {openNutrients[item.id] && (
+                          <div className="mt-4 space-y-2 border-t border-base-300 pt-4">
+                            <div>
+                              <h4 className="font-semibold text-primary mb-1">
+                                Funktion
+                              </h4>
+                              <p className="text-base-content/80">
+                                {item.function}
+                              </p>
+                            </div>
+                            <div>
+                              <h4 className="font-semibold text-primary mb-1">
+                                {item.dailyNeed ? "Tagesbedarf" : "Dosierung"}
+                              </h4>
+                              <p className="text-base-content/80">
+                                {item.dailyNeed || item.dosage}
+                              </p>
+                            </div>
+                            <div>
+                              <h4 className="font-semibold text-primary mb-1">
+                                Quellen
+                              </h4>
+                              <p className="text-base-content/80">
+                                {item.sources}
+                              </p>
+                            </div>
+                            {item.special && (
+                              <div>
+                                <h4 className="font-semibold text-primary mb-1">
+                                  Besonderheiten
+                                </h4>
+                                <p className="text-base-content/80">
+                                  {item.special}
+                                </p>
+                              </div>
+                            )}
+                            {item.warning && (
+                              <div className="alert alert-warning">
+                                <Icon icon="mdi:alert" />
+                                <span>{item.warning}</span>
+                              </div>
+                            )}
+                            {item.link && (
+                              <a
+                                href={item.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="link link-primary"
+                              >
+                                Mehr erfahren
+                                <Icon
+                                  icon="mdi:open-in-new"
+                                  className="inline ml-1"
+                                />
+                              </a>
+                            )}
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="card bg-base-100 shadow-md rounded-2xl p-12 text-center">
+                  <Icon
+                    icon="mdi:search-off"
+                    className="text-6xl mx-auto mb-4 opacity-50"
+                  />
+                  <p className="text-xl">Keine Ergebnisse gefunden</p>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Categories */}
+          {!searchTerm && (
+            <div className="space-y-6">
+              {filteredCategories.map(([categoryKey, category]) => (
+                <div
+                  key={categoryKey}
+                  className="card bg-base-100/50 backdrop-blur-sm shadow-md rounded-2xl hover:shadow-xl transition-all"
+                >
+                  <div
+                    className="card-header cursor-pointer p-6"
+                    onClick={() => toggleCategory(categoryKey)}
+                  >
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-4">
+                        <Icon
+                          icon={category.icon}
+                          className={`text-3xl ${
+                            categoryKey === "vitamine"
+                              ? "text-green-500"
+                              : categoryKey === "mineralien"
+                              ? "text-sky-500"
+                              : categoryKey === "proteine"
+                              ? "text-yellow-500"
+                              : categoryKey === "supplements"
+                              ? "text-red-400"
+                              : ""
+                          }`}
+                        />
+                        <h2
+                          className={`card-title text-2xl ${
+                            categoryKey === "vitamine"
+                              ? "text-green-500"
+                              : categoryKey === "mineralien"
+                              ? "text-sky-500"
+                              : categoryKey === "proteine"
+                              ? "text-yellow-500"
+                              : categoryKey === "supplements"
+                              ? "text-red-400"
+                              : ""
+                          }`}
+                        >
+                          {category.categoryName}
+                        </h2>
+                      </div>
                       <Icon
                         icon="mdi:chevron-down"
-                        className={`wiki-nutrient-toggle ${
-                          openNutrients[item.id] ? "open" : ""
+                        className={`text-3xl transition-transform ${
+                          openCategories[categoryKey] ? "rotate-180" : ""
                         }`}
                       />
                     </div>
-
-                    {openNutrients[item.id] && (
-                      <div className="wiki-nutrient-content">
-                        <div className="wiki-nutrient-section">
-                          <h4 className="wiki-nutrient-section-title">
-                            Funktion
-                          </h4>
-                          <p className="wiki-nutrient-section-content">
-                            {item.function}
-                          </p>
-                        </div>
-
-                        <div className="wiki-nutrient-section">
-                          <h4 className="wiki-nutrient-section-title">
-                            {item.dailyNeed ? "Tagesbedarf" : "Dosierung"}
-                          </h4>
-                          <p className="wiki-nutrient-section-content">
-                            {item.dailyNeed || item.dosage}
-                          </p>
-                        </div>
-
-                        <div className="wiki-nutrient-section">
-                          <h4 className="wiki-nutrient-section-title">
-                            Quellen
-                          </h4>
-                          <p className="wiki-nutrient-section-content">
-                            {item.sources}
-                          </p>
-                        </div>
-
-                        {item.special && (
-                          <div className="wiki-nutrient-section">
-                            <h4 className="wiki-nutrient-section-title">
-                              Besonderheiten
-                            </h4>
-                            <p className="wiki-nutrient-section-content">
-                              {item.special}
-                            </p>
-                          </div>
-                        )}
-
-                        {item.warning && (
-                          <div className="wiki-warning-box">
-                            <h4 className="wiki-warning-title">
-                              ⚠️ Wichtiger Hinweis
-                            </h4>
-                            <p className="wiki-warning-content">
-                              {item.warning}
-                            </p>
-                          </div>
-                        )}
-
-                        {item.link && (
-                          <a
-                            href={item.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="wiki-external-link"
-                          >
-                            <span>Mehr erfahren</span>
-                            <Icon
-                              icon="mdi:open-in-new"
-                              className="wiki-external-link-icon"
-                            />
-                          </a>
-                        )}
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
-            ) : (
-              <div className="wiki-no-results">
-                <Icon icon="mdi:search-off" className="wiki-no-results-icon" />
-                <p className="wiki-no-results-text">
-                  Keine Ergebnisse gefunden. Versuche einen anderen Suchbegriff.
-                </p>
-              </div>
-            )}
-          </div>
-        )}
-
-        {/* Categories */}
-        {!searchTerm && (
-          <div className="wiki-categories">
-            {filteredCategories.map(([categoryKey, category]) => (
-              <div
-                key={categoryKey}
-                className={`wiki-category-card category-${categoryKey}`}
-              >
-                <div
-                  className="wiki-category-header"
-                  onClick={() => toggleCategory(categoryKey)}
-                >
-                  <Icon
-                    icon={category.icon}
-                    className={`wiki-category-icon category-${categoryKey}`}
-                  />
-                  <h2 className={`wiki-category-title category-${categoryKey}`}>
-                    {category.categoryName}
-                  </h2>
-                  <Icon
-                    icon="mdi:chevron-down"
-                    className={`wiki-category-toggle ${
-                      openCategories[categoryKey] ? "open" : ""
-                    }`}
-                  />
-                </div>
-
-                {openCategories[categoryKey] && (
-                  <div className="wiki-category-content">
-                    <p className="wiki-category-description">
+                    <p className="text-base-content/80 mt-2">
                       {category.description}
                     </p>
+                  </div>
 
-                    {/* Subcategories (Vitamine & Proteine) */}
-                    {category.subcategories &&
-                      category.subcategories.map((subcategory, subIndex) => (
-                        <div key={subIndex} className="wiki-subcategory">
-                          <h3 className="wiki-subcategory-title">
-                            {subcategory.name}
-                          </h3>
-                          <p className="wiki-subcategory-description">
-                            {subcategory.description}
-                          </p>
+                  {openCategories[categoryKey] && (
+                    <div className="card-body pt-0">
+                      {/* Subcategories */}
+                      {category.subcategories &&
+                        category.subcategories.map((subcategory, subIndex) => (
+                          <div key={subIndex} className="mb-6">
+                            <h3
+                              className={`text-xl font-semibold mb-2 ${
+                                categoryKey === "vitamine"
+                                  ? "text-green-500"
+                                  : categoryKey === "mineralien"
+                                  ? "text-sky-500"
+                                  : categoryKey === "proteine"
+                                  ? "text-yellow-500"
+                                  : categoryKey === "supplements"
+                                  ? "text-red-400"
+                                  : "text-primary"
+                              }`}
+                            >
+                              {subcategory.name}
+                            </h3>
+                            <p className="text-base-content/80 italic mb-4">
+                              {subcategory.description}
+                            </p>
 
-                          <div className="wiki-nutrient-list">
-                            {subcategory.items.map((item) => (
-                              <div
-                                key={item.id}
-                                className={`wiki-nutrient-item ${categoryKey} ${
-                                  openNutrients[item.id] ? "open" : ""
-                                }`}
-                              >
+                            <div className="space-y-4">
+                              {subcategory.items.map((item) => (
                                 <div
-                                  className="wiki-nutrient-header"
-                                  onClick={() => toggleNutrient(item.id)}
+                                  key={item.id}
+                                  className={`card bg-base-200/50 backdrop-blur-sm shadow-sm rounded-xl border-l-4 ${
+                                    categoryKey === "vitamine"
+                                      ? "border-green-500"
+                                      : categoryKey === "mineralien"
+                                      ? "border-sky-500"
+                                      : categoryKey === "proteine"
+                                      ? "border-yellow-500"
+                                      : categoryKey === "supplements"
+                                      ? "border-red-400"
+                                      : "border-primary"
+                                  }`}
                                 >
-                                  <h3 className="wiki-nutrient-name">
-                                    {item.name}
-                                  </h3>
+                                  <div
+                                    className="card-body cursor-pointer"
+                                    onClick={() => toggleNutrient(item.id)}
+                                  >
+                                    <div className="flex justify-between items-center">
+                                      <h4 className="font-semibold">
+                                        {item.name}
+                                      </h4>
+                                      <Icon
+                                        icon="mdi:chevron-down"
+                                        className={`text-xl transition-transform ${
+                                          openNutrients[item.id]
+                                            ? "rotate-180"
+                                            : ""
+                                        }`}
+                                      />
+                                    </div>
+                                    {openNutrients[item.id] && (
+                                      <div className="mt-4 space-y-2 border-t border-base-300 pt-4">
+                                        <div>
+                                          <h5 className="font-semibold text-primary text-sm mb-1">
+                                            Funktion
+                                          </h5>
+                                          <p className="text-sm text-base-content/80">
+                                            {item.function}
+                                          </p>
+                                        </div>
+                                        <div>
+                                          <h5 className="font-semibold text-primary text-sm mb-1">
+                                            {item.dailyNeed
+                                              ? "Tagesbedarf"
+                                              : "Dosierung"}
+                                          </h5>
+                                          <p className="text-sm text-base-content/80">
+                                            {item.dailyNeed || item.dosage}
+                                          </p>
+                                        </div>
+                                        <div>
+                                          <h5 className="font-semibold text-primary text-sm mb-1">
+                                            Quellen
+                                          </h5>
+                                          <p className="text-sm text-base-content/80">
+                                            {item.sources}
+                                          </p>
+                                        </div>
+                                        {item.special && (
+                                          <div>
+                                            <h5 className="font-semibold text-primary text-sm mb-1">
+                                              Besonderheiten
+                                            </h5>
+                                            <p className="text-sm text-base-content/80">
+                                              {item.special}
+                                            </p>
+                                          </div>
+                                        )}
+                                        {item.warning && (
+                                          <div className="alert alert-warning">
+                                            <Icon icon="mdi:alert" />
+                                            <span className="text-sm">
+                                              {item.warning}
+                                            </span>
+                                          </div>
+                                        )}
+                                        {item.link && (
+                                          <a
+                                            href={item.link}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="link link-primary text-sm"
+                                          >
+                                            Mehr erfahren
+                                            <Icon
+                                              icon="mdi:open-in-new"
+                                              className="inline ml-1"
+                                            />
+                                          </a>
+                                        )}
+                                      </div>
+                                    )}
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        ))}
+
+                      {/* Direct Items */}
+                      {category.items && (
+                        <div className="space-y-4">
+                          {category.items.map((item) => (
+                            <div
+                              key={item.id}
+                              className={`card bg-base-200/50 backdrop-blur-sm shadow-sm rounded-xl border-l-4 ${
+                                categoryKey === "vitamine"
+                                  ? "border-green-500"
+                                  : categoryKey === "mineralien"
+                                  ? "border-sky-500"
+                                  : categoryKey === "proteine"
+                                  ? "border-yellow-500"
+                                  : categoryKey === "supplements"
+                                  ? "border-red-400"
+                                  : "border-primary"
+                              }`}
+                            >
+                              <div
+                                className="card-body cursor-pointer"
+                                onClick={() => toggleNutrient(item.id)}
+                              >
+                                <div className="flex justify-between items-center">
+                                  <h4 className="font-semibold">{item.name}</h4>
                                   <Icon
                                     icon="mdi:chevron-down"
-                                    className={`wiki-nutrient-toggle ${
-                                      openNutrients[item.id] ? "open" : ""
+                                    className={`text-xl transition-transform ${
+                                      openNutrients[item.id] ? "rotate-180" : ""
                                     }`}
                                   />
                                 </div>
-
                                 {openNutrients[item.id] && (
-                                  <div className="wiki-nutrient-content">
-                                    <div className="wiki-nutrient-section">
-                                      <h4 className="wiki-nutrient-section-title">
+                                  <div className="mt-4 space-y-2 border-t border-base-300 pt-4">
+                                    <div>
+                                      <h5 className="font-semibold text-primary text-sm mb-1">
                                         Funktion
-                                      </h4>
-                                      <p className="wiki-nutrient-section-content">
+                                      </h5>
+                                      <p className="text-sm text-base-content/80">
                                         {item.function}
                                       </p>
                                     </div>
-
-                                    <div className="wiki-nutrient-section">
-                                      <h4 className="wiki-nutrient-section-title">
+                                    <div>
+                                      <h5 className="font-semibold text-primary text-sm mb-1">
                                         {item.dailyNeed
                                           ? "Tagesbedarf"
                                           : "Dosierung"}
-                                      </h4>
-                                      <p className="wiki-nutrient-section-content">
+                                      </h5>
+                                      <p className="text-sm text-base-content/80">
                                         {item.dailyNeed || item.dosage}
                                       </p>
                                     </div>
-
-                                    <div className="wiki-nutrient-section">
-                                      <h4 className="wiki-nutrient-section-title">
+                                    <div>
+                                      <h5 className="font-semibold text-primary text-sm mb-1">
                                         Quellen
-                                      </h4>
-                                      <p className="wiki-nutrient-section-content">
+                                      </h5>
+                                      <p className="text-sm text-base-content/80">
                                         {item.sources}
                                       </p>
                                     </div>
-
                                     {item.special && (
-                                      <div className="wiki-nutrient-section">
-                                        <h4 className="wiki-nutrient-section-title">
+                                      <div>
+                                        <h5 className="font-semibold text-primary text-sm mb-1">
                                           Besonderheiten
-                                        </h4>
-                                        <p className="wiki-nutrient-section-content">
+                                        </h5>
+                                        <p className="text-sm text-base-content/80">
                                           {item.special}
                                         </p>
                                       </div>
                                     )}
-
                                     {item.warning && (
-                                      <div className="wiki-warning-box">
-                                        <h4 className="wiki-warning-title">
-                                          ⚠️ Wichtiger Hinweis
-                                        </h4>
-                                        <p className="wiki-warning-content">
+                                      <div className="alert alert-warning">
+                                        <Icon icon="mdi:alert" />
+                                        <span className="text-sm">
                                           {item.warning}
-                                        </p>
+                                        </span>
                                       </div>
                                     )}
-
                                     {item.link && (
                                       <a
                                         href={item.link}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="wiki-external-link"
+                                        className="link link-primary text-sm"
                                       >
-                                        <span>Mehr erfahren</span>
+                                        Mehr erfahren
                                         <Icon
                                           icon="mdi:open-in-new"
-                                          className="wiki-external-link-icon"
+                                          className="inline ml-1"
                                         />
                                       </a>
                                     )}
                                   </div>
                                 )}
                               </div>
-                            ))}
-                          </div>
-                        </div>
-                      ))}
-
-                    {/* Direct Items (Mineralien & Supplements) */}
-                    {category.items && (
-                      <div className="wiki-nutrient-list">
-                        {category.items.map((item) => (
-                          <div
-                            key={item.id}
-                            className={`wiki-nutrient-item ${categoryKey} ${
-                              openNutrients[item.id] ? "open" : ""
-                            }`}
-                          >
-                            <div
-                              className="wiki-nutrient-header"
-                              onClick={() => toggleNutrient(item.id)}
-                            >
-                              <h3 className="wiki-nutrient-name">
-                                {item.name}
-                              </h3>
-                              <Icon
-                                icon="mdi:chevron-down"
-                                className={`wiki-nutrient-toggle ${
-                                  openNutrients[item.id] ? "open" : ""
-                                }`}
-                              />
                             </div>
-
-                            {openNutrients[item.id] && (
-                              <div className="wiki-nutrient-content">
-                                <div className="wiki-nutrient-section">
-                                  <h4 className="wiki-nutrient-section-title">
-                                    Funktion
-                                  </h4>
-                                  <p className="wiki-nutrient-section-content">
-                                    {item.function}
-                                  </p>
-                                </div>
-
-                                <div className="wiki-nutrient-section">
-                                  <h4 className="wiki-nutrient-section-title">
-                                    {item.dailyNeed
-                                      ? "Tagesbedarf"
-                                      : "Dosierung"}
-                                  </h4>
-                                  <p className="wiki-nutrient-section-content">
-                                    {item.dailyNeed || item.dosage}
-                                  </p>
-                                </div>
-
-                                <div className="wiki-nutrient-section">
-                                  <h4 className="wiki-nutrient-section-title">
-                                    Quellen
-                                  </h4>
-                                  <p className="wiki-nutrient-section-content">
-                                    {item.sources}
-                                  </p>
-                                </div>
-
-                                {item.special && (
-                                  <div className="wiki-nutrient-section">
-                                    <h4 className="wiki-nutrient-section-title">
-                                      Besonderheiten
-                                    </h4>
-                                    <p className="wiki-nutrient-section-content">
-                                      {item.special}
-                                    </p>
-                                  </div>
-                                )}
-
-                                {item.warning && (
-                                  <div className="wiki-warning-box">
-                                    <h4 className="wiki-warning-title">
-                                      ⚠️ Wichtiger Hinweis
-                                    </h4>
-                                    <p className="wiki-warning-content">
-                                      {item.warning}
-                                    </p>
-                                  </div>
-                                )}
-
-                                {item.link && (
-                                  <a
-                                    href={item.link}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="wiki-external-link"
-                                  >
-                                    <span>Mehr erfahren</span>
-                                    <Icon
-                                      icon="mdi:open-in-new"
-                                      className="wiki-external-link-icon"
-                                    />
-                                  </a>
-                                )}
-                              </div>
-                            )}
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        )}
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
     </DashboardLayout>
   );
