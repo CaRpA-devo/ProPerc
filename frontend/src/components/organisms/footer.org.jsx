@@ -82,8 +82,8 @@ export function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/planer" className="link link-hover">
-                    Planer
+                  <Link to="/news" className="link link-hover">
+                    News
                   </Link>
                 </li>
                 <li>

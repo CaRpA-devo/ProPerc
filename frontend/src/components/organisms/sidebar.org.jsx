@@ -26,7 +26,7 @@ export function Sidebar({ isCollapsed, onToggle }) {
           />
         </svg>
       ),
-      requiresAuth: true,
+      requiresAuth: false,
     },
     {
       name: "Dashboard",

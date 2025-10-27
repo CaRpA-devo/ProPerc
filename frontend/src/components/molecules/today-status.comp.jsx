@@ -33,7 +33,7 @@ const TodayStatusBox = ({ calculations, userData }) => {
       <div className="w-full h-full flex flex-col items-center justify-center p-3 bg-gradient-to-br from-green-500/20 to-blue-500/20 backdrop-blur-sm border border-green-800/30 rounded-lg">
         <div className="text-center">
           <h3 className="text-sm font-semibold text-white mb-2">
-            📊 Heute's Status
+            📊Status Heute
           </h3>
           <p className="text-xs text-white/70">Lade Daten...</p>
         </div>
@@ -92,7 +92,7 @@ const TodayStatusBox = ({ calculations, userData }) => {
     <div className="w-full h-full flex flex-col p-3 bg-gradient-to-br from-green-500/20 to-blue-500/20 backdrop-blur-sm border border-green-800/30 rounded-lg">
       {/* Header */}
       <div className="text-center mb-3">
-        <h3 className="text-sm font-bold text-white mb-1">📊 Heute's Status</h3>
+        <h3 className="text-sm font-bold text-white mb-1">📊 Status Heute</h3>
         <p className="text-xs text-white/80">{getTimeMessage()}</p>
       </div>
 
