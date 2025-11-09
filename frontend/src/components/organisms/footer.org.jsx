@@ -82,8 +82,8 @@ export function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/planer" className="link link-hover">
-                    Planer
+                  <Link to="/news" className="link link-hover">
+                    News
                   </Link>
                 </li>
                 <li>
@@ -106,24 +106,24 @@ export function Footer() {
               </h3>
               <ul className="space-y-2">
                 <li>
-                  <Link to="/privacy" className="link link-hover">
-                    Datenschutz
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/terms" className="link link-hover">
+                  <a href="/agb#agb" className="link link-hover">
                     AGB
-                  </Link>
+                  </a>
                 </li>
                 <li>
-                  <Link to="/imprint" className="link link-hover">
+                  <a href="/agb#datenschutz" className="link link-hover">
+                    Datenschutz
+                  </a>
+                </li>
+                <li>
+                  <a href="/agb#disclaimer" className="link link-hover">
+                    Medizinischer Disclaimer
+                  </a>
+                </li>
+                <li>
+                  <a href="/agb#impressum" className="link link-hover">
                     Impressum
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/cookies" className="link link-hover">
-                    Cookies
-                  </Link>
+                  </a>
                 </li>
               </ul>
             </div>
@@ -133,7 +133,7 @@ export function Footer() {
           <div className="border-t border-base-300 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <p className="text-sm text-base-content/70">
-                © 2024 ProPerc. Alle Rechte vorbehalten.
+                © 2024 Syntax-Sushi (ProPerc). Alle Rechte vorbehalten.
               </p>
               <p className="text-sm text-base-content/70">
                 Made with ❤️ for your health

@@ -1,0 +1,112 @@
+{
+  "support": {
+    "title": "Wie können wir Ihnen helfen?",
+    "subtitle": "Wir sind hier, um Ihre Fragen zu beantworten und Probleme zu lösen. Nutzen Sie unser Kontaktformular oder schauen Sie in unseren FAQs nach.",
+    "form": {
+      "title": "Support-Anfrage erstellen",
+      "email": {
+        "label": "E-Mail-Adresse",
+        "placeholder": "ihre.email@beispiel.de",
+        "error_required": "E-Mail-Adresse ist erforderlich",
+        "error_invalid": "Bitte geben Sie eine gültige E-Mail-Adresse ein"
+      },
+      "category": {
+        "label": "Kategorie",
+        "placeholder": "Bitte auswählen",
+        "error_required": "Bitte wählen Sie eine Kategorie aus",
+        "options": {
+          "account": "Account & Anmeldung",
+          "tracking": "Tracking & Daten",
+          "billing": "Abrechnung & Zahlung",
+          "technical": "Technische Probleme",
+          "feature": "Feature-Anfrage",
+          "other": "Sonstiges"
+        }
+      },
+      "subject": {
+        "label": "Betreff",
+        "placeholder": "Kurze Beschreibung Ihres Anliegens",
+        "error_required": "Betreff ist erforderlich",
+        "error_min_length": "Betreff muss mindestens 3 Zeichen lang sein"
+      },
+      "message": {
+        "label": "Nachricht",
+        "placeholder": "Beschreiben Sie Ihr Anliegen so detailliert wie möglich...",
+        "error_required": "Nachricht ist erforderlich",
+        "error_min_length": "Nachricht muss mindestens 20 Zeichen lang sein",
+        "char_count": "{{current}}/{{min}} Zeichen"
+      },
+      "attachments": {
+        "label": "Anhänge (optional)",
+        "max_size": "Max. {{size}}MB pro Datei ({{types}})",
+        "error_too_large": "Datei(en) zu groß. Maximale Größe: {{size}}MB",
+        "preview_title": "Anhänge",
+        "remove": "{{name}} entfernen"
+      },
+      "privacy": {
+        "label": "Ich stimme der Verarbeitung meiner Daten zur Bearbeitung meiner Support-Anfrage zu.",
+        "error_required": "Sie müssen der Datenverarbeitung zustimmen"
+      },
+      "submit": "Anfrage senden",
+      "reset": "Zurücksetzen",
+      "submitting": "Wird gesendet...",
+      "error_general": "Bitte korrigieren Sie die Fehler im Formular"
+    },
+    "contact": {
+      "title": "Weitere Kontaktmöglichkeiten",
+      "email": "support@properc.de",
+      "hours": "Mo-Fr: 9:00 - 18:00 Uhr"
+    },
+    "faq": {
+      "title": "Häufig gestellte Fragen",
+      "not_found": "Finden Sie Ihre Frage nicht? Nutzen Sie das Formular oben, um uns direkt zu kontaktieren.",
+      "questions": [
+        {
+          "question": "Wie kann ich mein Passwort zurücksetzen?",
+          "answer": "Klicken Sie auf der Anmeldeseite auf 'Passwort vergessen' und folgen Sie den Anweisungen. Sie erhalten eine E-Mail mit einem Link zum Zurücksetzen Ihres Passworts."
+        },
+        {
+          "question": "Wie kann ich meine Tracking-Daten exportieren?",
+          "answer": "In Ihren Einstellungen finden Sie unter 'Daten & Privatsphäre' die Option, Ihre kompletten Tracking-Daten als CSV-Datei herunterzuladen."
+        },
+        {
+          "question": "Werden meine Daten sicher gespeichert?",
+          "answer": "Ja, wir verwenden industrieübliche Verschlüsselung und speichern alle Daten auf sicheren Servern in der EU. Ihre Daten werden niemals an Dritte weitergegeben."
+        },
+        {
+          "question": "Kann ich mein Konto löschen?",
+          "answer": "Ja, Sie können Ihr Konto jederzeit in den Einstellungen unter 'Account' löschen. Alle Ihre Daten werden permanent entfernt."
+        },
+        {
+          "question": "Wie kann ich meine Ernährungsziele anpassen?",
+          "answer": "Gehen Sie zu 'Einstellungen' und dann zu 'Profil bearbeiten'. Dort können Sie Ihre Ernährungsziele, Aktivitätslevel und andere Präferenzen anpassen."
+        },
+        {
+          "question": "Wie schnell erhalte ich eine Antwort auf meine Support-Anfrage?",
+          "answer": "Wir bemühen uns, alle Support-Anfragen innerhalb von 24-48 Stunden zu beantworten. In dringenden Fällen können Sie uns auch direkt per E-Mail kontaktieren."
+        }
+      ]
+    },
+    "confirmation": {
+      "title": "Anfrage erfolgreich gesendet!",
+      "subtitle": "Vielen Dank für Ihre Nachricht. Wir haben Ihre Support-Anfrage erhalten.",
+      "ticket_details": "Ihre Ticket-Details",
+      "ticket_id": "Ticket-ID",
+      "status": "Status",
+      "created_at": "Erstellt am",
+      "subject": "Betreff",
+      "email": "Ihre E-Mail",
+      "status_open": "Offen",
+      "next_steps": {
+        "title": "Was passiert jetzt?",
+        "message": "Wir werden Ihre Anfrage prüfen und uns innerhalb von {{time}} per E-Mail bei Ihnen melden. Bitte überprüfen Sie auch Ihren Spam-Ordner."
+      },
+      "save_ticket_id": "Notieren Sie sich Ihre Ticket-ID für Rückfragen:",
+      "copy": "Kopieren",
+      "actions": {
+        "dashboard": "Zum Dashboard",
+        "new_ticket": "Weitere Anfrage erstellen"
+      }
+    }
+  }
+}

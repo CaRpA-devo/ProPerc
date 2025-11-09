@@ -1,155 +1,63 @@
-// import { CardWrapper } from "../atoms/cardwrapper.org";
+import { ArrowButton } from "../atoms/arrowbutton.comp";
+import { CardWrapper } from "../atoms/cardwrapper.org";
 
-// export function Image_Text_Card({
-//   imageSrc,
-//   category,
-//   title,
-//   description,
-//   href,
-//   containerClass = "",
-//   imageClass = "",
-//   categoryClass = " ",
-//   titleClass = "",
-//   descriptionClass = "",
-//   reverse = false,
-// }) {
-//   return (
-//     <CardWrapper
-//       className={`bg-second-bg  md:max-w-220 w-full ${containerClass}`}
-//     >
-//       <div
-//         className={`flex flex-col  gap-8 justify-center items-center md:flex-row ${
-//           reverse ? "md:flex-row-reverse" : ""
-//         }`}
-//       >
-//         {/* Bild oben auf Mobile, links auf Desktop */}
-//         <div
-//           className={`h-48 w-full md:h-100 md:w-100 bg-cover bg-center ${imageClass}`}
-//           style={{ backgroundImage: `url(${imageSrc})` }}
-//         ></div>
-
-//         {/* Textbereich */}
-//         <div className="gap-8 flex text-center justify-center flex-col items-center sm:p-8 sm:flex-1 sm:text-start sm:items-start  ">
-//           <div
-//             className={`text-sm sm:text-3xl font-semibold tracking-wide text-indigo-600 uppercase ${categoryClass}`}
-//           >
-//             {category}
-//           </div>
-
-//           <p className={`font-bold text-xl ${descriptionClass}`}>
-//             {description}
-//           </p>
-
-//           {/* TODO durch Button ersetzten  */}
-//           <a
-//             href={href}
-//             className={` mt-1   block text-lg leading-tight font-medium hover:underline ${titleClass}`}
-//           >
-//             {title}
-//           </a>
-//         </div>
-//       </div>
-//     </CardWrapper>
-//   );
-// }
-export function ImageTextCard({ title, description, image, reverse = false }) {
+export function ImageTextCard({
+  imageSrc,
+  category,
+  description,
+  containerClass = "",
+  imageClass = "",
+  categoryClass = "",
+  descriptionClass = "",
+  reverse = false,
+  listItems = [],
+  buttonText = "",
+  gap = 8,
+}) {
   return (
-    <div
-      className={`grid lg:grid-cols-2 gap-8 lg:gap-16 items-center ${
-        reverse ? "lg:grid-flow-dense" : ""
-      }`}
-    >
-<<<<<<< HEAD
+    <CardWrapper className={`   ${containerClass}`}>
       <div
-        className={`flex flex-col  gap-8 justify-center items-center md:flex-row ${
+        className={`flex md:max-w-280 flex-col md:flex-wrap md:gap-16 gap-8 ${gap} justify-between md:flex-row  ${
           reverse ? "md:flex-row-reverse" : ""
         }`}
       >
-        {/* Bild oben auf Mobile, links auf Desktop */}
+        {/* Bild */}
         <div
-          className={`h-48 w-full md:h-100 md:w-100 bg-cover bg-center rounded-none sm:rounded-lg${imageClass}`}
+          className={`h-64  w-full   md:min-h-80 md:w-140 md:rounded-xl  bg-cover bg-center ${imageClass}`}
           style={{ backgroundImage: `url(${imageSrc})` }}
         ></div>
 
         {/* Textbereich */}
-        <div className="gap-8  flex text-center justify-center flex-col items-center sm:p-8 sm:flex-1 sm:text-start sm:items-start  ">
+        <div className="gap-4 flex flex-wrap text-center p-0  justify-center flex-col items-center  sm:flex-1 sm:text-start sm:items-start">
           <div
-            className={`text-lg sm:text-4xl tracking-wide text-first-bg uppercase ${categoryClass}`}
+            className={`text-3xl font-bold text-primary tracking-wide uppercase ${categoryClass}`}
           >
             {category}
           </div>
 
-          <p className={` sm:p-0 pl-8 pr-8 sm:text-xl ${descriptionClass}`}>
-            {description}
-          </p>
-
-          {/* TODO durch Button ersetzten  */}
-          <a
-            href={href}
-            className={` mt-1 p-8 sm:p-0  block text-lg leading-tight  text-first-bg  font-medium hover:underline ${titleClass}`}
+          <p
+            className={`text-lg px-4 md:px-0 text-base-content/80 leading-relaxed ${descriptionClass}`}
           >
-            {title}
-          </a>
-=======
-      {/* Image */}
-      <div className={`${reverse ? "lg:col-start-2" : ""}`}>
-        <div className="relative overflow-hidden rounded-2xl shadow-2xl">
-          <img
-            src={image}
-            alt={title}
-            className="w-full h-80 object-cover hover:scale-105 transition-transform duration-500"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-        </div>
-      </div>
-
-      {/* Content */}
-      <div className={`${reverse ? "lg:col-start-1 lg:row-start-1" : ""}`}>
-        <div className="max-w-lg">
-          <h3 className="text-3xl font-bold text-primary mb-6">{title}</h3>
-          <p className="text-lg text-base-content/80 mb-8 leading-relaxed">
             {description}
           </p>
 
-          {/* Feature Points */}
-          <div className="space-y-3 mb-8">
-            <div className="flex items-center gap-3">
-              <div className="w-2 h-2 bg-secondary rounded-full"></div>
-              <span className="text-base-content/70">
-                Personalisiert für Sie
-              </span>
-            </div>
-            <div className="flex items-center gap-3">
-              <div className="w-2 h-2 bg-secondary rounded-full"></div>
-              <span className="text-base-content/70">
-                Wissenschaftlich fundiert
-              </span>
-            </div>
-            <div className="flex items-center gap-3">
-              <div className="w-2 h-2 bg-secondary rounded-full"></div>
-              <span className="text-base-content/70">Einfach zu verwenden</span>
-            </div>
-          </div>
+          {/* Dynamische Liste */}
+          {listItems.length > 0 && (
+            <ul className=" flex  flex-col items-start list-disc list-inside marker:text-primary marker:text-xl">
+              {listItems.map((item, index) => (
+                <li
+                  key={index}
+                  className="text-base-content/70 leading-relaxed"
+                >
+                  {item}
+                </li>
+              ))}
+            </ul>
+          )}
 
-          <button className="btn btn-primary btn-outline">
-            Mehr erfahren
-            <svg
-              className="w-4 h-4 ml-2"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
-          </button>
->>>>>>> origin/PatKai
+          <ArrowButton text={buttonText} className="mb-4 md:mb-0" />
         </div>
       </div>
-    </div>
+    </CardWrapper>
   );
 }

@@ -1,23 +1,55 @@
 import express from "express";
-import { env } from "./config/config.js";
-import { AppError } from "./utils/AppError.js";
-import { mongoConnect } from "./config/db.js";
-import { user_router } from "./endpoints/user/router.js";
+import { env } from "./src/config/config.js";
+import { Clerk } from "@clerk/clerk-sdk-node";
+
+Clerk({ apiKey: process.env.CLERK_SECRET_KEY });
+
+import { mongoConnect } from "./src/config/db.js";
+import dailyResetService from "./src/services/dailyReset.service.js";
+
+import { createError } from "./src/utils/createError.js";
+// import { user_router } from "./src/endpoints/users/router.js";
+import cors from "cors";
+import { profilerouter } from "./src/routes/profil.route.js";
+import calcRouter from "./src/routes/calc.route.js";
+import dailyTrackingRouter from "./src/routes/dailyTracking.route.js";
+import favoritesRouter from "./src/routes/favorites.route.js";
+import { mealPlanRouter } from "./src/routes/mealPlan.route.js";
 
 const app = express();
+
+// CORS konfigurieren: erlaubt Zugriff vom Frontend
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "http://localhost:5174",
+      "http://localhost:5175",
+    ],
+    credentials: true,
+  })
+);
 app.use(express.json());
 
+// Datenbank verbinden
 await mongoConnect();
 
-app.use("/user", user_router);
+// Daily Reset Service starten
+dailyResetService.start();
 
-// 404 Not Found
+// Routen einbinden
+app.use("/api/profile", profilerouter);
+app.use("/api/calc", calcRouter);
+app.use("/api/daily-tracking", dailyTrackingRouter);
+app.use("/api/favorites", favoritesRouter);
+app.use("/api/planner", mealPlanRouter);
 
-app.all("/{*splat}", (req, res, next) => {
-  next(new AppError("404 Not Found", 404));
+// 404 Not Found Middleware
+app.all("/", (req, res, next) => {
+  next(new createError("404 Not Found", 404));
 });
 
-// 500 Internal Server Error
+// 500 Internal Server Error Middleware
 app.use((err, req, res, next) => {
   res.status(err.status || 500).json({
     status: err.status || 500,
@@ -25,6 +57,7 @@ app.use((err, req, res, next) => {
   });
 });
 
-app.listen(env.port, () => {
-  console.log(`Server is running on port ${env.port}`);
+// Server starten
+app.listen(env.PORT, () => {
+  console.log(`Server läuft auf Port ${env.PORT}`);
 });

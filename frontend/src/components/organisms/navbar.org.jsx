@@ -1,11 +1,19 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "../atoms/nav-link.comp";
 import Aurora from "../animations/aurora.animation.ani.jsx";
+import { useLocation } from "react-router-dom";
 
 export function Navbar() {
+  const location = useLocation();
+
+  // Zeige die Navbar nicht auf der Onboarding-Seite
+  if (location.pathname.startsWith("/onboarding")) {
+    return null;
+  }
+
   return (
     <div
-      className="w-full flex flex-col justify-center "
-      style={{ position: "relative", height: "64px", minHeight: "64px" }}
+      className="w-full bg-base-200 flex flex-col justify-center"
+      style={{ position: "relative", minHeight: "64px" }}
     >
       {/* Aurora Background */}
       <div
@@ -27,15 +35,33 @@ export function Navbar() {
       </div>
 
       {/* Navbar Content */}
-      <div className="relative z-10 flex items-center justify-between px-4 h-full">
-        {/* Logo (links) */}
-        <Link to="/" className="pl-10">
+      <div className="relative z-10 flex items-center justify-between px-6 h-16">
+        {/* Logo */}
+        <NavLink to="/" className="p-0 hover:bg-transparent">
           <img
             src="/src/assets/img/logoNoBg.png"
             alt="ProPerc Logo"
-            className="h-16  w-auto px-1 rounded-full"
+            className="h-12"
           />
-        </Link>
+        </NavLink>
+
+        {/* Mobile Menu Button (optional) */}
+        <button className="md:hidden p-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
       </div>
     </div>
   );

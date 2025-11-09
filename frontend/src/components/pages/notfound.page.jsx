@@ -1,16 +1,19 @@
 import { Link } from "react-router-dom";
+import { useUser } from "@clerk/clerk-react";
 import Aurora from "../animations/aurora.animation.ani.jsx";
 
 export default function NotFoundPage() {
+  const { isSignedIn } = useUser();
+
   return (
     <div className="min-h-screen bg-base-200 flex items-center justify-center relative overflow-hidden">
-      {/* Aurora BG*/}
-      <div className="absolute inset-0 opacity-20">
+      {/* Aurora BG - Full Page */}
+      <div className="fixed inset-0 w-full h-full opacity-30 z-0">
         <Aurora
           colorStops={["#2eb872", "#ffd166", "#118ab2"]}
-          blend={0.4}
-          amplitude={1.2}
-          speed={0.3}
+          blend={0.8}
+          amplitude={2.0}
+          speed={0.5}
         />
       </div>
       {/* Content*/}
@@ -29,8 +32,11 @@ export default function NotFoundPage() {
 
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/" className="btn btn-primary">
-              Zur Startseite
+            <Link
+              to={isSignedIn ? "/dashboard" : "/"}
+              className="btn btn-primary"
+            >
+              {isSignedIn ? "Zum Dashboard" : "Zur Startseite"}
             </Link>
             <button
               onClick={() => window.history.back()}

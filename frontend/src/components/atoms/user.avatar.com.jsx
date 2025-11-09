@@ -1,32 +1,37 @@
 import { UserButton, useUser } from "@clerk/clerk-react";
-import { Icon } from "@iconify/react/dist/iconify.js";
 
-export function UserAvatar() {
+export function UserAvatar({ collapsed = false }) {
   const user = useUser();
 
   return (
-    // TODO Styling noch anpassen
-    <div className="avatar flex  gap-2 text-xl items-center">
+    <div
+      className={`avatar text-base font-medium text-center gap-2 items-center ${
+        collapsed ? "flex-col" : "flex-row"
+      }`}
+    >
       <UserButton
         appearance={{
           elements: {
             avatarBox: {
-              width: "48px",
-              height: "48px",
+              width: collapsed ? "32px" : "40px",
+              height: collapsed ? "32px" : "40px",
             },
           },
         }}
       />
-      <div className="relative top-8">
-        <p>{user.user?.username || user.user?.firstName}</p>
-        <div className="text-xs flex items-center gap-1">
-          <Icon
-            icon="fluent-color:agents-48"
-            className="text-primary inline-block"
-          />
-          Pro
-        </div>
-      </div>
+
+      {/* Username oder Vorname anzeigen - nur wenn nicht eingeklappt */}
+      {!collapsed && (
+        <p>
+          {user.user?.username
+            ? user.user.username.charAt(0).toUpperCase() +
+              user.user.username.slice(1)
+            : user.user?.firstName
+            ? user.user.firstName.charAt(0).toUpperCase() +
+              user.user.firstName.slice(1)
+            : ""}
+        </p>
+      )}
     </div>
   );
 }

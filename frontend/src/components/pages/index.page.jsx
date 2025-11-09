@@ -1,10 +1,7 @@
 import { DefaultLayout } from "../layouts/default.layout";
-<<<<<<< HEAD
+import { LandingHeader } from "../molecules/landingheader.comp.jsx";
 import { LandingCard } from "../organisms/landingcard.org.jsx";
-import { SectionWrapper } from "../atoms/sectionwrapper.comp";
-=======
-import { Features } from "../organisms/features.org.jsx";
->>>>>>> origin/PatKai
+import { LandingCTA } from "../organisms/landingcta.org.jsx";
 
 export function IndexPage() {
   return (
@@ -12,28 +9,9 @@ export function IndexPage() {
       {/* TODO Metatags einfügen */}
 
       <DefaultLayout withHero>
-<<<<<<< HEAD
-        <SectionWrapper
-          className="bg-first-bg p-8 text-center "
-          position="center"
-        >
-          <div className="gap-8 flex flex-col  max-w-240 ">
-            <h2 className=" text-xl sm:text-4xl">
-              Deine Ernährung. Dein Fortschritt. Deine App.
-            </h2>
-            <p className="text-sm  sm:text-xl">
-              Starte mit ProPerc in eine gesunde und motivierende Zukunft. Ob
-              Rezepte, persönliche Ernährungspläne oder smartes Tracking hier
-              bekommst du alles, was du für einen nachhaltigen Lifestyle
-              brauchst. Klar, einfach und individuell auf dich zugeschnitten.
-            </p>
-          </div>
-        </SectionWrapper>
-
+        <LandingHeader/>
         <LandingCard />
-=======
-        <Features />
->>>>>>> origin/PatKai
+        <LandingCTA />
       </DefaultLayout>
     </>
   );

@@ -1,47 +1,72 @@
+import { MetaTags } from "../atoms/metatags.comp";
 import { SignUp } from "@clerk/clerk-react";
+import { DefaultLayout } from "../layouts/default.layout";
+import { Loader } from "../atoms/loader.comp";
+import heroBg from "../../assets/img/heroFruits.jpg";
 import { dark } from "@clerk/themes";
-import { Loader } from "../atoms/loader.comp.jsx";
-
+import { siteConfig } from "../../../../backend/src/config/site";
 export function SignUpPage() {
   return (
     <>
-      <section className="flex flex-col items-center justify-center h-screen">
-        <SignUp
-          appearance={{
-            // Basis-Theme, optional: 'light' oder 'dark'
-            baseTheme: dark,
+      <MetaTags
+        title={siteConfig.meta.signup.title}
+        desc={siteConfig.meta.signup.desc}
+        bots={siteConfig.meta.signup.bots}
+        keywords={siteConfig.meta.signup.keywords}
+      />
 
-            // Globale Variablen für Farben, Schriftarten, Größen
-            variables: {
-              colorPrimary: "#121212", // Hauptfarbe für Buttons, Links etc.
-              colorBackground: "  opacity-120 ", // Hintergrundfarbe des SignIn/SignUp-Cards
-              fontFamily: "Arial, sans-serif", // Schriftart der gesamten UI
-              fontSize: "16px", // Standardgröße des Texts
-              borderRadius: "8px", // Rundung von Inputs, Buttons etc.
-              spacingUnit: "8px",
-              colorText: "#121212",
-              card: "min-w-[400px] min-h-[300px] p-8 shadow-2xl opacity-120  rounded-lg ", // Abstand zwischen Elementen
-            },
-
-            // Spezifische Elemente individuell stylen
-            elements: {
-              card: "min-w-[400px] min-h-[300px] p-8 shadow-2xl opacity-120  rounded-lg ",
-
-              // Card-Hintergrund, Padding, Schatten
-              formButtonPrimary:
-                "bg-red-600 hover:bg-red-700 text-white py-3 px-6 rounded-md",
-              formInput:
-                "bg-gray-800 text-white py-2 px-4 rounded-md border border-gray-700",
-
-              formFieldLabel: "  text-sm text-gray-400 mb-1",
-            },
+      <DefaultLayout>
+        <div
+          className="hero min-h-screen relative overflow-hidden  contrast-110 saturate-125 brightness-105"
+          style={{
+            backgroundImage: `url(${heroBg})`,
           }}
-          fallback={<Loader />}
-          path="/"
-          forceRedirectUrl={"/dashboard"}
-          signInUrl="/"
-        />
-      </section>
+        >
+          {/* Hero Overlay */}
+          <div className="hero-overlay bg-opacity-40 "></div>
+          <section className="flex flex-col items-center justify-center h-screen">
+            <SignUp
+              appearance={{
+                // Basis-Theme, optional: 'light' oder 'dark'
+                baseTheme: dark,
+                // Globale Variablen für Farben, Schriftarten, Größen
+                variables: {
+                  colorPrimary: " #67b957", // Hauptfarbe für Buttons, Links etc.
+                  colorBackground: "  ", // Hintergrundfarbe des SignIn/SignUp-Cards
+                  fontFamily: "Arial, sans-serif", // Schriftart der gesamten UI
+                  fontSize: "16px", // Standardgröße des Texts
+                  borderRadius: "8px", // Rundung von Inputs, Buttons etc.
+                  spacingUnit: "8px",
+                  colorText: "  #171717",
+                  /** Textfarbe in Input-Feldern */
+                  colorInputText: "#dfe8e4",
+
+                  /** Sekundäre Textfarbe (Labels, Placeholder) */
+                  colorTextSecondary: "#dfe8e4",
+                  /** Hintergrundfarbe der Input-Felder */
+                  colorInputBackground: "rgba(0, 0, 0, 0.3)",
+                  // #67b957
+                },
+
+                // Spezifische Elemente individuell stylen
+                elements: {
+                  // Äußere Card
+                  card: "card bg-base-100/10 backdrop-blur-md  p-8 text-center  shadow-lg",
+
+                  // Footer Links
+                  footer: "text-center  bg-base-100/10 backdrop-blur-md  ",
+                },
+              }}
+              fallback={<Loader />}
+              path="/signup"
+              forceRedirectUrl={"/setup"}
+              signInUrl="/signin"
+              redirectUrl="/setup"
+              afterSignUpUrl="/setup"
+            />
+          </section>
+        </div>
+      </DefaultLayout>
     </>
   );
 }
