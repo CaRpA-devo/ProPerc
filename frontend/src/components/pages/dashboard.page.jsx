@@ -1,11 +1,27 @@
 import { DashboardLayout } from "../layouts/dashboard.layout";
 import { BentoBox } from "../molecules/bentobox.comp";
 import { SectionWrapper } from "../atoms/sectionwrapper.comp";
-
+import { useEffect, useState } from "react";
+import api from "../api/api";
 import { useUser } from "@clerk/clerk-react";
 
 export function DashboardPage() {
   const user = useUser();
+
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await api.get("/users");
+        setUsers(res.data);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    fetchData();
+  }, []);
+
   return (
     <DashboardLayout withFooter>
       <SectionWrapper className="pb-8" position="center">
