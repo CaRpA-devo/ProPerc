@@ -1,50 +1,70 @@
-# ProPerc
+# ProPerc – Fullstack Health & Fitness Plattform
 
-ProPerc ist eine ganzheitliche Gesundheits- und Fitnessplattform, die Ernährung, Training und Fortschritts-Tracking in einer Anwendung bündelt. Das Projekt besteht aus einem modernen React-Frontend (Vite) und einem Express/MongoDB-Backend.
+ProPerc vereint Ernährungsplanung, Trainingssteuerung und Fortschritts-Tracking in einer modular aufgebauten Web-Anwendung. Das Projekt besteht aus einem React-Frontend (Vite) und einem Express/MongoDB-Backend. Ziel ist eine skalierbare Plattform, die Nutzer:innen bei einem gesunden Lebensstil unterstützt.
 
-## Überblick
+## Inhaltsverzeichnis
 
-- Fokus auf Ernährungsplanung, Rezeptverwaltung, Kalorientracking und persönliches Coaching.
-- Benutzeroberfläche mit Komponenten-basiertem Design, Tailwind CSS und DaisyUI.
-- API-gestützte Datenhaltung über Node.js, Express und Mongoose.
-- Authentifizierung geplant über Clerk (React SDK ist bereits integriert).
+1. Überblick
+2. Funktionsumfang
+3. Architektur
+4. Installation & Entwicklung
+5. Umgebungsvariablen
+6. Wichtige npm-Skripte
+7. Projektstruktur
+8. Entwicklungs-Workflow
+9. Qualitätssicherung & Ausblick
+10. Lizenz
 
-## Kernfunktionen
+## 1. Überblick
 
-- **Landing & Marketing**: Startseite mit Hero, Feature-Highlights und Call-to-Action.
-- **Dashboard**: Übersicht zu Ernährungsplänen, Rezepte-Sammlung, Fortschrittsdaten und Community-Elementen.
-- **Tracking**: Verwaltung von Projekten/Todos, um tägliche Aufgaben rund um Ernährung und Training zu organisieren.
-- **Support & Wiki**: Seiten für Hilfestellungen sowie Wissensartikel rund um Fitness und Gesundheit.
+- Ganzheitliche Fitness-App mit Fokus auf Ernährung, Rezepte, Kalorien- und Trainings-Tracking.
+- Moderne UI mit Tailwind CSS, DaisyUI und Atomic-Design-Komponenten.
+- API-gestützte Datenhaltung via Node.js, Express, Mongoose und Zod.
+- Integration von Clerk (React SDK) für geplantes User-Management und Authentifizierung.
 
-## Architektur
+## 2. Funktionsumfang (Ist-Zustand & geplant)
 
-- **Frontend (`frontend/`)**
-  - React 19 + Vite, React Router, Tailwind CSS 4, DaisyUI.
-  - Komponentenaufbau nach Atomic Design (atoms → molecules → organisms → templates → pages).
-  - Clerk-Integration für geplantes User-Management und Authentifizierung.
-- **Backend (`backend/`)**
-  - Express 5, Mongoose 8 für die MongoDB-Anbindung, Zod für Validation.
-  - Strukturierte Endpoints (z. B. `user_router`), zentrale Fehlerbehandlung und AppError-Klasse.
-  - Konfigurierbare Site-Metadaten und Social Links über `config/site.js`.
+- **Landing & Marketing**: Startseite mit Hero-Sektion, Feature-Highlights und Call-to-Action.
+- **Dashboard**: Geplante Übersicht für Ernährungspläne, Rezepte, Fortschrittskennzahlen und Community-Content.
+- **Projekt-/Todo-Management**: Verwaltung von Aufgaben rund um Ernährung und Training (aktuell als JSON-Dummy hinterlegt).
+- **Support & Wiki**: Strukturen für Hilfeseiten und Wissensartikel.
+- **User-Authentifizierung**: Clerk-Integration auf Frontendseite vorbereitet, Backend-Anbindung in Planung.
 
-## Voraussetzungen
+## 3. Architektur
 
-- Node.js ≥ 20 (Frontend & Backend)
-- npm ≥ 10
-- Lokale oder gehostete MongoDB-Instanz
-- Optional: Clerk-Projekt für Authentifizierungstests
+### Frontend (`frontend/`)
 
-## Installation & Entwicklung
+- React 19 mit Vite 7 als Bundler.
+- Komponentenstruktur nach Atomic Design (`atoms → molecules → organisms → templates → pages`).
+- Styling mit Tailwind CSS 4 und DaisyUI; zusätzliche globale Styles in `App.css`, `index.css`.
+- Routing über React Router 7.
+- Authentifizierung via Clerk React SDK (noch nicht vollständig verdrahtet).
+
+### Backend (`backend/`)
+
+- Express 5 als HTTP-Framework.
+- Mongoose 8 für die MongoDB-Anbindung.
+- Zod 4 für schemabasierte Validierung.
+- Globale Fehlerbehandlung per eigener `AppError`-Klasse.
+- Konfigurationsobjekte für SEO/Meta-Informationen und Social Links in `config/site.js`.
+- Strukturierte API-Endpunkte (z. B. `user_router`), Middleware- und Utility-Ebene vorbereitet.
+
+## 4. Installation & Entwicklung
 
 ```bash
-# Abhängigkeiten installieren
+# Repository klonen
+git clone <repo-url>
+cd /home/carpa/ProPerc
+
+# Frontend-Abhängigkeiten
 cd /home/carpa/ProPerc/frontend
 npm install
 
+# Backend-Abhängigkeiten
 cd /home/carpa/ProPerc/backend
 npm install
 
-# Backend starten
+# Backend-Entwicklungsserver starten
 npm run dev
 
 # Frontend in neuem Terminal starten
@@ -52,63 +72,77 @@ cd /home/carpa/ProPerc/frontend
 npm run dev
 ```
 
-Die Frontend-App ist standardmäßig unter `http://localhost:5173` erreichbar, das Backend lauscht (entsprechend `.env`-Konfiguration) auf dem konfigurierten Port, z. B. `http://localhost:3000`.
+Das Frontend läuft standardmäßig unter `http://localhost:5173`. Das Backend lauscht (via `.env` im Backend) auf dem konfigurierten Port, z. B. `http://localhost:3000`.
 
-## Umgebungsvariablen
+## 5. Umgebungsvariablen
 
-Lege im Ordner `backend/` eine `.env`-Datei an und setze mindestens:
+### Backend (`/home/carpa/ProPerc/backend/.env`)
 
 ```
 PORT=3000
 MONGODB_URI=mongodb://localhost:27017/properc
-CLERK_SECRET_KEY=<optional für Backend>
+CLERK_SECRET_KEY=<optional für Backend-Integrationen>
 ```
 
-Für das Frontend kann bei Bedarf eine `.env` mit Clerk-Publishable-Key und API-URLs hinterlegt werden:
+### Frontend (`/home/carpa/ProPerc/frontend/.env`)
 
 ```
-VITE_CLERK_PUBLISHABLE_KEY=<dein_key>
+VITE_CLERK_PUBLISHABLE_KEY=<dein_clerk_key>
 VITE_API_BASE_URL=http://localhost:3000
 ```
 
-## Wichtige npm-Scripts
+Passe die Werte an deine lokale Umgebung oder Deployments an.
+
+## 6. Wichtige npm-Skripte
 
 ```bash
-# Frontend
-npm run dev       # Entwicklungsserver
-npm run build     # Produktionsbuild
-npm run preview   # Vorschau des Builds
+# Frontend (im Ordner frontend/)
+npm run dev        # Entwicklungsserver mit HMR
+npm run build      # Produktionsbuild erstellen
+npm run preview    # Build lokal ausliefern
 
-# Backend
-npm run dev       # Entwicklungsserver (mit nodemon)
+# Backend (im Ordner backend/)
+npm run dev        # Entwicklungsserver mit nodemon
 ```
 
-## Projektstruktur (Auszug)
+## 7. Projektstruktur (Auszug)
 
 ```text
 /home/carpa/ProPerc
 ├─ backend
-│  ├─ config/          # Datenbank- und Seitenkonfiguration
-│  ├─ endpoints/       # API-Routen (z. B. user)
-│  ├─ middelwares/     # Express-Middleware
-│  ├─ utils/           # Hilfsfunktionen (AppError, Logging, etc.)
-│  └─ index.js         # Einstiegspunkt der API
+│  ├─ config/          # DB- und Site-Konfiguration
+│  ├─ endpoints/       # Express-Router (z. B. user)
+│  ├─ middelwares/     # Middleware-Layer
+│  ├─ utils/           # Helper wie AppError, Logger, etc.
+│  └─ index.js         # Einstiegspunkt des Servers
 └─ frontend
    ├─ public/          # Statische Assets
    ├─ src/
-   │  ├─ components/   # Atomic-Design-Komponenten & Seiten
    │  ├─ assets/       # Bilder, Fonts
-   │  ├─ styles/       # Zusätzliche CSS-Dateien
-   │  └─ main.jsx      # Einstiegspunkt der SPA
+   │  ├─ components/   # Atomic-Design-Komponenten & Seite
+   │  ├─ config/       # Frontend-spezifische Konfiguration
+   │  ├─ hooks/        # Custom Hooks
+   │  ├─ styles/       # Zusätzliche Stylesheets
+   │  ├─ App.jsx       # App-Root
+   │  └─ main.jsx      # SPA-Einstiegspunkt
    └─ vite.config.js   # Vite-Konfiguration
 ```
 
-## Weiterentwicklung
+## 8. Entwicklungs-Workflow
 
-- Offene Merge-Konflikte (z. B. `IndexPage`) sollten bereinigt werden, bevor neue Features entwickelt werden.
-- Tests sind aktuell nicht eingerichtet – plane Unit-/Integrationstests, sobald Kernfunktionen stabil sind.
-- Plane die Anbindung echter Ernährungs- und Tracking-APIs sowie die finale Authentifizierung über Clerk.
+- Arbeit auf Feature-Branches starten, regelmäßige Pulls vom Hauptbranch.
+- Merge-Konflikte (z. B. in `components/pages/index.page.jsx`) frühzeitig bereinigen.
+- Vor größeren Änderungen bestehende UX-/UI-Komponenten prüfen (Atomic Design).
+- Backlog für Backend-Routen und Datenmodelle in `endpoints/` und `utils/` erweitern.
 
-## Lizenz
+## 9. Qualitätssicherung & Ausblick
 
-Bis zur finalen Entscheidung kann der Standard ISC-Lizenztext aus den `package.json`-Dateien verwendet oder eine projektspezifische Lizenz ergänzt werden.
+- Tests sind aktuell nicht implementiert. Plane Unit-, Integration- und E2E-Tests, sobald Kernfunktionen stehen.
+- Datenhaltung basiert derzeit auf JSON-Dummies – reale MongoDB-Modelle sollen folgen.
+- Authentifizierung & Autorisierung über Clerk finalisieren (Frontend + Backend).
+- CI/CD-Pipeline und Linting/Formatting-Automatisierung einführen.
+- Weitere Features: Community-Funktionen, detailliertes Tracking, Ernährungsdatenbanken, Mobile-Optimierungen.
+
+## 10. Lizenz
+
+Die `package.json`-Dateien führen derzeit die ISC-Lizenz. Überprüfe, ob diese Lizenz zum Projektziel passt, oder ergänze einen projektspezifischen Lizenztext.
