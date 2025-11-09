@@ -2,7 +2,7 @@ import { DashboardLayout } from "../layouts/dashboard.layout";
 import { BentoBox } from "../molecules/bentobox.comp";
 import { SectionWrapper } from "../atoms/sectionwrapper.comp";
 import { useEffect, useState } from "react";
-import api from "../api/api";
+import api from "../../api/api";
 import { useUser } from "@clerk/clerk-react";
 
 export function DashboardPage() {
