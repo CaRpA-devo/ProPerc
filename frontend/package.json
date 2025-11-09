@@ -19,6 +19,7 @@
         "@clerk/clerk-react": "^5.47.0",
         "@clerk/themes": "^2.4.21",
         "@tailwindcss/vite": "^4.1.13",
+        "axios": "^1.13.2",
         "chart.js": "^4.5.0",
         "daisyui": "^5.1.12",
         "ogl": "^1.0.11",
